@@ -1,0 +1,657 @@
+/*
+Theme Name: theFoundation Child Theme Template
+Theme URI: http://thefoundation.foodshelterlove.com
+Description: Ugly Fish is Child Theme Template for theFoundation Theme Framework.  It created to assist in developing new child themes for theFoundation. Please Read Documentation for further details.
+Author: Mr. Wok
+Template: thefoundation
+Version: version 1.0 (Ugly Fish)
+
+------- DEFAULT XHTML TAG SETTINGS -------*/
+BODY
+{
+	background: #010101;
+	color: #000;
+}
+INPUT, TEXTAREA
+{
+	outline: 1 solid #000000;
+	border: 1px solid #D0D0D0;
+	background: #FFF;
+	padding: 5px;
+	margin-bottom: 5px;
+}
+HR
+{
+	margin: 0;
+	border-style: none;
+	clear: both;
+}
+BLOCKQUOTE
+{
+	margin: 10px;
+	padding: 10px;
+	background: #F0F0F0;
+	border: 1px solid #DDDDDD;
+}
+ADDRESS
+{
+	display: inline-block;
+	padding: 10px;
+	margin: 5px;
+	background: #FF0F0F;
+}
+P
+{
+	margin-bottom: 5px;
+}
+DL
+{
+}
+DL DT
+{
+}
+DL DD
+{
+	padding-left: 10px;
+}
+/*------- WORDPRESS CLASSES -------*/
+.sticky
+{
+}
+.bypostauthor
+{
+	display: inline;
+}
+.aligncenter, DIV.aligncenter
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.alignleft
+{
+	float: left;
+}
+.alignright
+{
+	float: right;
+}
+.wp-caption
+{
+	background-color: #F3F3F3;
+	border: 1px solid #DDD;
+	-khtml-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+/*optional rounded corners for browsers that support it*/
+	margin: 10px;
+	padding-top: 4px;
+	text-align: center;
+}
+.wp-caption IMG
+{
+	border: 0 none #000000;
+	margin: 0;
+	padding: 0;
+}
+.wp-caption P.wp-caption-text
+{
+	font-size: 11px;
+	line-height: 17px;
+	margin: 0;
+	padding: 0 4px 5px;
+}
+/*------- WORDPRESS DEFAULT TEMPLATE CLASSES -------*/
+.categories
+{
+}
+.cat-item
+{
+}
+.current-cat
+{
+}
+.current-cat-parent
+{
+}
+.children
+{
+}
+.pagenav
+{
+}
+.page_item
+{
+}
+.current_page_item
+{
+}
+.current_page_parent
+{
+}
+.current_page_ancestor
+{
+}
+.widget
+{
+}
+.widget_text
+{
+}
+.blogroll
+{
+}
+.linkcat
+{
+}
+/*------- WORDPRESS POST FORMAT CLASSES -------*/
+.format-aside
+{
+}
+.format-chat
+{
+}
+.format-gallery
+{
+}
+.format-image
+{
+}
+.format-link
+{
+}
+.format-quote
+{
+}
+.format-status
+{
+}
+.format-video
+{
+}
+.format-audio
+{
+}
+/*------- OEMBED WRAPPER -------*/
+.oembed
+{
+	text-align: center;
+}
+/*------- MAIN CONTAINERS -------*/
+#wrapper
+{
+}
+#layout
+{
+	width: 100%;
+	margin: 0 auto 0 0;
+	padding: 0;
+}
+/*------- MASTHEAD -------*/
+#masthead
+{
+	margin: 0 auto;
+	width: 880px;
+	padding: 0 20px;
+	line-height: 1;
+	background: #BBB;
+}
+#masthead:after
+{
+	clear: both;
+	content: '.';
+	display: block;
+	visibility: hidden;
+	height: 0;
+}
+/*------- MASTLINE -------*/
+#mastline
+{
+	width: auto;
+	height: 100px;
+	clear: left;
+	float: left;
+	background: #666;
+}
+#mastline H1
+{
+	clear: none;
+}
+#mastline H1 A
+{
+	display: block;
+	background: #C3C3C3;
+	padding: 0;
+}
+#mastline H1 A SPAN
+{
+}
+#mastline .description
+{
+	background: transparent;
+	float: left;
+	clear: both;
+	width: 100%;
+	margin: 0;
+	display: none;
+}
+#mastline .description .thedate
+{
+	display: none;
+}
+/*------- CONTENT -------*/
+#content
+{
+	margin: 0 auto;
+	width: 920px;
+	overflow: hidden;
+	background: #EBEBEB;
+}
+/*------- SIMPLE SINGLE NAVIGATION -------*/
+.navigation
+{
+	float: left;
+	width: 100%;
+	padding: 10px 0;
+}
+.navigation .alignleft
+{
+	margin-left: 20px;
+	padding: 5px;
+}
+.navigation .alignright
+{
+	margin-right: 20px;
+	display: block;
+	padding: 5px;
+}
+/*-------  PAGINATE NAVIGATION -------*/
+.postnav
+{
+	background: #B2B2B2;
+	padding: 5px;
+	text-align: right;
+	clear: both;
+}
+.postnav A
+{
+	background: #BDBDBD;
+	padding: 5px;
+}
+.postnav SPAN
+{
+	background: #858585;
+	padding: 5px;
+}
+/*------- PRIMARY -------*/
+#primary
+{
+	background: transparent;
+	overflow: hidden;
+	display: inline;
+	clear: left;
+}
+.item
+{
+}
+.itemhead
+{
+}
+.itemhead H2 A
+{
+	display: block;
+}
+.itemhead .datebox
+{
+}
+.itemhead .metadata
+{
+}
+.itemhead .metadata .author-meta
+{
+}
+.itemhead .metadata .chrono-meta
+{
+}
+.itemhead .metadata .comments-meta
+{
+}
+.itemhead .metadata .tags-meta
+{
+}
+.itemhead .metadata A
+{
+}
+.itemtext
+{
+}
+.itemtext A
+{
+}
+.itemtext .alignleft
+{
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+.itemtext .aligncenter
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.itemtext .alignright
+{
+	float: right;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+.itemtext P
+{
+}
+.itemtext UL, .itemtext OL
+{
+	margin-bottom: 1em;
+	margin-left: 30px;
+}
+.itemtext OL LI
+{
+	clear: left;
+	list-style: decimal;
+	list-style-position: outside;
+	float: left;
+}
+.itemtext UL LI
+{
+	clear: left;
+	list-style: disc;
+	list-style-position: outside;
+	float: left;
+}
+.itemtext .sharing UL LI
+{
+	clear: none;
+}
+/*------- EDITLINK -------*/
+.editlink
+{
+	height: 0px;
+	width: 0px;
+}
+.editlink SPAN
+{
+	background: #FFAA34;
+	display: block;
+	position: relative;
+	clear: left;
+	top: 5px;
+	left: 6px;
+	width: 60px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 10px;
+	padding: 2px;
+	/*+border-radius:3px;*/
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	border-radius: 3px 3px 3px 3px;
+	/*+text-shadow:0 -1px 2px #333;*/
+	-moz-text-shadow: 0 -1px 2px #333;
+	-webkit-text-shadow: 0 -1px 2px #333;
+	-o-text-shadow: 0 -1px 2px #333;
+	text-shadow: 0 -1px 2px #333;
+	/*+box-shadow:0px 0px 12px rgba(0, 0, 0, 0.45);*/
+	-moz-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.45);
+	-webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.45);
+	-o-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.45);
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.45);
+}
+.editlink SPAN A
+{
+	display: block;
+}
+/*------- FEEDBACK/COMMENTS -------*/
+#feedback
+{
+	margin-top: 30px;
+	clear: both;
+}
+#feedback H3
+{
+	border-bottom: 2px solid #BEBEBE;
+}
+#feedback LABEL
+{
+	margin-left: 5px;
+}
+#feedback TEXTAREA
+{
+	width: 440px;
+}
+#feedback #respond
+{
+	margin-top: 30px;
+}
+#feedback SMALL #cancel-comment-reply-link
+{
+	clear: left;
+	float: right;
+	font-size: 10px;
+	background: #F2FF56;
+	border: 1px solid #CCCCCC;
+	text-transform: uppercase;
+	padding: 4px;
+}
+#feedback IMG
+{
+	padding: 4px;
+	background: #D5D5D5;
+	margin-right: 10px;
+	/*+placement:shift 2px 5px;*/
+	position: relative;
+	left: 2px;
+	top: 5px;
+}
+#feedback .commentlist LI
+{
+	border: 1px solid #707070;
+	padding: 10px 3px;
+	border-style: none none dotted;
+}
+#feedback .pingback
+{
+	display: none !important;
+}
+#feedback .trackback
+{
+	display: none !important;
+}
+#feedback .commentlist LI UL
+{
+	margin-left: 50px;
+}
+#feedback .commentlist LI UL LI
+{
+	border-style: none;
+}
+#feedback .commentlist LI UL LI LI
+{
+}
+#feedback .commentlist LI UL LI LI LI
+{
+}
+#feedback .comment-author
+{
+	font-size: 18px;
+	padding: 0;
+	margin: 0;
+	height: 55px;
+	/*+placement:shift;*/
+	position: relative;
+	left: 0;
+	top: 0;
+}
+#feedback .comment-meta
+{
+	font-size: 13px;
+	padding: 0;
+	width: 253px;
+	height: 0px;
+	margin: 0;
+	/*+placement:shift 56px -50px;*/
+	position: relative;
+	left: 56px;
+	top: -50px;
+}
+#feedback .commentlist LI P
+{
+	margin-left: 56px;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+#feedback .comment-author CITE
+{
+	font-style: normal;
+}
+#feedback .commentlist .reply
+{
+	width: 39px;
+	/*[empty]float:;*/
+	margin: 0 0 0 auto;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+#feedback P
+{
+	margin-bottom: 10px;
+}
+#feedback #commentform LABEL
+{
+	margin-bottom: 10px;
+	display: block;
+	width: 100px;
+	font-size: 18px;
+	float: left;
+}
+#feedback #commentform .comment-form-author .required
+{
+	float: left;
+	font-size: 14px;
+}
+#feedback #commentform .comment-form-email .required
+{
+	float: left;
+	font-size: 14px;
+}
+#feedback #submit
+{
+	cursor: pointer;
+	border: 1px solid #A9AA9E;
+	/*+box-shadow:0px 0px 3px #A9AA9E;*/
+	-moz-box-shadow: 0px 0px 3px #A9AA9E;
+	-webkit-box-shadow: 0px 0px 3px #A9AA9E;
+	-o-box-shadow: 0px 0px 3px #A9AA9E;
+	box-shadow: 0px 0px 3px #A9AA9E;
+}
+#feedback #submit:hover
+{
+	background: #BAC43B;
+}
+#feedback .bypostauthor
+{
+	clear: left;
+	display: block;
+	border: 1px solid #949494 !important;
+	/*+border-radius:4px;*/
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	border-radius: 4px 4px 4px 4px;
+	/*+box-shadow:0px 0px 10px #C3BBBB;*/
+	-moz-box-shadow: 0px 0px 10px #C3BBBB;
+	-webkit-box-shadow: 0px 0px 10px #C3BBBB;
+	-o-box-shadow: 0px 0px 10px #C3BBBB;
+	box-shadow: 0px 0px 10px #C3BBBB;
+}
+/*------- SECONDARY-------*/
+#secondary
+{
+	overflow: hidden;
+	background: #B8B8B8;
+}
+/*------- SECONDARY STYLING -------*/
+#secondary #secondary-featured
+{
+	float: left;
+	margin: 0 0 15px;
+}
+#secondary .sidebar_primary
+{
+	background: transparent;
+	float: left;
+	width: 320px;
+}
+#secondary .sidebar_secondary
+{
+	background: transparent;
+	float: left;
+	width: 320px;
+}
+#secondary .widget
+{
+	float: left;
+	clear: both;
+	margin-bottom: 1em;
+}
+#secondary .widget_links UL
+{
+	width: 100%;
+}
+#secondary .widget_links UL LI
+{
+	float: left;
+}
+#secondary H3
+{
+	clear: both;
+}
+/*------- SECONDARY SIDEBAR STYLING -------*/
+#sidebar UL
+{
+}
+#sidebar UL UL
+{
+	margin-left: 0.5em;
+}
+#sidebar UL LI
+{
+	float: left;
+	width: 100%;
+}
+/*------- FOOTER + FOOTBOX -------*/
+#footer
+{
+	clear: both;
+	width: 100%;
+	margin: 0;
+	height: 100px;
+	background: #808080;
+}
+#footbox
+{
+	width: 920px;
+	background: #D2D2D2;
+	margin: 0 auto;
+	height: 100px;
+}
+#footer UL LI SPAN
+{
+	display: block;
+	color: #333;
+}

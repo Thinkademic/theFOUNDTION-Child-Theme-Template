@@ -1,0 +1,21 @@
+#primary
+{
+	background: transparent;
+	overflow: hidden;
+	margin-left: 20px;
+	width: 880px;
+	float: left;
+	display: block;
+	clear: left;
+}
+#secondary
+{
+	background: transparent;
+	margin-left: 20px;
+	margin-top: 20px;
+	float: left;
+	height: 200px;
+	width: 880px;
+	display: block;
+	clear: left;
+}

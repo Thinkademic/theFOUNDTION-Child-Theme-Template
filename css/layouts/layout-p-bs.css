@@ -1,0 +1,23 @@
+/*------- PRIMARY -------*/
+#primary
+{
+	background: transparent;
+	overflow: hidden;
+	margin-left: 20px;
+	margin-right: 20px;
+	width: 880px;
+	float: left;
+	display: inline;
+	clear: left;
+}
+/*------- SECONDARY-------*/
+#secondary
+{
+	float: left;
+	clear: both;
+	width: 320px;
+	margin-left: 20px;
+	margin-top: 20px;
+	overflow: hidden;
+	background: #B8B8B8;
+}

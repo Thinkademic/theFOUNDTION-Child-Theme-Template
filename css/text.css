@@ -1,0 +1,83 @@
+BODY
+{
+	/*[disabled]font:12px/1.5 Arial, sans-serif;*/
+	font: 12px/1.5 Georgia, sans-serif;
+	/*[disabled]font:12px/1.5 TitilliumText22LRegular, Helvetica, Arial, sans-serif;*/
+}
+/*Change Default Colors*/
+A:link
+{
+	color: #666;
+}
+/*Magenta - unvisited link*/
+A:visited
+{
+	color: #666;
+}
+/*Cyan - visited link 00ffff*/
+A:hover
+{
+	color: #888;
+}
+/*Yellow - mouse over link ffff00*/
+A:active
+{
+	color: #888;
+}
+/*Light Green - selected link*/
+A:focus
+{
+}
+HR
+{
+	border: 0 solid #CCC;
+	border-top-width: 1px;
+	clear: both;
+	height: 0;
+}
+/*`Headings
+----------------------------------------------------------------------------------------------------*/
+H1, H2, H3, H4, H5, H6
+{
+	font-weight: 400;
+	clear: both;
+}
+H1
+{
+	font-size: 30px;
+}
+H2
+{
+	font-size: 26px;
+}
+H3
+{
+	font-size: 22px;
+}
+H4
+{
+	font-size: 19px;
+}
+H5
+{
+	font-size: 16px;
+}
+H6
+{
+	font-size: 15px;
+}
+/*`Spacing
+----------------------------------------------------------------------------------------------------*/
+OL
+{
+	list-style: decimal;
+}
+UL
+{
+	list-style: square;
+}
+LI
+{
+	list-style-type: none;
+	list-style-position: outside;
+}

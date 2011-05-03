@@ -1,0 +1,47 @@
+body {
+	overflow: hidden;
+	width: 11000px;
+}
+
+#wrapper {
+	width: 11000px;
+}
+
+
+
+.container {
+	float: left;
+	position: relative;
+	display: block;
+	height: 600px;
+	width: 2000px;
+	
+	margin: 0;
+	background: #aaa;
+	border: 1px solid black;
+}
+
+
+
+.interior {
+	width: 950px;
+	height: 400px;
+	
+	background: #ccc;
+	border: 1px solid black;
+
+}
+
+
+
+
+
+
+#guide {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#333;
+}

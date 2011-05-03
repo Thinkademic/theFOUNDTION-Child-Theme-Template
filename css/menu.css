@@ -1,0 +1,179 @@
+/*------- SITENAV (APPLYS TO ALL NAV MENUS) -------*/
+.sitenav
+{
+	position: relative;
+}
+.sitenav>UL
+{
+}
+.sitenav LI A:hover
+{
+	background: url(./../images/gradient/black20.png);
+	color: #F0F0F0;
+}
+/*------- THEME SPECIFIC NAV MENU -------*/
+#thefoundation_child-nav
+{
+	background: #DDD;
+	float: left;
+	width: 100%;
+	z-index: 1002;
+}
+/*------- MASTLINE TOP NAV MENU -------*/
+#mastlinetop-nav
+{
+	float: left;
+	background: #CCC;
+	width: 100%;
+	z-index: 1001;
+}
+/*------- MASTLINE BOTTOM -------*/
+#mastlinebottom-nav
+{
+	background: #BBB;
+	width: 620px;
+	float: left;
+	clear: both;
+	z-index: 1000;
+}
+/*------- SUCKERFISHMENU (DO NOT EDIT) -------*/
+.masthead-menu, .masthead-menu *
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.masthead-menu
+{
+	line-height: 1;
+}
+.masthead-menu UL
+{
+	position: absolute;
+	top: -999em;
+	width: 10em;
+}
+.masthead-menu UL LI
+{
+	width: 100%;
+}
+.masthead-menu LI:hover
+{
+	visibility: inherit;
+}
+.masthead-menu LI
+{
+	float: left;
+	position: relative;
+}
+.masthead-menu A
+{
+	display: block;
+	position: relative;
+}
+.masthead-menu LI:hover UL, .masthead-menu LI.sfHover UL
+{
+	left: 0;
+	top: auto;
+}
+UL.masthead-menu LI:hover LI UL, UL.masthead-menu LI.sfHover LI UL
+{
+	top: -999em;
+}
+UL.masthead-menu LI LI:hover UL, UL.masthead-menu LI LI.sfHover UL
+{
+	left: 10em;
+	top: 0;
+}
+UL.masthead-menu LI LI:hover LI UL, UL.masthead-menu LI LI.sfHover LI UL
+{
+	top: -999em;
+}
+UL.masthead-menu LI LI LI:hover UL, UL.masthead-menu LI LI LI.sfHover UL
+{
+	left: 10em;
+	top: 0;
+}
+/*------- SUCKERFISHMENU (EDIT) -------*/
+.masthead-menu
+{
+	position: relative;
+}
+.masthead-menu UL
+{
+	background: url(./../images/gradient/white60.png);
+}
+.masthead-menu UL UL
+{
+	background: url(./../images/gradient/white80.png);
+}
+.masthead-menu LI
+{
+	background: url(./../images/gradient/black10.png);
+}
+.masthead-menu LI LI
+{
+}
+.masthead-menu LI LI LI
+{
+}
+.masthead-menu A
+{
+	position: relative;
+	padding: 0.5em;
+	text-decoration: none;
+	white-space: nowrap;
+}
+.masthead-menu A:hover
+{
+	background: url(./../images/gradient/black10.png) !important;
+	color: #FFFFFF;
+}
+.masthead-menu LI:hover, .masthead-menu LI.sfHover, .masthead-menu A:focus, .masthead-menu A:hover, .masthead-menu A:active
+{
+	outline: 0;
+}
+.masthead-menu A.sf-with-ul
+{
+	min-width: 1px;
+}
+/*------- SUCKERFISHMENU (EDIT)  W/ WORDPRESS CLASSES-------*/
+.masthead-menu .current_page_anacestor A, .masthead-menu .current_page_parent A
+{
+	color: #000;
+}
+.masthead-menu .current_page_item A
+{
+	color: #000;
+}
+.masthead-menu LI .current_page_item A
+{
+	color: #777777;
+	background: transparent;
+}
+/*------- SUCKERFISH SUBNAV INDICATOR  -------*/
+.sf-sub-indicator
+{
+	display: none;
+}
+A>.sf-sub-indicator
+{
+	top: 0.8em;
+	background-position: 0 -100px;
+}
+A:focus>.sf-sub-indicator, A:hover>.sf-sub-indicator, A:active>.sf-sub-indicator, LI:hover>A>.sf-sub-indicator, LI.sfHover>A>.sf-sub-indicator
+{
+	background-position: -10px -100px;
+}
+.masthead-menu UL .sf-sub-indicator
+{
+	background-position: -10px 0;
+}
+.masthead-menu UL A>.sf-sub-indicator
+{
+	background-position: 0 0;
+}
+.masthead-menu UL A:focus>.sf-sub-indicator, .masthead-menu UL A:hover>.sf-sub-indicator, .masthead-menu UL A:active>.sf-sub-indicator, .masthead-menu UL LI:hover>A>.sf-sub-indicator, .masthead-menu UL LI.sfHover>A>.sf-sub-indicator
+{
+	background-position: -10px 0;
+}

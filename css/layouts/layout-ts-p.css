@@ -1,0 +1,35 @@
+/*------- PRIMARY -------*/
+#primary
+{
+	background: transparent;
+	overflow: visible;
+	width: 880px;
+	clear: both;
+	float: left;
+	display: inline;
+	margin-bottom: 270px;
+	/*+placement:shift 20px 260px;*/
+	position: relative;
+	left: 20px;
+	top: 260px;
+}
+#primary #postbox
+{
+	width: 880px;
+}
+/*------- SECONDARY-------*/
+#secondary
+{
+	width: 880px;
+	height: 240px;
+	margin-left: 0;
+	margin-top: 190px;
+	overflow: hidden;
+	float: none;
+	position: absolute !important;
+	top: 0;
+	margin-left: -440px;
+	left: 50%;
+	/*[disabled]display:inline;*/
+	background: #B8B8B8;
+}
