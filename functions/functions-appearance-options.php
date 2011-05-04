@@ -203,9 +203,6 @@ function var_template_include( $current ){
 }
 add_filter( 'template_include', 'var_template_include', 1000 );
 
-
-
-
 /*
 *	FUNCTION TO GET THE THE CURRENT THEME TEMPLATE
 *	ONLY AVAILIABE AFTER THE TEMPLATE IS SET.
@@ -277,20 +274,22 @@ add_action('thefdt_loop_footer', 'thefdt_get_loop_footer');
 
 
 
-/*
-*	DEFINE POST META ACTION HOOK
-*/
-function thefdt_posts_meta(){
-	do_action("thefdt_post_meta");
-}
+
+
+
+
+
+
+
+
 
 
 
 /*
 *	RETRIEVE THE ITEM META
+*	THIS FUNCTION IS USED BY itemhead.php & itemfoot.php
 */
 function thefdt_get_item_meta( $location = "head"){
-	global $data;
 
 	$current_template = thefdt_get_current_template();
 	$meta_display_key = $current_template.'_item'.$location.'_meta';
@@ -317,7 +316,7 @@ function thefdt_get_item_meta( $location = "head"){
 	}
 
 	$post_meta = xtag( 'div', $meta, "class=metadata");
-	$post_meta = apply_filters( 'thefdt_get_posts_meta' , $post_meta );
+	$post_meta = apply_filters( 'thefdt_get_posts_meta_'.$location , $post_meta );
 	echo $post_meta;
 }
 

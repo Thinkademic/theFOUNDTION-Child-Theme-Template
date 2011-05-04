@@ -264,21 +264,20 @@ function optionsframework_options() {
 		
 		
 	/*
-	*	LOOP SETTINGS
+	*	INDEX TEMPLATE LOOP
 	*/	
 	$options[] = array( 
-				"name" => "Index Loop Settings",
+				"name" => "Index Template Loop",
 				"type" => "heading"
 				);			
 	$options[] = array( 
 				"name" => "Index Loop",
 				"type" => "info",
-				"std" => "You can enable and disable the way elements display for Post content.
-				",
+				"desc" => "Customize what displays when the Index Template is being used by Wordpress"
 				);
 	$options[] = array( 
 				"name" => "Loop Header",
-				"desc" => "Enter in descriptive text to describe the listing of post items/entries. Occurs Before the Loop. For example: <strong>Latest Blog Post</strong>",
+				"desc" => "Enter in descriptive text to describe the listing of each POST entry. This is placed before the Loop begins. For example: <strong>Latest Blog Post</strong> would precede a listing of the latest blog post.",
 				"id" => "index_loop_header",
 				"std" => "Latest Blog Post",
 				"type" => "text"
@@ -293,7 +292,7 @@ function optionsframework_options() {
 				);
 	$options[] = array( 
 				"name" => "Enable Itemhead Meta Display",
-				"desc" => "Each Queried Post has Meta Information that can be displayed before the content. Enable/Disable their display here",
+				"desc" => "Each listed Post entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
 				"id" => "index_itemhead_meta",
 				"std" => array ( 
 						'author' => true,
@@ -315,7 +314,7 @@ function optionsframework_options() {
 				);								
 	$options[] = array( 
 				"name" => "Enable Itemfoot Meta Display",
-				"desc" => "Each Queried Post has Meta Information that can be displayed after the content. Enable/Disable their display here",
+				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
 				"id" => "index_itemfoot_meta",
 				"std" => array ( 
 						'author' => false,
@@ -337,19 +336,194 @@ function optionsframework_options() {
 				);								
 	$options[] = array( 
 				"name" => "Loop Footer",
-				"desc" => "Enter in descriptive text to describe the listing of post items/entries. Occurs <strong>After the Loop</strong>. For example: <strong>Don't Forget to...</strong>",
+				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
 				"id" => "index_loop_footer",
 				"std" => "",
 				"type" => "text"
 				); 						
 	
 	
-		
+	/*
+	*	SINGLE LOOP SETTINGS
+	*/	
+	$options[] = array( 
+				"name" => "Single Template Loop",
+				"type" => "heading"
+				);			
+	$options[] = array( 
+				"name" => "Single Teplate Loop Settings",
+				"type" => "info",
+				"desc" => "You can customize what display when WordPress uses the Single Template. The Single Template is what is called when a used views a Post's unique page."
+				);
+	$options[] = array( 
+				"name" => "Loop Header",
+				"desc" => "Enter in descriptive text to describe the the display of a Single Post. This is placed before the Loop begins. For example: <strong>You are Readiing</strong> precede a listing of the latest blog post.",
+				"id" => "single_loop_header",
+				"std" => "You are Reading...",
+				"type" => "text"
+				); 						
+	$item_meta = array ( 
+				'author' => 'Author',
+				'date' => 'Date',
+				'time' => 'Time',
+				'comments' => 'Comments',
+				'category' => 'Category',
+				'tag' => 'Tag'
+				);
+	$options[] = array( 
+				"name" => "Enable Itemhead Meta Display",
+				"desc" => "Each listed Post entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
+				"id" => "single_itemhead_meta",
+				"std" => array ( 
+						'author' => true,
+						'date' => true,
+						'time' => true,
+						'comments' => true,
+						'category' => false,
+						'tag' => false						
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'author' => 'Author',
+						'date' => 'Date',
+						'time' => 'Time',
+						'comments' => 'Comments',
+						'category' => 'Category',
+						'tag' => 'Tag'
+					)
+				);								
+	$options[] = array( 
+				"name" => "Enable Itemfoot Meta Display",
+				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
+				"id" => "single_itemfoot_meta",
+				"std" => array ( 
+						'author' => false,
+						'date' => false,
+						'time' => false,
+						'comments' => false,
+						'category' => true,
+						'tag' => true						
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'author' => 'Author',
+						'date' => 'Date',
+						'time' => 'Time',
+						'comments' => 'Comments',
+						'category' => 'Category',
+						'tag' => 'Tag'
+					)
+				);								
+	$options[] = array( 
+				"name" => "Loop Footer",
+				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
+				"id" => "single_loop_footer",
+				"std" => "",
+				"type" => "text"
+				); 		
 		
 		
 		
 		
 
+		
+	
+	/*
+	*	PAGE LOOP SETTINGS
+	*/	
+	$options[] = array( 
+				"name" => "Page Template Loop",
+				"type" => "heading"
+				);			
+	$options[] = array( 
+				"name" => "Page Teplate Loop Settings",
+				"type" => "info",
+				"desc" => "You can customize what displays when WordPress uses the Page Template. The Page Template is applied to entries made into the Page post type."
+				);
+	$options[] = array( 
+				"name" => "Loop Header",
+				"desc" => "Enter in descriptive text to describe the display of a Page. This is placed before the Loop begins. This is not commonly used for Pages, the Title of the Page is sufficient in most cases.",
+				"id" => "page_loop_header",
+				"std" => "",
+				"type" => "text"
+				); 						
+	$item_meta = array ( 
+				'author' => 'Author',
+				'date' => 'Date',
+				'time' => 'Time',
+				'comments' => 'Comments',
+				'category' => 'Category',
+				'tag' => 'Tag'
+				);
+	$options[] = array( 
+				"name" => "Enable Itemhead Meta Display",
+				"desc" => "Each listed Page entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
+				"id" => "page_itemhead_meta",
+				"std" => array ( 
+						'author' => true,
+						'date' => true,
+						'time' => true				
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'author' => 'Author',
+						'date' => 'Date',
+						'time' => 'Time'
+					)
+				);								
+	$options[] = array( 
+				"name" => "Enable Itemfoot Meta Display",
+				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
+				"id" => "page_itemfoot_meta",
+				"std" => array ( 
+						'author' => false,
+						'date' => false,
+						'time' => false				
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'author' => 'Author',
+						'date' => 'Date',
+						'time' => 'Time'
+					)
+				);								
+	$options[] = array( 
+				"name" => "Loop Footer",
+				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
+				"id" => "page_loop_footer",
+				"std" => "",
+				"type" => "text"
+				); 		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	$options[] = array( "name" => "Basic Settings",
 						"type" => "heading");
