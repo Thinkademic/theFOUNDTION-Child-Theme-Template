@@ -50,14 +50,20 @@ jQuery(document).ready(function() {
 		jQuery('#section-example_text_hidden').show();
 	}
 	
+	jQuery('.sortablelist').sortable();
+	
 });
 </script>
  
 <?php
 }
 
-
-
+/* 
+ * Enqueue Sortable Experiment
+ */
+if(is_admin()) {
+	wp_enqueue_script( array("jquery", "jquery-ui-core", "interface", "jquery-ui-sortable", "wp-lists", "jquery-ui-sortable") );
+}
 
 
 
@@ -176,10 +182,12 @@ function enqueue_template_layout() {
 		$alt_style = of_get_option( 'alt_stylesheet', 'default.css' ); 
 		
 		wp_register_style('alt_style',  $alt_styles_path . $alt_style);
-		wp_enqueue_style('alt_style');	
+		wp_enqueue_style('alt_style');
+
+
+
 }
 add_action('fdt_enqueue_dynamic_css', 'enqueue_template_layout');
-
 
 
 

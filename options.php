@@ -25,7 +25,6 @@ function optionsframework_option_name() {
  * When creating the "id" fields, make sure to use all lowercase and no spaces.
  *  
  */
-
 function optionsframework_options() {
 	
 	// TEST DATA
@@ -60,25 +59,11 @@ function optionsframework_options() {
 	$stylespath = get_bloginfo('stylesheet_directory') . '/css/styles/';
 	
 
-
-
-	
-	
-	
-	
-	
-	
-	
-
-
 	/*
 	*	BUILD OUR OPTIONS PANEL TABS
 	*/			
 	$options = array();
 		
-		
-		
-
 		
 	/*
 	*	INTRODUCTION TAB
@@ -135,396 +120,117 @@ function optionsframework_options() {
 						);										
 	
 
-
-
-
+	
+	/*
+	*	TYPOGRAPHY OPTIONS
+	*/
+	$options = array_merge( $options, typography_options() );
+	
+	/*
+	*	HYPERLINK OPTIONS
+	*/
+	$options = array_merge( $options, hyperlinks_options() );
+	
+	/*
+	*	HEADER OPTIONS
+	*/
+	$options = array_merge( $options, header_options() );
+	
+	/*
+	*	BRANDING ( LOGO + FAVICON) OPTIONS
+	*/
+	$options = array_merge( $options, branding_options() );
 						
 	/*
-	*	TEMPLATE LAYOUT TAB
+	*	TEMPLATE LAYOUT OPTIONS
 	*/
-	$options[] = array( 
-						"name" => "Template Layout",
-						"type" => "heading"
-					);			
-	$options[] = array( 
-						"name" => "Set the Layout for Supported Templates",
-						"type" => "info",
-						"desc" => "WordPress has a native <a href='http://codex.wordpress.org/Template_Hierarchy'>template logic</a>
-						which this framework uses to provide you with options to configure your layouts. 
-						
-						<br/><br/>
-						The default 'index.php' template is what Wordpress defaults to depending on the theme, you can have 
-						specific templates to display your website content.  
-					
-						<br/><br />
-						Configure the layouts for this child theme's suported templates below. You can refer to the Template hierarchy chart as a guide to which
-						template takes precedence. The Options are listed from lowest to hightest. 
-						If you like would like to create a template for one that does not exist you can read or watch our guide on how to add or edit
-						Wordpress Template files.
-						",
-					);			
-	//	CONTENT WIDTH VALUE								
-	$options[] = array( 
-						"name" => "Content > Primary Width",
-						"desc" => "Set the Primary Width Size for the Primary Content Area, This value is also used by by WordPress' $content_width to contrain the maximum image size",
-						"id" => "set_content_primary_width",
-						"std" => "540",
-						"class" => "mini",							
-						"type" => "text"
-						); 
-	$options[] = array( 
-						"name" => "Content > Secondary Width",
-						"desc" => "Set the Width of the Secondary Content Area",
-						"id" => "set_content_secondary_width",
-						"std" => "340",
-						"class" => "mini",							
-						"type" => "text"
-						); 
-	//	BUILD LAYOUT OPTIONS ARRAY
-	$layout_array = array (
-						'layout-p.css' => $imagepath . 'layout-p.png',
-						'layout-ls-p.css' => $imagepath . 'layout-ls-p.png',
-						'layout-p-rs.css' => $imagepath . 'layout-p-rs.png',
-						'layout-ts-p.css' => $imagepath . 'layout-ts-p.png',
-						'layout-p-bs.css' => $imagepath . 'layout-p-bs.png'										
-						);
-	// INDEX TEMPLATE LAYOUT					
-						$layout_default = 'layout-p.css';	
-	$options[] = array( 
-						"name" => "Index",
-						"desc" => "Select the Layout for Your Index.php Template",
-						"id" => "template_index",
-						"std" => $layout_default,
-						"type" => "images",
-						"options" => $layout_array
-						);
-	// SINGLE TEMPLATE 
-	$options[] = array( 
-						"name" => "Single",
-						"desc" => "Select the Layout for Your Single.php Template",
-						"id" => "template_single",
-						"std" => $layout_default,
-						"type" => "images",
-						"options" => $layout_array
-						);							
-	// PAGE TEMPLATE 
-	$options[] = array( 
-						"name" => "Page",
-						"desc" => "Select the Layout for Your Page.php Template",
-						"id" => "template_page",
-						"std" => $layout_default,
-						"type" => "images",
-						"options" => $layout_array
-						);	
-	// ARCHIVE TEMPLATE 
-	$options[] = array( 
-						"name" => "Archive",
-						"desc" => "Select the Layout for Your Archive.php Template",
-						"id" => "template_archive",
-						"std" => $layout_default,
-						"type" => "images",
-						"options" => $layout_array
-						);			
-
-		
-		
-		
-		
-		
-		
+	$options = array_merge( $options, template_layout_options() );
 		
 	/*
 	*	ALTERNATIVE STYLES LAYOUT TAB
 	*/	
-	$options[] = array( 
-					"name" => "Styles",
-					"type" => "heading"
-					);
-	$options[] = array( 
-					"name" => "Styles",
-					"type" => "info",
-					"desc" => "Configuring your website can be a time consuming task.  You can quickly switch embeded styles here.
-					",
-					);							
-	$options[] = array( 
-					"name" => "Theme Stylesheet",
-					"desc" => "Select your themes alternative color scheme.",
-					"id" => "alt_stylesheet",
-					"std" => "default.css",
-					"type" => "radio",
-					"options" => find_alternative_styles()
-					); 
+	$options = array_merge($options, alternative_styles_options() );
 	
-
-	
-		
-		
-		
-		
-		
-		
 	/*
 	*	INDEX TEMPLATE LOOP
 	*/	
-	$options[] = array( 
-				"name" => "Index Template Loop",
-				"type" => "heading"
-				);			
-	$options[] = array( 
-				"name" => "Index Loop",
-				"type" => "info",
-				"desc" => "Customize what displays when the Index Template is being used by Wordpress"
-				);
-	$options[] = array( 
-				"name" => "Loop Header",
-				"desc" => "Enter in descriptive text to describe the listing of each POST entry. This is placed before the Loop begins. For example: <strong>Latest Blog Post</strong> would precede a listing of the latest blog post.",
-				"id" => "index_loop_header",
-				"std" => "Latest Blog Post",
-				"type" => "text"
-				); 						
-	$item_meta = array ( 
-				'author' => 'Author',
-				'date' => 'Date',
-				'time' => 'Time',
-				'comments' => 'Comments',
-				'category' => 'Category',
-				'tag' => 'Tag'
-				);
-	$options[] = array( 
-				"name" => "Enable Itemhead Meta Display",
-				"desc" => "Each listed Post entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
-				"id" => "index_itemhead_meta",
-				"std" => array ( 
-						'author' => true,
-						'date' => true,
-						'time' => true,
-						'comments' => true,
-						'category' => false,
-						'tag' => false						
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'author' => 'Author',
-						'date' => 'Date',
-						'time' => 'Time',
-						'comments' => 'Comments',
-						'category' => 'Category',
-						'tag' => 'Tag'
-					)
-				);								
-	$options[] = array( 
-				"name" => "Enable Itemfoot Meta Display",
-				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
-				"id" => "index_itemfoot_meta",
-				"std" => array ( 
-						'author' => false,
-						'date' => false,
-						'time' => false,
-						'comments' => false,
-						'category' => true,
-						'tag' => true						
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'author' => 'Author',
-						'date' => 'Date',
-						'time' => 'Time',
-						'comments' => 'Comments',
-						'category' => 'Category',
-						'tag' => 'Tag'
-					)
-				);								
-	$options[] = array( 
-				"name" => "Loop Footer",
-				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
-				"id" => "index_loop_footer",
-				"std" => "",
-				"type" => "text"
-				); 						
-	
+	$options = array_merge($options, template_index_settings() );
 	
 	/*
 	*	SINGLE LOOP SETTINGS
 	*/	
-	$options[] = array( 
-				"name" => "Single Template Loop",
-				"type" => "heading"
-				);			
-	$options[] = array( 
-				"name" => "Single Teplate Loop Settings",
-				"type" => "info",
-				"desc" => "You can customize what display when WordPress uses the Single Template. The Single Template is what is called when a used views a Post's unique page."
-				);
-	$options[] = array( 
-				"name" => "Loop Header",
-				"desc" => "Enter in descriptive text to describe the the display of a Single Post. This is placed before the Loop begins. For example: <strong>You are Readiing</strong> precede a listing of the latest blog post.",
-				"id" => "single_loop_header",
-				"std" => "You are Reading...",
-				"type" => "text"
-				); 						
-	$item_meta = array ( 
-				'author' => 'Author',
-				'date' => 'Date',
-				'time' => 'Time',
-				'comments' => 'Comments',
-				'category' => 'Category',
-				'tag' => 'Tag'
-				);
-	$options[] = array( 
-				"name" => "Enable Itemhead Meta Display",
-				"desc" => "Each listed Post entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
-				"id" => "single_itemhead_meta",
-				"std" => array ( 
-						'author' => true,
-						'date' => true,
-						'time' => true,
-						'comments' => true,
-						'category' => false,
-						'tag' => false						
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'author' => 'Author',
-						'date' => 'Date',
-						'time' => 'Time',
-						'comments' => 'Comments',
-						'category' => 'Category',
-						'tag' => 'Tag'
-					)
-				);								
-	$options[] = array( 
-				"name" => "Enable Itemfoot Meta Display",
-				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
-				"id" => "single_itemfoot_meta",
-				"std" => array ( 
-						'author' => false,
-						'date' => false,
-						'time' => false,
-						'comments' => false,
-						'category' => true,
-						'tag' => true						
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'author' => 'Author',
-						'date' => 'Date',
-						'time' => 'Time',
-						'comments' => 'Comments',
-						'category' => 'Category',
-						'tag' => 'Tag'
-					)
-				);								
-	$options[] = array( 
-				"name" => "Loop Footer",
-				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
-				"id" => "single_loop_footer",
-				"std" => "",
-				"type" => "text"
-				); 		
+	$options = array_merge($options, template_single_settings() );
 		
-		
-		
-		
-
-		
-	
 	/*
 	*	PAGE LOOP SETTINGS
 	*/	
-	$options[] = array( 
-				"name" => "Page Template Loop",
-				"type" => "heading"
-				);			
-	$options[] = array( 
-				"name" => "Page Teplate Loop Settings",
-				"type" => "info",
-				"desc" => "You can customize what displays when WordPress uses the Page Template. The Page Template is applied to entries made into the Page post type."
-				);
-	$options[] = array( 
-				"name" => "Loop Header",
-				"desc" => "Enter in descriptive text to describe the display of a Page. This is placed before the Loop begins. This is not commonly used for Pages, the Title of the Page is sufficient in most cases.",
-				"id" => "page_loop_header",
-				"std" => "",
-				"type" => "text"
-				); 						
-	$item_meta = array ( 
-				'author' => 'Author',
-				'date' => 'Date',
-				'time' => 'Time',
-				'comments' => 'Comments',
-				'category' => 'Category',
-				'tag' => 'Tag'
-				);
-	$options[] = array( 
-				"name" => "Enable Itemhead Meta Display",
-				"desc" => "Each listed Page entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
-				"id" => "page_itemhead_meta",
-				"std" => array ( 
-						'author' => true,
-						'date' => true,
-						'time' => true				
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'author' => 'Author',
-						'date' => 'Date',
-						'time' => 'Time'
-					)
-				);								
-	$options[] = array( 
-				"name" => "Enable Itemfoot Meta Display",
-				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
-				"id" => "page_itemfoot_meta",
-				"std" => array ( 
-						'author' => false,
-						'date' => false,
-						'time' => false				
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'author' => 'Author',
-						'date' => 'Date',
-						'time' => 'Time'
-					)
-				);								
-	$options[] = array( 
-				"name" => "Loop Footer",
-				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
-				"id" => "page_loop_footer",
-				"std" => "",
-				"type" => "text"
-				); 		
+	$options = array_merge($options, template_page_settings() );
 		
-		
-		
-		
+	/*
+	*	ARCHIVE LOOP SETTINGS
+	*/	
+	$options = array_merge($options, template_archive_settings() );
+	
+	
+	
+	
+	/*
+	*	CREDITS
+	*/	
+	$options[] = array( 
+							"name" => "Credits & Liscense",
+							"type" => "heading"
+						);			
 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	$options[] = array( 
+							"name" => "Credits",
+							"type" => "info",
+							"std" => "It's important to give credit to the variety of projects and individuals that have 
+							contributed in direct and indirect ways.
+						",
+					);		
+
+	
+	/*
+	*	CUSTOM CSS
+	*/	
+	$my_options[] = array( 
+							"name" => "Custom Css",
+							"type" => "heading"
+						);			
+
+	$my_options[] = array( 
+							"name" => "Custom Css",
+							"type" => "info",
+							"desc" => "
+								theFOUNDATION has an organized way of including css. Familiarize yourself with the setup to quickly identify elements
+								for styling. You can read up on the CSS guide for more information. There is also a community css code snippet respository,
+								if you are looking for ideas to  quickly add css styling for specifc design elements to your website.
+								
+								<br /><br />
+								If you are inclined you can also easily add your own css rules below.  You can also load a custom css
+								file if you like as well. If you like your changes to be permanent, then I recommend that you add a 
+								css file to your										
+								<span class='highlight'>wp-content/themes/<strong>childthemefoldername</strong>/css/load/</span> folder.  
+								Any css file located there will not be erased if you decide to reset the options.
+							",
+						);		
+	$my_options[] = array( 
+							"name" => "Custom CSS",
+							"desc" => "Quickly add some CSS to your theme by adding it to this block.",
+							"id" => "custom_css",
+							"std" => "",
+							"type" => "textarea"
+						);
+								
+								
+								
+								
+								
+								
+								
+								
+	
 	$options[] = array( "name" => "Basic Settings",
 						"type" => "heading");
 							
@@ -597,11 +303,6 @@ function optionsframework_options() {
 						
 						
 						
-						
-						
-						
-						
-						
 	$options[] = array( "name" => "Advanced Settings",
 						"type" => "heading");
 						
@@ -622,19 +323,7 @@ function optionsframework_options() {
 						"id" => "example_uploader",
 						"type" => "upload");
 						
-	$options[] = array( "name" => "Example Image Selector",
-						"desc" => "Images for layout.",
-						"id" => "example_images",
-						"std" => "2c-l-fixed",
-						"type" => "images",
-						"options" => array(
-							'1col-fixed' => $imagepath . '1col.png',
-							'2c-r-fixed' => $imagepath . '2cr.png',
-							'2c-l-fixed' => $imagepath . '2cl.png',
-							'3c-fixed' => $imagepath . '3cm.png',
-							'3c-r-fixed' => $imagepath . '3cr.png')
-						);
-						
+				
 	$options[] = array( "name" =>  "Example Background",
 						"desc" => "Change the background CSS.",
 						"id" => "example_background",
@@ -647,8 +336,6 @@ function optionsframework_options() {
 						"std" => $multicheck_defaults, // These items get checked by default
 						"type" => "multicheck",
 						"options" => $multicheck_array);
-
-						
 	$options[] = array( "name" => "Colorpicker",
 						"desc" => "No color selected by default.",
 						"id" => "example_colorpicker",
@@ -674,6 +361,755 @@ function optionsframework_options() {
 
 
 
+
+
+
+/*
+*	BRANDING OPTIONS
+*/
+function branding_options(){
+
+	// IF USING IMAGE RADIO BUTTONS, DEFINE A DIRECTORY PATH
+	$imagepath =  get_bloginfo('stylesheet_directory') . '/css/layouts/icons/';
+	$stylespath = get_bloginfo('stylesheet_directory') . '/css/styles/';
+		
+	$options[] = array( 
+							"name" => "Logo & Favicon",
+							"type" => "heading"
+						);			
+
+	$options[] = array( 
+							"name" => "Logo & Favicon",
+							"type" => "info",
+							"desc" => "Establish your visual identity by using a logo and favicon. These are elements of a website that help you discern your prescence.
+							",
+						);	
+
+	$options[] = array( 
+							"name" => "Custom Logo",
+							"desc" => "Upload a logo for your theme, or specify the image address of your online logo. (http://yoursite.com/logo.png)",
+							"id" => "custom_logo",
+							"std" => "",
+							"type" => "upload"
+						);
+	
+	$options[] = array( 
+							"name" => "Custom Favicon",
+							"desc" => "Upload a 16px x 16px Png/Gif image that will represent your website's favicon.",
+							"id" => "custom_favicon",
+							"std" => "",
+							"type" => "upload"
+						); 
+
+	return $options;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+*	BACKGROUND OPTIONS
+*/
+function background_options(){
+		
+	$options[] = array( 
+						"name" => "Background",
+						"type" => "heading"
+						);			
+
+	$options[] = array( 
+						"name" => "Background",
+						"type" => "info",
+						"std" => "One of the best ways to style your website is using a great background. A background can easily
+						take a bland website, and turn into an inviting website. The framework currently uses Wordpress built into
+						background changer, located in the Appearance menu.
+							",
+						);	
+
+	$options[] = array( "name" =>  "Body Background Color",
+						"desc" => "Pick a background color for the theme (default: #fff).",
+						"id" => "body_background",
+						"std" => "",
+						"type" => "color");
+								
+
+	return $options;
+
+}
+
+
+
+
+/*
+*	HEADER OPTIONS
+*/
+function header_options() {
+
+	#	HEADER
+	$options[] = array( 
+				"name" => "Header",
+				"type" => "heading"
+			);			
+
+	$options[] = array( 
+				"name" => "Header",
+				"type" => "info",
+				"desc" => " The Header can be one of the most attention grabbing elements of a website. It helps establishes your website's brand, 
+					and is often used to convey the personality behind a website. theFOUNDATION uses the built in theme header appreance options.
+					
+					Headers can also be simple or complicated. Take time to enable or disable header features.
+				",
+			);	
+
+	$options[] = array( 
+			"name" =>  "Header Background Color",
+			"desc" => "Pick a background color for the header (default: #fff).",
+			"id" => "header_background",
+			"std" => "",
+			"type" => "color"
+			);   
+						
+						
+	return $options;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+*	TYPOGRAPHY OPTIONS
+*/
+function typography_options() {
+
+	$options[] = array( 
+						"name" => __('Typography', TEXTDOMAIN),
+						"type" => "heading"
+					);	
+	$options[] = array( 
+					"name" => "Typography",
+					"desc" => "Default Site Type Settings",
+					"id" => "default_font_settings",
+					"std" => array('size' => '12px','face' => 'verdana','style' => 'bold italic','color' => '#123456'),
+					"type" => "typography"
+					);		
+						
+	return $options;
+
+}
+
+
+
+
+
+
+
+
+
+/*
+*	HYPERLINK OPTIONS
+*/
+function hyperlinks_options() {
+
+	$options[] = array( 
+						"name" => __('Hyperlinks', TEXTDOMAIN),
+						"type" => "heading"
+					);	
+	$options[] = array( 
+						"name" => "Hyperlink Styles",
+						"type" => "info",
+						"desc" => __("
+							Making your website links visible and visually discernable to help your visitor navigate your website. 
+							Take the time to adjust your default hyperlink color and styles.<br /> <br />
+							If you like to be more specific, please check out theFOUNDATION guide to styling links using the power
+							of CSS.
+						")
+						);	
+
+						
+	$options[] = array( 
+						"name" => "A:link (default #2098a8)",
+						"desc" => "Select a Default Color for you Links",
+						"id" => "href_link_value",
+						"std" => "#2098a8",
+						"type" => "color"
+						);       
+
+	$options[] = array( 
+						"name" => "A:visited",
+						"desc" => "Selected a Default Color for Visited Links",
+						"id" => "href_visited_value",
+						"std" => "",
+						"type" => "color"
+						); 
+
+	$options[] = array( 
+						"name" => "A:hover (default #2098a8)",
+						"desc" => "Select a default hover value for Links upon mouse hover.",
+						"id" => "href_value_value",
+						"std" => "#2098a8",
+						"type" => "color"
+						);       
+	$options[] = array( 
+						"name" => "A:active",
+						"desc" => "Select a default value for Links when focus is active",
+						"id" => "href_active_value",
+						"std" => "",
+						"type" => "color"
+						); 
+
+					
+					
+					
+	return $options;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+*	TEMPLATE LAYOUT TAB
+*/
+function template_layout_options() {
+
+	// IF USING IMAGE RADIO BUTTONS, DEFINE A DIRECTORY PATH
+	$imagepath =  get_bloginfo('stylesheet_directory') . '/css/layouts/icons/';
+	$stylespath = get_bloginfo('stylesheet_directory') . '/css/styles/';
+	
+
+	$options[] = array( 
+				"name" => __('Template Layout', TEXTDOMAIN),
+						"type" => "heading"
+					);			
+	$options[] = array( 
+						"name" => "Set the Layout for Supported Templates",
+						"type" => "info",
+						"desc" => "WordPress has a native <a href='http://codex.wordpress.org/Template_Hierarchy'>template logic</a>
+						which this framework uses to provide you with options to configure your layouts. 
+						
+						<br/><br/>
+						The default 'index.php' template is what Wordpress defaults to depending on the theme, you can have 
+						specific templates to display your website content.  
+					
+						<br/><br />
+						Configure the layouts for this child theme's suported templates below. You can refer to the Template hierarchy chart as a guide to which
+						template takes precedence. The Options are listed from lowest to hightest. 
+						If you like would like to create a template for one that does not exist you can read or watch our guide on how to add or edit
+						Wordpress Template files.
+						",
+					);
+					
+	//	CONTENT WIDTH VALUE								
+	$options[] = array( 
+						"name" => "Content > Primary Width",
+						"desc" => "Set the Primary Width Size for the Primary Content Area, This value is also used by by WordPress' $content_width to contrain the maximum image size",
+						"id" => "set_content_primary_width",
+						"std" => "540",
+						"class" => "mini",							
+						"type" => "text"
+						); 
+	$options[] = array( 
+						"name" => "Content > Secondary Width",
+						"desc" => "Set the Width of the Secondary Content Area",
+						"id" => "set_content_secondary_width",
+						"std" => "340",
+						"class" => "mini",							
+						"type" => "text"
+						); 
+	//	BUILD LAYOUT OPTIONS ARRAY
+	$layout_array = array (
+						'layout-p.css' => $imagepath . 'layout-p.png',
+						'layout-ls-p.css' => $imagepath . 'layout-ls-p.png',
+						'layout-p-rs.css' => $imagepath . 'layout-p-rs.png',
+						'layout-ts-p.css' => $imagepath . 'layout-ts-p.png',
+						'layout-p-bs.css' => $imagepath . 'layout-p-bs.png'										
+						);
+	// INDEX TEMPLATE LAYOUT					
+						$layout_default = 'layout-ls-p.css';	
+	$options[] = array( 
+						"name" => "Index",
+						"desc" => "Select the Layout for Your Index.php Template",
+						"id" => "template_index",
+						"std" => $layout_default,
+						"type" => "images",
+						"options" => $layout_array
+						);
+	// SINGLE TEMPLATE 
+	$options[] = array( 
+						"name" => "Single",
+						"desc" => "Select the Layout for Your Single.php Template",
+						"id" => "template_single",
+						"std" => $layout_default,
+						"type" => "images",
+						"options" => $layout_array
+						);							
+	// PAGE TEMPLATE 
+	$options[] = array( 
+						"name" => "Page",
+						"desc" => "Select the Layout for Your Page.php Template",
+						"id" => "template_page",
+						"std" => $layout_default,
+						"type" => "images",
+						"options" => $layout_array
+						);	
+	// ARCHIVE TEMPLATE 
+	$options[] = array( 
+						"name" => "Archive",
+						"desc" => "Select the Layout for Your Archive.php Template",
+						"id" => "template_archive",
+						"std" => $layout_default,
+						"type" => "images",
+						"options" => $layout_array
+						);			
+						
+
+	return $options;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+*	ALTERNATIVE STYLES
+*/
+function alternative_styles_options() {
+
+	// IF USING IMAGE RADIO BUTTONS, DEFINE A DIRECTORY PATH
+	$imagepath =  get_bloginfo('stylesheet_directory') . '/css/layouts/icons/';
+	$stylespath = get_bloginfo('stylesheet_directory') . '/css/styles/';
+	
+
+	$options[] = array( 
+					"name" => "Styles",
+					"type" => "heading"
+					);
+	$options[] = array( 
+					"name" => "Styles",
+					"type" => "info",
+					"desc" => "Configuring your website can be a time consuming task.  You can quickly switch embeded styles here.
+					",
+					);							
+	$options[] = array( 
+					"name" => "Theme Stylesheet",
+					"desc" => "Select your themes alternative color scheme.",
+					"id" => "alt_stylesheet",
+					"std" => "default.css",
+					"type" => "radio",
+					"options" => find_alternative_styles()
+					);
+					
+	return $options;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function template_index_settings(){
+
+	// IF USING IMAGE RADIO BUTTONS, DEFINE A DIRECTORY PATH
+	$imagepath =  get_bloginfo('stylesheet_directory') . '/css/layouts/icons/';
+	$stylespath = get_bloginfo('stylesheet_directory') . '/css/styles/';
+	
+	$options[] = array( 
+				"name" => __('Loop for Index', TEXTDOMAIN),
+				"type" => "heading"
+				);			
+	$options[] = array( 
+				"name" => __('Change Loop Settings for the Index Template', TEXTDOMAIN),
+				"type" => "info",
+				"desc" => "Customize what displays when the Index Template is being used by Wordpress.  This is the default template that is applied when other templates are not present in the theme."
+				);
+	$options[] = array( 
+				"name" => "Loop Header",
+				"desc" => "Enter in descriptive text to describe the listing of each POST entry. This is placed before the Loop begins. For example: <strong>Latest Blog Post</strong> would precede a listing of the latest blog post.",
+				"id" => "index_loop_header",
+				"std" => "Latest Blog Post",
+				"type" => "text"
+				); 						
+	$item_meta = array ( 
+				'author' => 'Author',
+				'date' => 'Date',
+				'time' => 'Time',
+				'comments' => 'Comments',
+				'category' => 'Category',
+				'tag' => 'Tag'
+				);
+	$options[] = array( 
+				"name" => "Enable Itemhead Meta Display",
+				"desc" => "Each listed Post entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
+				"id" => "index_itemhead_meta",
+				"std" => array ( 
+						'author' => true,
+						'date' => true,
+						'time' => true,
+						'comments' => true,
+						'category' => false,
+						'tag' => false						
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'author' => 'Author',
+						'date' => 'Date',
+						'time' => 'Time',
+						'comments' => 'Comments',
+						'category' => 'Category',
+						'tag' => 'Tag'
+					)
+				);								
+	$options[] = array( 
+				"name" => "Enable Itemfoot Meta Display",
+				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
+				"id" => "index_itemfoot_meta",
+				"std" => array ( 
+						'author' => false,
+						'date' => false,
+						'time' => false,
+						'comments' => false,
+						'category' => false,
+						'tag' => false						
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'author' => 'Author',
+						'date' => 'Date',
+						'time' => 'Time',
+						'comments' => 'Comments',
+						'category' => 'Category',
+						'tag' => 'Tag'
+					)
+				);								
+	$options[] = array( 
+				"name" => "Loop Footer",
+				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
+				"id" => "index_loop_footer",
+				"std" => "",
+				"type" => "text"
+				); 
+				
+		
+
+	return $options;
+}
+
+
+
+/*
+*	TEMPLATE PAGE SETTINGS
+*/
+function template_page_settings(){
+
+	// IF USING IMAGE RADIO BUTTONS, DEFINE A DIRECTORY PATH
+	$imagepath =  get_bloginfo('stylesheet_directory') . '/css/layouts/icons/';
+	$stylespath = get_bloginfo('stylesheet_directory') . '/css/styles/';
+
+	$options[] = array( 
+				"name" => __('Loop for Page', TEXTDOMAIN),
+				"type" => "heading"
+				);			
+	$options[] = array( 
+				"name" => __('Change Loop Settings for the Page Template', TEXTDOMAIN),
+				"type" => "info",
+				"desc" => "You can customize what displays when WordPress uses the Page Template. The Page Template is applied to entries made into the Page post type."
+				);
+	$options[] = array( 
+				"name" => "Loop Header",
+				"desc" => "Enter in descriptive text to describe the display of a Page. This is placed before the Loop begins. This is not commonly used for Pages, the Title of the Page is sufficient in most cases.",
+				"id" => "page_loop_header",
+				"std" => "",
+				"type" => "text"
+				); 						
+	$item_meta = array ( 
+				'author' => 'Author',
+				'date' => 'Date',
+				'time' => 'Time',
+				'comments' => 'Comments',
+				'category' => 'Category',
+				'tag' => 'Tag'
+				);
+	$options[] = array( 
+				"name" => "Enable Itemhead Meta Display",
+				"desc" => "Each listed Page entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
+				"id" => "page_itemhead_meta",
+				"std" => array ( 
+						'author' => true,
+						'date' => true,
+						'time' => true				
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'author' => 'Author',
+						'date' => 'Date',
+						'time' => 'Time'
+					)
+				);								
+	$options[] = array( 
+				"name" => "Enable Itemfoot Meta Display",
+				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
+				"id" => "page_itemfoot_meta",
+				"std" => array ( 
+						'author' => false,
+						'date' => false,
+						'time' => false				
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'author' => 'Author',
+						'date' => 'Date',
+						'time' => 'Time'
+					)
+				);								
+	$options[] = array( 
+				"name" => "Loop Footer",
+				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
+				"id" => "page_loop_footer",
+				"std" => "",
+				"type" => "text"
+				); 	
+				
+	return $options;
+
+
+}
+
+
+
+/*
+*	TEMPLATE SINGLE SETTINGS
+*/
+function template_single_settings(){
+
+	// IF USING IMAGE RADIO BUTTONS, DEFINE A DIRECTORY PATH
+	$imagepath =  get_bloginfo('stylesheet_directory') . '/css/layouts/icons/';
+	$stylespath = get_bloginfo('stylesheet_directory') . '/css/styles/';
+
+	$options[] = array( 
+				"name" => __('Loop for Single', TEXTDOMAIN),
+				"type" => "heading"
+				);			
+	$options[] = array( 
+				"name" => __('Change Loop Settings for Archive the Single Template', TEXTDOMAIN),
+				"type" => "info",
+				"desc" => "You can customize what display when WordPress uses the Single Template to display an entry made into the Post"
+				);
+	$options[] = array( 
+				"name" => "Loop Header",
+				"desc" => "Enter in descriptive text to describe the the display of a Single Post. This is placed before the Loop begins. For example: <strong>You are Readiing</strong> precede a listing of the latest blog post.",
+				"id" => "single_loop_header",
+				"std" => "",
+				"type" => "text"
+				); 						
+	$item_meta = array ( 
+				'author' => 'Author',
+				'date' => 'Date',
+				'time' => 'Time',
+				'comments' => 'Comments',
+				'category' => 'Category',
+				'tag' => 'Tag'
+				);
+	$options[] = array( 
+				"name" => "Enable Itemhead Meta Display",
+				"desc" => "Each listed Post entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
+				"id" => "single_itemhead_meta",
+				"std" => array ( 
+						'author' => true,
+						'date' => true,
+						'time' => true,
+						'comments' => true,
+						'category' => false,
+						'tag' => false						
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'author' => 'Author',
+						'date' => 'Date',
+						'time' => 'Time',
+						'comments' => 'Comments',
+						'category' => 'Category',
+						'tag' => 'Tag'
+					)
+				);								
+	$options[] = array( 
+				"name" => "Enable Itemfoot Meta Display",
+				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
+				"id" => "single_itemfoot_meta",
+				"std" => array ( 
+						'author' => false,
+						'date' => false,
+						'time' => false,
+						'comments' => false,
+						'category' => false,
+						'tag' => false						
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'author' => 'Author',
+						'date' => 'Date',
+						'time' => 'Time',
+						'comments' => 'Comments',
+						'category' => 'Category',
+						'tag' => 'Tag'
+					)
+				);								
+	$options[] = array( 
+				"name" => "Loop Footer",
+				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
+				"id" => "single_loop_footer",
+				"std" => "",
+				"type" => "text"
+				); 		
+				
+	return $options;
+}
+
+
+
+
+/*
+*	TEMPLATE ARCHIVE SETTINGS
+*/
+function template_archive_settings(){
+
+	// IF USING IMAGE RADIO BUTTONS, DEFINE A DIRECTORY PATH
+	$imagepath =  get_bloginfo('stylesheet_directory') . '/css/layouts/icons/';
+	$stylespath = get_bloginfo('stylesheet_directory') . '/css/styles/';
+	
+	$options[] = array( 
+				"name" => __('Loop for Achive', TEXTDOMAIN),
+				"type" => "heading"
+				);			
+	$options[] = array( 
+				"name" => __('Change Loop Settings for the Archive Template', TEXTDOMAIN),
+				"type" => "info",
+				"desc" => "You can customize what displays when WordPress uses the Page Template. The Page Template is applied to entries made into the Page post type."
+				);
+	$options[] = array( 
+				"name" => "Loop Header",
+				"desc" => "Enter in descriptive text to describe the display of an Archive Page. This is placed before the Loop begins. This is not commonly used for Pages, the Title of the Page is sufficient in most cases.",
+				"id" => "page_loop_header",
+				"std" => "Archives",
+				"type" => "text"
+				); 						
+	$item_meta = array ( 
+				'author' => 'Author',
+				'date' => 'Date',
+				'time' => 'Time',
+				'comments' => 'Comments',
+				'category' => 'Category',
+				'tag' => 'Tag'
+				);
+	$options[] = array( 
+				"name" => "Enable Itemhead Meta Display",
+				"desc" => "Each listed Page entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
+				"id" => "page_itemhead_meta",
+				"std" => array ( 
+						'author' => true,
+						'date' => true,
+						'time' => true				
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'author' => 'Author',
+						'date' => 'Date',
+						'time' => 'Time'
+					)
+				);								
+	$options[] = array( 
+				"name" => "Enable Itemfoot Meta Display",
+				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
+				"id" => "page_itemfoot_meta",
+				"std" => array ( 
+						'author' => false,
+						'date' => false,
+						'time' => false				
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'author' => 'Author',
+						'date' => 'Date',
+						'time' => 'Time'
+					)
+				);								
+	$options[] = array( 
+				"name" => "Loop Footer",
+				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
+				"id" => "page_loop_footer",
+				"std" => "",
+				"type" => "text"
+				); 		
+		
+	return $options;
+}
 
 
 ?>

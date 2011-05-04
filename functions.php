@@ -1,9 +1,4 @@
 <?php
-require_once(STYLESHEETPATH . '/functions/functions-appearance-options.php');
-
-define( 'TEXTDOMAIN', 'thefdt' );
-define( 'THEMECUSTOMMETAKEY', '_fsl_media_options' );
-
 /**************************************************************
  WELCOME TO THE FOUNDATION CHILD THEME TEMPLATE
  ---------------------------------------------------------------------------------------------
@@ -18,6 +13,15 @@ define( 'THEMECUSTOMMETAKEY', '_fsl_media_options' );
  
  http://thefoundationthemes.com/
 **************************************************************/
+
+require_once(STYLESHEETPATH . '/functions/functions-appearance-options.php');
+
+
+// DEFINE DOES NOT OCCUR EARLY ENOUGH FOR CHILD THEMES
+define( 'TEXTDOMAIN', 'thefdt' );
+define( 'THEMECUSTOMMETAKEY', '_fsl_media_options' );
+
+
 
 
 /**************************************************************
@@ -37,6 +41,7 @@ define( 'THEMECUSTOMMETAKEY', '_fsl_media_options' );
 #require_once(TEMPLATEPATH . '/functions/functions-posttype-swatch.php');
 #require_once(TEMPLATEPATH . '/functions/functions-posttype-product.php');
 #require_once(TEMPLATEPATH . '/functions/functions-posttype-post.php');
+#require_once(TEMPLATEPATH . '/functions/functions-posttype-dictionary.php');
 
 /**************************************************************
  [01] CHILD THEME APPEARANCE OPTION OVERRIDES

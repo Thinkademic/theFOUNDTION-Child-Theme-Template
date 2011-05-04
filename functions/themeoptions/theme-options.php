@@ -381,34 +381,6 @@ if (!function_exists('of_options')) {
 
 
 
-		#	FAVICON & LOGO
-			$my_options[] = array( 
-									"name" => "Logo & Favicon",
-									"type" => "heading"
-								);			
-	
-			$my_options[] = array( 
-									"name" => "Logo & Favicon",
-									"type" => "info",
-									"std" => "Establish your visual identity by using a logo and favicon. These are elements of a website that help you discern your prescence.
-									",
-								);	
-		
-			$my_options[] = array( "name" => "Custom Logo",
-								"desc" => "Upload a logo for your theme, or specify the image address of your online logo. (http://yoursite.com/logo.png)",
-								"id" => "logo",
-								"std" => "",
-								"type" => "upload");
-			
-			
-			$my_options[] = array( "name" => "Custom Favicon",
-								"desc" => "Upload a 16px x 16px Png/Gif image that will represent your website's favicon.",
-								"id" => "custom_favicon",
-								"std" => "",
-								"type" => "upload"); 		
-	
-	
-	
 	
 	
 	
