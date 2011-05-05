@@ -52,6 +52,28 @@ jQuery(document).ready(function() {
 	
 	jQuery('.sortablelist').sortable();
 	
+
+	/*
+	jQuery('#of-nav a').click(function() {
+  			jQuery('#of_container #content .group .section-info P').hide();
+	});
+
+
+
+	jQuery("#of_container #content .group .section-info").hoverIntent(
+	  function () {
+		jQuery("p", this).slideDown('slow');
+	  }, 
+	  function () {
+		jQuery("p", this).slideUp('fast');
+	  }
+	);
+	*/
+
+
+
+	
+	
 });
 </script>
  
