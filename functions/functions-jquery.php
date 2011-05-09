@@ -1,6 +1,7 @@
 <?php
 /**************************************************************
  INTIATE JQUERY SETUP
+ FUNCTION IS CALLED IN PARENT THEME
 **************************************************************/
 function init_jquery() {
 	#add_action('init', 'init_jquery_google');
@@ -97,7 +98,8 @@ function register_jquery_plugins() {
 
 
 /**************************************************************
- [PG] ENQUEUE SCRIPTS
+ ENQUEUE SCRIPTS BY DEFAULT
+ PARENT THEME WILL CALL THIS FUNCTION VIA ADD_ACTION		
 **************************************************************/
 function enqueue_jquery_plugins() {
 		global $wp_scripts, $post;
@@ -109,14 +111,15 @@ function enqueue_jquery_plugins() {
 			
 		#	INTERFACE BEHAVIORS - DEPENDANCIES
 			use_wp_enqueue( 'hoverintent', true );				
-			use_wp_enqueue( 'mousewheel', true );				
-			use_wp_enqueue( 'easing', true );					
+			use_wp_enqueue( 'mousewheel', false );				
+			use_wp_enqueue( 'easing', false );					
 			
 		#	FONT LOAD
-				use_wp_enqueue( 'cufon', false );
+			$load = of_get_option('enable_cufon_support', false);
+				use_wp_enqueue( 'cufon', $load );
 			
 		#	MENU
-			$load = true;	
+			$load = of_get_option('enable_suckerfish_dropdown', false );	
 				use_wp_enqueue( 'superfish', $load );
 				use_wp_enqueue( 'supersubs', $load );	
 
@@ -138,25 +141,13 @@ function enqueue_jquery_plugins() {
 
 			$load = false;		
 				use_wp_enqueue( 'anythingslider', $load  );	
-			
-			$load = false;		
-				use_wp_enqueue( 'fancytransitions', $load);
-				
-			$load = false;					
-				use_wp_enqueue( 'coinslider', $load);
-			
-			$load = false;		
-				use_wp_enqueue( 'orbit', $load);
 
 		#	UI ENHANCEMENT
 			$load = false;
 				use_wp_enqueue( 'fancybox', $load );
 
 			$load = false;
-				use_wp_enqueue( 'nivoslider', $load );
-				
-			$load = false;
-				use_wp_enqueue( 'qtip', $load );		
+				use_wp_enqueue( 'nivoslider', $load );	
 			
 			$load = false;
 				use_wp_enqueue( 'lazyload', $load );		
@@ -170,5 +161,61 @@ function enqueue_jquery_plugins() {
 				use_wp_enqueue( 'customthemejquery', $load  );
 }	
 
+
+
+/**************************************************************
+ OUTPUT JQUERY FOR DROP DOWNS
+**************************************************************/
+function enable_suckerfish_dropdown() {
+	$enable_dropdown = of_get_option('enable_suckerfish_dropdown', false );
+	if( $enable_dropdown ){
+
+print <<<END
+	$(function(){
+		
+		/**********************************************************
+		3)	ADMIN EDIT LINKS
+				WP FILE LOCATION : functions/functions-jquery.php
+				
+		{$enable_dropdown}		
+		**********************************************************/
+		$(".editlink").hide();
+		$(".itemhead").hoverIntent(
+				function() { 
+					$(".editlink",this).fadeIn();
+				},
+				function() { 
+					$(".editlink",this).hide(); 
+				}
+		);  
+
+		
+
+		$(".masthead-menu").superfish(); 
+	});
+	
+END;
+
+	}
+}
+add_action('fdt_print_dynamic_themeoptions_js', 'enable_suckerfish_dropdown');	
+
+
+/**************************************************************
+ OUTPUT CUFON SCRIPT
+ 
+ MAYBE APPLY FILTER ON RULES,
+**************************************************************/
+function enable_cufon_rules() {
+	$enable_cufon_support = of_get_option('enable_cufon_support', false );
+	
+	$cufon_rules = of_get_option('cufon_rules', FALSE);
+	
+	if( $enable_cufon_support && $cufon_rules ){
+	
+		echo htmlspecialchars_decode($cufon_rules, ENT_QUOTES);
+	}
+}
+add_action('fdt_print_dynamic_themeoptions_js', 'enable_cufon_rules');	
 		
 ?>

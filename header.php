@@ -1,7 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
-
-<head profile="http://gmpg.org/xfn/11">
+<!DOCTYPE HTML>
+<html <?php language_attributes(); ?>>
+<head>
+	<!-- META -->
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 
 	<title><?php bloginfo('name'); ?> <?php wp_title(); ?></title>
@@ -16,7 +17,6 @@
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/menu.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/elements.css" type="text/css" media="screen" />	
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/mediagalleries.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/<?php echo get_stylesheet() ?>.css" type="text/css" media="screen" />		
 	
 	<!-- RSS + PING BACK URL -->
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />

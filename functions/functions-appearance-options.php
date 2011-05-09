@@ -42,15 +42,25 @@ function optionsframework_custom_scripts() { ?>
 <script type="text/javascript">
 jQuery(document).ready(function() {
 
-	jQuery('#example_showhidden').click(function() {
-  		jQuery('#section-example_text_hidden').fadeToggle(400);
+	jQuery('#section-enable_cufon_font_files .heading').hide();
+	jQuery('#section-cufon_rules .heading').hide();		
+
+	jQuery('#enable_cufon_support').click(function() {
+  		jQuery('#section-enable_cufon_font_files').fadeToggle(400);
+  		jQuery('#section-cufon_rules').fadeToggle(400);
 	});
 	
-	if (jQuery('#example_showhidden:checked').val() !== undefined) {
-		jQuery('#section-example_text_hidden').show();
+
+	if (jQuery('#enable_cufon_support:checked').val() !== undefined) {
+		jQuery('#section-enable_cufon_font_files').show();
+		jQuery('#section-cufon_rules').show();		
+	} else {
+		jQuery('#section-enable_cufon_font_files').hide();
+		jQuery('#section-cufon_rules').show();		
 	}
 	
-	jQuery('.sortablelist').sortable();
+	
+
 	
 
 	/*
@@ -69,12 +79,15 @@ jQuery(document).ready(function() {
 	  }
 	);
 	*/
-
-
-
 	
+
 	
 });
+
+
+
+	<?php write_cufon_for_admin();	 ?>
+
 </script>
  
 <?php
@@ -122,12 +135,8 @@ function find_alternative_styles() {
 		}
 	}
 
-
 	return $alt_stylesheets;
 }
-
-
-
 
 
 /*	
@@ -142,7 +151,8 @@ function find_layouts() {
 		if ($alt_stylesheet_dir = opendir($alt_stylesheet_path) ) { 
 			while ( ($alt_stylesheet_file = readdir($alt_stylesheet_dir)) !== false ) {
 				if(stristr($alt_stylesheet_file, ".css") !== false) {
-					$alt_stylesheets[$alt_stylesheet_file] = $alt_stylesheet_file;
+					$key = strtolower(str_replace('.', '', $alt_stylesheet_file));
+					$alt_stylesheets[$key] = $alt_stylesheet_file;
 				}
 			}    
 		}
@@ -171,9 +181,11 @@ function layout_for_current_template(){
 
 
 
+
+
+
 /*	
 *	ENQUEUE OUR SELECTED LAYOUTS FOR OUR TEMPLATES
-* 	ENQUEUE SELECTED ALTERNATIVE STYLE
 */
 function enqueue_template_layout() {
 	global $data, $content_width;	
@@ -197,21 +209,218 @@ function enqueue_template_layout() {
 		// REGISTER & ENQUEUE STYLE
 		wp_register_style('layout', $layout_path . $layout_file_name );
 		wp_enqueue_style('layout');
+}
+add_action('fdt_enqueue_dynamic_css', 'enqueue_template_layout');
 
 
-	// ALTERNATIVE STYLES  PATH
+
+
+
+
+/*	
+*	ENQUEUE STYLES SHEETS
+*/
+function enqueue_alternative_stylesheets() {
+	global $data, $content_width;	
+
 	$alt_styles_path = get_stylesheet_directory_uri() . '/css/styles/';
 		$alt_style = of_get_option( 'alt_stylesheet', 'default.css' ); 
 		
 		wp_register_style('alt_style',  $alt_styles_path . $alt_style);
 		wp_enqueue_style('alt_style');
 
-
-
 }
-add_action('fdt_enqueue_dynamic_css', 'enqueue_template_layout');
+add_action('fdt_enqueue_dynamic_css', 'enqueue_alternative_stylesheets');
 
 
+
+
+
+
+
+
+
+
+
+
+/*	
+*	FIND CUFON FONTS FOR INCLUSION
+*/
+function find_cufon_fonts() {
+
+	$cufon_path = STYLESHEETPATH. '/fonts/cufon';
+	$cuffon_fonts = array();
+	if ( is_dir($cufon_path) ) {
+		if ($cufon_dir = opendir($cufon_path) ) { 
+			while ( ($cufon_file = readdir($cufon_dir)) !== false ) {
+				if(stristr($cufon_file, ".js") !== false) {
+					$key = strtolower(str_replace('.', '', $cufon_file));
+					
+						$file_content = file_get_contents($cufon_path."/".$cufon_file); //open file and read
+						$delimeterLeft = 'font-family":"';
+						$delimeterRight = '"';
+						$font_name = read_font_name($file_content, $delimeterLeft, $delimeterRight, $debug = false);
+
+						$cuffon_fonts[$key] = $font_name;
+				}
+			}    
+		}
+	}
+
+
+	return $cuffon_fonts;
+}
+
+/*	
+*	FIND CUFON FONTS FILENAME
+*/
+function find_cufon_fonts_filename() {
+
+	$cufon_path = STYLESHEETPATH. '/fonts/cufon';
+	$cuffon_fonts = array();
+	if ( is_dir($cufon_path) ) {
+		if ($cufon_dir = opendir($cufon_path) ) { 
+			while ( ($cufon_file = readdir($cufon_dir)) !== false ) {
+				if(stristr($cufon_file, ".js") !== false) {
+					$key = strtolower(str_replace('.', '', $cufon_file));
+					$cuffon_fonts[$key] = $cufon_file;
+				}
+			}    
+		}
+	}
+
+
+	return $cuffon_fonts;
+}
+
+
+/*	
+*	ENQUEUE CUFON FONTS
+*/
+function enqueue_cufon_fonts() {
+
+	$font_array = find_cufon_fonts();
+	$font_array_filename = find_cufon_fonts_filename();
+	
+	$cufon_font_path = get_stylesheet_directory_uri() . '/fonts/cufon/';
+	$cufon_font_files = of_get_option( 'enable_cufon_font_files', false ); 
+
+		if($cufon_font_files) {
+			foreach ($cufon_font_files as $key => $value) {
+				if($value) {
+					wp_register_script($key,  $cufon_font_path . $font_array_filename[$key], array('cufon'), "3.1");
+					wp_enqueue_script($key);	
+				}	
+			}
+		
+		}
+		
+}
+add_action('fdt_enqueue_dynamic_js', 'enqueue_cufon_fonts');
+
+
+
+
+
+
+
+
+/*	
+*	ADMIN ENQUEUE CUFON FONTS
+*/
+function admin_enqueue_cufon_fonts() {
+	
+	$cufon_font_path = get_stylesheet_directory_uri() . '/fonts/cufon/';
+	$cufon_font_files = find_cufon_fonts_filename(); 
+
+		if($cufon_font_files) {
+			foreach ($cufon_font_files as $key => $value) {
+				if($value) {
+					wp_register_script($key,  $cufon_font_path . $value, array('cufon'), "3.1");
+					wp_enqueue_script($key);	
+				}	
+			}
+		
+		}
+		
+}
+add_action('admin_print_scripts', 'admin_enqueue_cufon_fonts');
+
+
+/*	
+*	ADMIN WRITE CUFON COMMANDS
+*/
+function write_cufon_for_admin() {
+
+	$themename = get_theme_data(STYLESHEETPATH . '/style.css');
+	$themename = $themename['Name'];
+	$themename = preg_replace("/\W/", "", strtolower($themename) );
+						
+	$font_array = find_cufon_fonts();
+	$cufon_font_files = find_cufon_fonts_filename(); 
+
+		if($cufon_font_files) {
+			foreach ($cufon_font_files as $key => $value) {
+				if($value) {
+					$selector = "#".$themename."-".enable_cufon_font_files."-".$key." + label";
+					$font_family = $font_array[$key];
+					write_cufon_script($selector, $font_family);
+					
+				}	
+			}
+		
+		}
+		
+}
+
+
+
+
+ 
+ 
+function write_cufon_script( $selector, $font_family ){
+print <<<END
+
+	Cufon.replace('{$selector}', { fontFamily: '{$font_family}', hover: true });	
+END;
+}
+
+
+ /**
+  * extract name of the font
+  *
+  * @since 1.0
+  */
+ function read_font_name($inputStr, $delimeterLeft, $delimeterRight, $debug = false)
+ {
+     $posLeft = strpos($inputStr, $delimeterLeft);
+     if ($posLeft === false)
+     {
+         if ($debug)
+         {
+             echo "Warning: left delimiter '{$delimeterLeft}' not found";
+         }
+         return false;
+     }
+     $posLeft += strlen($delimeterLeft);
+     $posRight = strpos($inputStr, $delimeterRight, $posLeft);
+     if ($posRight === false)
+     {
+         if ($debug)
+         {
+             echo "Warning: right delimiter '{$delimeterRight}' not found";
+         }
+         return false;
+     }
+     return substr($inputStr, $posLeft, $posRight - $posLeft);
+ } 
+
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 /*

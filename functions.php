@@ -21,9 +21,6 @@ require_once(STYLESHEETPATH . '/functions/functions-appearance-options.php');
 define( 'TEXTDOMAIN', 'thefdt' );
 define( 'THEMECUSTOMMETAKEY', '_fsl_media_options' );
 
-
-
-
 /**************************************************************
  [00] CUSTOM POST TYPES CUSTOM POST TYPES LOADED FROM PARENT THEME
  NOTE: SHOULD BE ENABLED IN THE CHILD THEME
@@ -35,13 +32,13 @@ define( 'THEMECUSTOMMETAKEY', '_fsl_media_options' );
  TEMPLATEPATH -> PARENT THEME	// NOT THE URL
  STYLESHEETPATH -> CHILD THEME	// NOT THE URL
 **************************************************************/
-#require_once(TEMPLATEPATH . '/functions/functions-posttype-event.php');
-#require_once(TEMPLATEPATH . '/functions/functions-posttype-portfolio.php');
-#require_once(TEMPLATEPATH . '/functions/functions-posttype-designer.php');
-#require_once(TEMPLATEPATH . '/functions/functions-posttype-swatch.php');
-#require_once(TEMPLATEPATH . '/functions/functions-posttype-product.php');
-#require_once(TEMPLATEPATH . '/functions/functions-posttype-post.php');
-#require_once(TEMPLATEPATH . '/functions/functions-posttype-dictionary.php');
+require_once(TEMPLATEPATH . '/functions/functions-posttype-event.php');
+require_once(TEMPLATEPATH . '/functions/functions-posttype-portfolio.php');
+require_once(TEMPLATEPATH . '/functions/functions-posttype-designer.php');
+require_once(TEMPLATEPATH . '/functions/functions-posttype-swatch.php');
+require_once(TEMPLATEPATH . '/functions/functions-posttype-product.php');
+require_once(TEMPLATEPATH . '/functions/functions-posttype-post.php');
+require_once(TEMPLATEPATH . '/functions/functions-posttype-dictionary.php');
 
 /**************************************************************
  [01] CHILD THEME APPEARANCE OPTION OVERRIDES
@@ -205,4 +202,5 @@ add_filter('get_the_excerpt', 'replace_excerpt', 19);
 **************************************************************/
 add_filter( 'widget_text', array( $wp_embed, 'run_shortcode' ), 8 );
 add_filter( 'widget_text', array( $wp_embed, 'autoembed'), 8 );
+
 ?>

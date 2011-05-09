@@ -16,8 +16,7 @@ function optionsframework_option_name() {
 	$optionsframework_settings = get_option('optionsframework');
 	$optionsframework_settings['id'] = $themename;
 	update_option('optionsframework', $optionsframework_settings);
-	
-	// echo $themename;
+
 }
 
 /**
@@ -27,47 +26,105 @@ function optionsframework_option_name() {
  */
 function optionsframework_options() {
 	
-	// TEST DATA
-	$test_array = array("one" => "One","two" => "Two","three" => "Three","four" => "Four","five" => "Five");
-	
-	// MULTICHECK ARRAY
-	$multicheck_array = array("one" => "French Toast", "two" => "Pancake", "three" => "Omelette", "four" => "Crepe", "five" => "Waffle");
-	
-	// MULTICHECK DEFAULTS
-	$multicheck_defaults = array("one" => true,"five" => true);
-	
-	// BACKGROUND DEFAULTS
-	$background_defaults = array('color' => '', 'image' => '', 'repeat' => 'repeat','position' => 'top center','attachment'=>'scroll');
-	
-	// PULL ALL THE CATEGORIES INTO AN ARRAY
-	$options_categories = array();  
-	$options_categories_obj = get_categories();
-	foreach ($options_categories_obj as $category) {
-    	$options_categories[$category->cat_ID] = $category->cat_name;
-	}
-	
-	// PULL ALL THE PAGES INTO AN ARRAY
-	$options_pages = array();  
-	$options_pages_obj = get_pages('sort_column=post_parent,menu_order');
-	$options_pages['false'] = 'Select a page:';
-	foreach ($options_pages_obj as $page) {
-    	$options_pages[$page->ID] = $page->post_title;
-	}
-		
-	// IF USING IMAGE RADIO BUTTONS, DEFINE A DIRECTORY PATH
-	$imagepath =  get_bloginfo('stylesheet_directory') . '/css/layouts/icons/';
-	$stylespath = get_bloginfo('stylesheet_directory') . '/css/styles/';
-	
 
 	/*
 	*	BUILD OUR OPTIONS PANEL TABS
 	*/			
 	$options = array();
 		
-		
+
 	/*
 	*	INTRODUCTION TAB
 	*/
+	$options = array_merge( $options, introduction_options() );
+
+	
+	/*
+	*	TYPOGRAPHY OPTIONS
+	*/
+	$options = array_merge( $options, typography_options() );
+	
+	/*
+	*	HYPERLINK OPTIONS
+	*/
+	$options = array_merge( $options, hyperlinks_options() );
+	
+	/*
+	*	HEADER OPTIONS
+	*/
+	$options = array_merge( $options, header_options() );
+	
+	/*
+	*	NAVIGATION LAYOUT OPTIONS
+	*/
+	$options = array_merge( $options, navigation_layout_options() );
+	
+	/*
+	*	BRANDING ( LOGO + FAVICON) OPTIONS
+	*/
+	$options = array_merge( $options, branding_options() );
+						
+	/*
+	*	TEMPLATE LAYOUT OPTIONS
+	*/
+	$options = array_merge( $options, template_layout_options() );
+		
+	/*
+	*	ALTERNATIVE STYLES LAYOUT TAB
+	*/	
+	$options = array_merge($options, alternative_styles_options() );
+	
+	/*
+	*	INDEX TEMPLATE LOOP
+	*/	
+	$options = array_merge($options, template_index_settings() );
+	
+	/*
+	*	SINGLE LOOP SETTINGS
+	*/	
+	$options = array_merge($options, template_single_settings() );
+		
+	/*
+	*	PAGE LOOP SETTINGS
+	*/	
+	$options = array_merge($options, template_page_settings() );
+		
+	/*
+	*	ARCHIVE LOOP SETTINGS
+	*/	
+	$options = array_merge($options, template_archive_settings() );
+	
+	/*
+	*	CUSTOM CSS
+	*/
+	$options = array_merge($options, template_custom_css_options() );
+	
+	/*
+	*	CREDITS
+	*/	
+	$options = array_merge($options, template_credits_options() );
+	
+	/*
+	*	TEST OPTIONS
+	*/
+	$options = array_merge($options, test_options() );
+								
+								
+								
+								
+	
+	return $options;
+}
+
+
+
+
+
+
+/*
+*	INTRODUCTIONS OPTIONS
+*/
+function introduction_options() {
 	$options[] = array( 
 							"name" => "Introduction",
 							"type" => "heading"
@@ -118,249 +175,9 @@ function optionsframework_options() {
 							secure framework.  If you have the chops to improve upon the code base, you can also submit changes.									
 							",
 						);										
-	
 
-	
-	/*
-	*	TYPOGRAPHY OPTIONS
-	*/
-	$options = array_merge( $options, typography_options() );
-	
-	/*
-	*	HYPERLINK OPTIONS
-	*/
-	$options = array_merge( $options, hyperlinks_options() );
-	
-	/*
-	*	HEADER OPTIONS
-	*/
-	$options = array_merge( $options, header_options() );
-	
-	/*
-	*	BRANDING ( LOGO + FAVICON) OPTIONS
-	*/
-	$options = array_merge( $options, branding_options() );
-						
-	/*
-	*	TEMPLATE LAYOUT OPTIONS
-	*/
-	$options = array_merge( $options, template_layout_options() );
-		
-	/*
-	*	ALTERNATIVE STYLES LAYOUT TAB
-	*/	
-	$options = array_merge($options, alternative_styles_options() );
-	
-	/*
-	*	INDEX TEMPLATE LOOP
-	*/	
-	$options = array_merge($options, template_index_settings() );
-	
-	/*
-	*	SINGLE LOOP SETTINGS
-	*/	
-	$options = array_merge($options, template_single_settings() );
-		
-	/*
-	*	PAGE LOOP SETTINGS
-	*/	
-	$options = array_merge($options, template_page_settings() );
-		
-	/*
-	*	ARCHIVE LOOP SETTINGS
-	*/	
-	$options = array_merge($options, template_archive_settings() );
-	
-	
-	
-	
-	/*
-	*	CREDITS
-	*/	
-	$options[] = array( 
-							"name" => "Credits & Liscense",
-							"type" => "heading"
-						);			
-
-	$options[] = array( 
-							"name" => "Credits",
-							"type" => "info",
-							"std" => "It's important to give credit to the variety of projects and individuals that have 
-							contributed in direct and indirect ways.
-						",
-					);		
-
-	
-	/*
-	*	CUSTOM CSS
-	*/	
-	$my_options[] = array( 
-							"name" => "Custom Css",
-							"type" => "heading"
-						);			
-
-	$my_options[] = array( 
-							"name" => "Custom Css",
-							"type" => "info",
-							"desc" => "
-								theFOUNDATION has an organized way of including css. Familiarize yourself with the setup to quickly identify elements
-								for styling. You can read up on the CSS guide for more information. There is also a community css code snippet respository,
-								if you are looking for ideas to  quickly add css styling for specifc design elements to your website.
-								
-								<br /><br />
-								If you are inclined you can also easily add your own css rules below.  You can also load a custom css
-								file if you like as well. If you like your changes to be permanent, then I recommend that you add a 
-								css file to your										
-								<span class='highlight'>wp-content/themes/<strong>childthemefoldername</strong>/css/load/</span> folder.  
-								Any css file located there will not be erased if you decide to reset the options.
-							",
-						);		
-	$my_options[] = array( 
-							"name" => "Custom CSS",
-							"desc" => "Quickly add some CSS to your theme by adding it to this block.",
-							"id" => "custom_css",
-							"std" => "",
-							"type" => "textarea"
-						);
-								
-								
-								
-								
-								
-								
-								
-								
-	
-	$options[] = array( "name" => "Basic Settings",
-						"type" => "heading");
-							
-	$options[] = array( "name" => "Input Text Mini",
-						"desc" => "A mini text input field.",
-						"id" => "example_text_mini",
-						"std" => "Default",
-						"class" => "mini",
-						"type" => "text");
-								
-	$options[] = array( "name" => "Input Text",
-						"desc" => "A text input field.",
-						"id" => "example_text",
-						"std" => "Default Value",
-						"type" => "text");
-							
-	$options[] = array( "name" => "Textarea",
-						"desc" => "Textarea description.",
-						"id" => "example_textarea",
-						"std" => "Default Text",
-						"type" => "textarea"); 
-						
-	$options[] = array( "name" => "Input Select Small",
-						"desc" => "Small Select Box.",
-						"id" => "example_select",
-						"std" => "three",
-						"type" => "select",
-						"class" => "mini", //mini, tiny, small
-						"options" => $test_array);			 
-						
-	$options[] = array( "name" => "Input Select Wide",
-						"desc" => "A wider select box.",
-						"id" => "example_select_wide",
-						"std" => "two",
-						"type" => "select",
-						"options" => $test_array);
-						
-	$options[] = array( "name" => "Select a Category",
-						"desc" => "Passed an array of categories with cat_ID and cat_name",
-						"id" => "example_select_categories",
-						"type" => "select",
-						"options" => $options_categories);
-						
-	$options[] = array( "name" => "Select a Page",
-						"desc" => "Passed an pages with ID and post_title",
-						"id" => "example_select_pages",
-						"type" => "select",
-						"options" => $options_pages);
-						
-	$options[] = array( "name" => "Input Radio (one)",
-						"desc" => "Radio select with default options 'one'.",
-						"id" => "example_radio",
-						"std" => "one",
-						"type" => "radio",
-						"options" => $test_array);
-							
-	$options[] = array( "name" => "Example Info",
-						"desc" => "This is just some example information you can put in the panel.",
-						"type" => "info");
-											
-	$options[] = array( "name" => "Input Checkbox",
-						"desc" => "Example checkbox, defaults to true.",
-						"id" => "example_checkbox",
-						"std" => true,
-						"type" => "checkbox");
-						
-						
-						
-						
-						
-						
-						
-	$options[] = array( "name" => "Advanced Settings",
-						"type" => "heading");
-						
-	$options[] = array( "name" => "Check to Show a Hidden Text Input",
-						"desc" => "Click here and see what happens.",
-						"id" => "example_showhidden",
-						"type" => "checkbox");
-	
-	$options[] = array( "name" => "Hidden Text Input",
-						"desc" => "This option is hidden unless activated by a checkbox click.",
-						"id" => "example_text_hidden",
-						"std" => "Hello",
-						"class" => "hidden",
-						"type" => "text");
-						
-	$options[] = array( "name" => "Uploader Test",
-						"desc" => "This creates a full size uploader that previews the image.",
-						"id" => "example_uploader",
-						"type" => "upload");
-						
-				
-	$options[] = array( "name" =>  "Example Background",
-						"desc" => "Change the background CSS.",
-						"id" => "example_background",
-						"std" => $background_defaults, 
-						"type" => "background");
-								
-	$options[] = array( "name" => "Multicheck",
-						"desc" => "Multicheck description.",
-						"id" => "example_multicheck",
-						"std" => $multicheck_defaults, // These items get checked by default
-						"type" => "multicheck",
-						"options" => $multicheck_array);
-	$options[] = array( "name" => "Colorpicker",
-						"desc" => "No color selected by default.",
-						"id" => "example_colorpicker",
-						"std" => "",
-						"type" => "color");
-						
-	$options[] = array( "name" => "Typography",
-						"desc" => "Example typography.",
-						"id" => "example_typography",
-						"std" => array('size' => '12px','face' => 'verdana','style' => 'bold italic','color' => '#123456'),
-						"type" => "typography");			
 	return $options;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -408,14 +225,6 @@ function branding_options(){
 
 
 
-
-
-
-
-
-
-
-
 /*
 *	BACKGROUND OPTIONS
 */
@@ -445,7 +254,6 @@ function background_options(){
 	return $options;
 
 }
-
 
 
 
@@ -484,29 +292,32 @@ function header_options() {
 }
 
 
+/*
+*	NAVIGATION OPTIONS
+*/
+function navigation_layout_options() {
 
+	$options[] = array( 
+				"name" => "Site Navigation",
+				"type" => "heading"
+			);			
+	$options[] = array( 
+				"name" => "Navigation  Layout",
+				"type" => "info",
+				"desc" => __("
+					Select your Navigation Layout
+				")
+			);
+	$options[] = array( 
+				"name" => "Enable Drop Down Menu Support",
+				"desc" => "Enable Drop Down Menu Support.",
+				"id" => "enable_suckerfish_dropdown",
+				"std" => false,
+				"type" => "checkbox"
+			);
+	return $options;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
@@ -515,27 +326,56 @@ function header_options() {
 */
 function typography_options() {
 
+	// MULTICHECK ARRAY
+	$cufonfonts = find_cufon_fonts();
+
 	$options[] = array( 
 						"name" => __('Typography', TEXTDOMAIN),
 						"type" => "heading"
-					);	
+					);
 	$options[] = array( 
-					"name" => "Typography",
-					"desc" => "Default Site Type Settings",
+						"name" => "Typography  Styles",
+						"type" => "info",
+						"desc" => __("
+							Setting good typography  is an important aspect of design.
+						")
+						);						
+	$options[] = array( 
+					"name" => "Body Font",
+					"desc" => "Set the default font style, size weight and color. More specific CSS rules will over ride these settings.",
 					"id" => "default_font_settings",
 					"std" => array('size' => '12px','face' => 'verdana','style' => 'bold italic','color' => '#123456'),
 					"type" => "typography"
 					);		
 						
+	$options[] = array( 
+				"name" => "Cufon",
+				"desc" => "Enable Support for Cufon Font Replacement",
+				"id" => "enable_cufon_support",
+				"std" => false,
+				"type" => "checkbox"
+			);
+			
+	$options[] = array( "name" => "Select the Cufon Fonts you like to Use",
+						"desc" => "Select the Cufon fonts  you would like to Use.",
+						"id" => "enable_cufon_font_files",
+						"std" => array(),
+						"type" => "multicheck",
+						"options" => $cufonfonts
+						);		
+
+			
+	$options[] = array( 
+							"name" => "Apply Cufon Jquery Rules Here",
+							"desc" => "Include your Cufon Rules. Be sure to use proper syntax, otherwise it might break your website. Double Quotes will be escaped. Use Single quotes instead",
+							"id" => "cufon_rules",
+							"std" => "",
+							"type" => "textarea"
+						);			
+						
 	return $options;
 
 }
-
-
-
-
-
-
 
 
 
@@ -552,7 +392,7 @@ function hyperlinks_options() {
 						"name" => "Hyperlink Styles",
 						"type" => "info",
 						"desc" => __("
-							Making your website links visible and visually discernable to help your visitor navigate your website. 
+							Making your website links visible and visually discernable will help your visitor navigate your website. 
 							Take the time to adjust your default hyperlink color and styles.<br /> <br />
 							If you like to be more specific, please check out theFOUNDATION guide to styling links using the power
 							of CSS.
@@ -597,19 +437,6 @@ function hyperlinks_options() {
 	return $options;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -715,20 +542,6 @@ function template_layout_options() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 *	ALTERNATIVE STYLES
 */
@@ -763,18 +576,9 @@ function alternative_styles_options() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+/*
+*	INDEX LAYOUT
+*/
 function template_index_settings(){
 
 	// IF USING IMAGE RADIO BUTTONS, DEFINE A DIRECTORY PATH
@@ -806,7 +610,7 @@ function template_index_settings(){
 				'tag' => 'Tag'
 				);
 	$options[] = array( 
-				"name" => "Enable Itemhead Meta Display",
+				"name" => "Enable Entry Head Meta Display",
 				"desc" => "Each listed Post entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
 				"id" => "index_itemhead_meta",
 				"std" => array ( 
@@ -828,7 +632,7 @@ function template_index_settings(){
 					)
 				);								
 	$options[] = array( 
-				"name" => "Enable Itemfoot Meta Display",
+				"name" => "Enable Entry Foot Meta Display",
 				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
 				"id" => "index_itemfoot_meta",
 				"std" => array ( 
@@ -865,7 +669,7 @@ function template_index_settings(){
 
 
 /*
-*	TEMPLATE PAGE SETTINGS
+*	LAYOUT FOR INDEX.PHP
 */
 function template_page_settings(){
 
@@ -898,7 +702,7 @@ function template_page_settings(){
 				'tag' => 'Tag'
 				);
 	$options[] = array( 
-				"name" => "Enable Itemhead Meta Display",
+				"name" => "Enable Entry Head Meta Display",
 				"desc" => "Each listed Page entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
 				"id" => "page_itemhead_meta",
 				"std" => array ( 
@@ -914,7 +718,7 @@ function template_page_settings(){
 					)
 				);								
 	$options[] = array( 
-				"name" => "Enable Itemfoot Meta Display",
+				"name" => "Enable Entry Foot Meta Display",
 				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
 				"id" => "page_itemfoot_meta",
 				"std" => array ( 
@@ -945,7 +749,7 @@ function template_page_settings(){
 
 
 /*
-*	TEMPLATE SINGLE SETTINGS
+*	LAYOUT FOR SINGLE
 */
 function template_single_settings(){
 
@@ -978,7 +782,7 @@ function template_single_settings(){
 				'tag' => 'Tag'
 				);
 	$options[] = array( 
-				"name" => "Enable Itemhead Meta Display",
+				"name" => "Enable Entry Head Meta Display",
 				"desc" => "Each listed Post entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
 				"id" => "single_itemhead_meta",
 				"std" => array ( 
@@ -1000,7 +804,7 @@ function template_single_settings(){
 					)
 				);								
 	$options[] = array( 
-				"name" => "Enable Itemfoot Meta Display",
+				"name" => "Enable Entry Foot Meta Display",
 				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
 				"id" => "single_itemfoot_meta",
 				"std" => array ( 
@@ -1045,7 +849,7 @@ function template_archive_settings(){
 	$stylespath = get_bloginfo('stylesheet_directory') . '/css/styles/';
 	
 	$options[] = array( 
-				"name" => __('Loop for Achive', TEXTDOMAIN),
+				"name" => __('Loop for Archive', TEXTDOMAIN),
 				"type" => "heading"
 				);			
 	$options[] = array( 
@@ -1069,7 +873,7 @@ function template_archive_settings(){
 				'tag' => 'Tag'
 				);
 	$options[] = array( 
-				"name" => "Enable Itemhead Meta Display",
+				"name" => "Enable Entry Head Meta Display",
 				"desc" => "Each listed Page entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
 				"id" => "page_itemhead_meta",
 				"std" => array ( 
@@ -1085,7 +889,7 @@ function template_archive_settings(){
 					)
 				);								
 	$options[] = array( 
-				"name" => "Enable Itemfoot Meta Display",
+				"name" => "Enable Entry Foot Meta Display",
 				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
 				"id" => "page_itemfoot_meta",
 				"std" => array ( 
@@ -1110,6 +914,230 @@ function template_archive_settings(){
 		
 	return $options;
 }
+
+
+
+/*
+*	CUSTOM CSS SETTINGS
+*/
+function template_custom_css_options() {
+	$options[] = array( 
+							"name" => "Custom Css",
+							"type" => "heading"
+						);			
+
+	$options[] = array( 
+							"name" => "Custom Css",
+							"type" => "info",
+							"desc" => "
+								theFOUNDATION has an organized way of including css. Familiarize yourself with the setup to quickly identify elements
+								for styling. You can read up on the CSS guide for more information. There is also a community css code snippet respository,
+								if you are looking for ideas to  quickly add css styling for specifc design elements to your website.
+								
+								<br /><br />
+								If you are inclined you can also easily add your own css rules below.  You can also load a custom css
+								file if you like as well. If you like your changes to be permanent, then I recommend that you add a 
+								css file to your										
+								<span class='highlight'>wp-content/themes/<strong>childthemefoldername</strong>/css/load/</span> folder.  
+								Any css file located there will not be erased if you decide to reset the options.
+							",
+						);		
+	$options[] = array( 
+							"name" => "Custom CSS",
+							"desc" => "Quickly add some CSS to your theme by adding it to this block.",
+							"id" => "custom_css",
+							"std" => "",
+							"type" => "textarea"
+						);
+						
+	return $options;
+								
+}
+
+
+
+/*
+*	CREDITS OPTIONS
+*/
+function template_credits_options() {
+	$options[] = array( 
+							"name" => "Credits & Liscense",
+							"type" => "heading"
+						);			
+
+	$options[] = array( 
+							"name" => "Credits",
+							"type" => "info",
+							"desc" => "It's important to give credit to the variety of projects and individuals that have 
+							contributed in direct and indirect ways.
+						",
+					);
+
+	return $options;
+
+}
+
+
+/*
+*	TEST OPTIONS
+*/
+function test_options() {
+
+	
+	// PULL ALL THE CATEGORIES INTO AN ARRAY
+	$options_categories = array();  
+	$options_categories_obj = get_categories();
+	foreach ($options_categories_obj as $category) {
+    	$options_categories[$category->cat_ID] = $category->cat_name;
+	}
+	
+	// PULL ALL THE PAGES INTO AN ARRAY
+	$options_pages = array();  
+	$options_pages_obj = get_pages('sort_column=post_parent,menu_order');
+	$options_pages['false'] = 'Select a page:';
+	foreach ($options_pages_obj as $page) {
+    	$options_pages[$page->ID] = $page->post_title;
+	}
+	
+	// TEST DATA
+	$test_array = array("one" => "One","two" => "Two","three" => "Three","four" => "Four","five" => "Five");
+	
+	// MULTICHECK ARRAY
+	$multicheck_array = array("one" => "French Toast", "two" => "Pancake", "three" => "Omelette", "four" => "Crepe", "five" => "Waffle");
+	
+	// MULTICHECK DEFAULTS
+	$multicheck_defaults = array("one" => true,"five" => true);
+	
+	// BACKGROUND DEFAULTS
+	$background_defaults = array('color' => '', 'image' => '', 'repeat' => 'repeat','position' => 'top center','attachment'=>'scroll');						
+
+
+	// IF USING IMAGE RADIO BUTTONS, DEFINE A DIRECTORY PATH
+	$imagepath =  get_bloginfo('stylesheet_directory') . '/css/layouts/icons/';
+	$stylespath = get_bloginfo('stylesheet_directory') . '/css/styles/';
+		
+	
+	//	 BASIC
+	$options[] = array( "name" => "Basic Settings",
+						"type" => "heading");
+							
+	$options[] = array( "name" => "Input Text Mini",
+						"desc" => "A mini text input field.",
+						"id" => "example_text_mini",
+						"std" => "Default",
+						"class" => "mini",
+						"type" => "text");
+								
+	$options[] = array( "name" => "Input Text",
+						"desc" => "A text input field.",
+						"id" => "example_text",
+						"std" => "Default Value",
+						"type" => "text");
+							
+	$options[] = array( "name" => "Textarea",
+						"desc" => "Textarea description.",
+						"id" => "example_textarea",
+						"std" => "Default Text",
+						"type" => "textarea"); 
+						
+	$options[] = array( "name" => "Input Select Small",
+						"desc" => "Small Select Box.",
+						"id" => "example_select",
+						"std" => "three",
+						"type" => "select",
+						"class" => "mini", //mini, tiny, small
+						"options" => $test_array);			 
+						
+	$options[] = array( "name" => "Input Select Wide",
+						"desc" => "A wider select box.",
+						"id" => "example_select_wide",
+						"std" => "two",
+						"type" => "select",
+						"options" => $test_array);
+						
+	$options[] = array( "name" => "Select a Category",
+						"desc" => "Passed an array of categories with cat_ID and cat_name",
+						"id" => "example_select_categories",
+						"type" => "select",
+						"options" => $options_categories);
+						
+	$options[] = array( "name" => "Select a Page",
+						"desc" => "Passed an pages with ID and post_title",
+						"id" => "example_select_pages",
+						"type" => "select",
+						"options" => $options_pages);
+						
+	$options[] = array( "name" => "Input Radio (one)",
+						"desc" => "Radio select with default options 'one'.",
+						"id" => "example_radio",
+						"std" => "one",
+						"type" => "radio",
+						"options" => $test_array);
+							
+	$options[] = array( "name" => "Example Info",
+						"desc" => "This is just some example information you can put in the panel.",
+						"type" => "info");
+											
+	$options[] = array( "name" => "Input Checkbox",
+						"desc" => "Example checkbox, defaults to true.",
+						"id" => "example_checkbox",
+						"std" => true,
+						"type" => "checkbox");
+						
+						
+						
+						
+						
+	// ADVANCE						
+	$options[] = array( "name" => "Advanced Settings",
+						"type" => "heading");
+						
+	$options[] = array( "name" => "Check to Show a Hidden Text Input",
+						"desc" => "Click here and see what happens.",
+						"id" => "example_showhidden",
+						"type" => "checkbox");
+	
+	$options[] = array( "name" => "Hidden Text Input",
+						"desc" => "This option is hidden unless activated by a checkbox click.",
+						"id" => "example_text_hidden",
+						"std" => "Hello",
+						"class" => "hidden",
+						"type" => "text");
+						
+	$options[] = array( "name" => "Uploader Test",
+						"desc" => "This creates a full size uploader that previews the image.",
+						"id" => "example_uploader",
+						"type" => "upload");
+						
+				
+	$options[] = array( "name" =>  "Example Background",
+						"desc" => "Change the background CSS.",
+						"id" => "example_background",
+						"std" => $background_defaults, 
+						"type" => "background");
+								
+	$options[] = array( "name" => "Multicheck",
+						"desc" => "Multicheck description.",
+						"id" => "example_multicheck",
+						"std" => $multicheck_defaults, // These items get checked by default
+						"type" => "multicheck",
+						"options" => $multicheck_array);
+	$options[] = array( "name" => "Colorpicker",
+						"desc" => "No color selected by default.",
+						"id" => "example_colorpicker",
+						"std" => "",
+						"type" => "color");
+						
+	$options[] = array( "name" => "Typography",
+						"desc" => "Example typography.",
+						"id" => "example_typography",
+						"std" => array('size' => '12px','face' => 'verdana','style' => 'bold italic','color' => '#123456'),
+						"type" => "typography");		
+						
+	return $options;
+}
+
+
 
 
 ?>
