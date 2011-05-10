@@ -30,75 +30,6 @@ if ( !function_exists( 'of_get_option' ) ) {
 
 
 
-/* 
- * This is an example of how to add custom scripts to the options panel.
- * This one shows/hides the an option when a checkbox is clicked.
- */
-
-
-function optionsframework_custom_scripts() { ?>
-
-<!-- functions-appearance-options.php -->
-<script type="text/javascript">
-
-jQuery(document).ready(function() {
-
-
-	/* CUFON FONT OPTIONS APPEARANCE > THEMEOPTIONS > TYPOGRAPHY */
-	jQuery('#section-enable_cufon_font_files .heading').hide();
-	jQuery('#section-cufon_rules .heading').hide();		
-
-	jQuery('#enable_cufon_support').click(function() {
-  		jQuery('#section-enable_cufon_font_files').fadeToggle(400);
-  		jQuery('#section-cufon_rules').fadeToggle(400);
-	});
-
-	if (jQuery('#enable_cufon_support:checked').val() !== undefined) {
-		jQuery('#section-enable_cufon_font_files').show();
-		jQuery('#section-cufon_rules').show();		
-	} else {
-		jQuery('#section-enable_cufon_font_files').hide();
-		jQuery('#section-cufon_rules').show();		
-	}
-	
-	
-	/* TOGGLE INFO HEADING P */
-	jQuery('#of-nav a').click(function() {
-  			jQuery('#of_container #content .group .section-info P').show();
-	});
-
-	jQuery('#of_container #content .group .section-info').click(function() {
-  			jQuery('p', this).slideToggle();
-	});
-	
-});
-
-
-	<?php write_cufon_for_admin();	 ?>
-</script>
- 
-<?php
-}
-add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
-
-
-
-
-
-
-/* 
- * Enqueue Sortable Experiment
- */
-if(is_admin()) {
-	wp_enqueue_script( array("jquery", "jquery-ui-core", "interface", "jquery-ui-sortable", "wp-lists", "jquery-ui-sortable") );
-}
-
-
-
-
-
-
-
 
 
 
@@ -685,5 +616,73 @@ print <<<END
 END;
 }
 add_action('fdt_print_dynamic_themeoptions_js', 'thefdt_post_edit_links');
+
+
+
+
+
+
+
+
+function optionsframework_custom_scripts() { ?>
+
+<!-- functions-appearance-options.php -->
+<script type="text/javascript">
+
+jQuery(document).ready(function() {
+
+	/* CUFON FONT OPTIONS APPEARANCE > THEMEOPTIONS > TYPOGRAPHY */
+	jQuery('#section-enable_cufon_font_files .heading').hide();
+	jQuery('#section-cufon_rules .heading').hide();		
+
+	jQuery('#enable_cufon_support').click(function() {
+  		jQuery('#section-enable_cufon_font_files').fadeToggle(400);
+  		jQuery('#section-cufon_rules').fadeToggle(400);
+	});
+
+	if (jQuery('#enable_cufon_support:checked').val() !== undefined) {
+		jQuery('#section-enable_cufon_font_files').show();
+		jQuery('#section-cufon_rules').show();		
+	} else {
+		jQuery('#section-enable_cufon_font_files').hide();
+		jQuery('#section-cufon_rules').hide();		
+	}
+	
+	
+	/* TOGGLE INFO HEADING P */
+	jQuery('#of-nav a').click(function() {
+  			jQuery('#of_container #content .group .section-info P').show();
+	});
+
+	jQuery('#of_container #content .group .section-info').click(function() {
+  			jQuery('p', this).slideToggle();
+	});
+	
+});
+
+
+	<?php write_cufon_for_admin();	 ?>
+	
+</script>
+ 
+<?php
+}
+if ( function_exists( 'of_get_option' ) ) {
+	add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>

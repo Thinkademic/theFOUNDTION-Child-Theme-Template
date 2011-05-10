@@ -5,7 +5,6 @@
  * If the identifier changes, it'll appear as if the options have been reset.
  * 
  */
-
 function optionsframework_option_name() {
 
 	// This gets the theme name from the stylesheet (lowercase and without spaces)
@@ -18,6 +17,8 @@ function optionsframework_option_name() {
 	update_option('optionsframework', $optionsframework_settings);
 
 }
+
+
 
 /**
  * Defines an array of options that will be used to generate the settings page and be saved in the database.
@@ -107,11 +108,7 @@ function optionsframework_options() {
 	/*
 	*	TEST OPTIONS
 	*/
-	$options = array_merge($options, test_options() );
-								
-								
-								
-								
+	#$options = array_merge($options, test_options() );								
 	
 	return $options;
 }
@@ -131,15 +128,14 @@ function introduction_options() {
 						);			
 	$options[] = array( 
 						"name" => "Welcome",
-						"desc" => "You are using a child theme that is built on <b><a href='http://framwork.thefoundationthemes.com'>theFOUNDATION</a></b> theme framework to power your WordPress Site.
+						"desc" => "You are using a child theme that is built on <b><a href='http://framework.thefoundationthemes.com'>theFOUNDATION</a></b> theme framework to power your WordPress Site.
 									There are many aspects of your website that can be customized from the options panel. It's perfect for most users who need make quick adjustments
 									to their website. 
 									
-									<br/><br />If you are an advance or inclined user and would like to build child theme on <b>theFOUNDATION</b> framework, then please take the time to watch/read up 
+									If you are an advance or inclined user and would like to build child theme on <b>theFOUNDATION</b> framework, then please take the time to watch/read up 
 									on how the framework is organized. The overview is informative and brief and will help you navigate the code base.  It will also help you get familiar with the naming conventions and nomenclature.
 									
-									<br/><br />One benefit with your decision to use this framework is that you have an architect dedicated to growing quality support documentation. For more specific information please check out the areas below.
-									
+									One benefit with your decision to use this framework is that you have an architect dedicated to growing quality support documentation. For more specific information please check out the areas below.		
 						",
 						"type" => "info");
 	$options[] = array( 
@@ -158,7 +154,6 @@ function introduction_options() {
 							gallery for websites that are built on theFOUNDATION framework.
 							",
 						);						
-						
 	$options[] = array( 
 							"name" => "Request a feature",
 							"type" => "info",
@@ -706,9 +701,9 @@ function template_page_settings(){
 				"desc" => "Each listed Page entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
 				"id" => "page_itemhead_meta",
 				"std" => array ( 
-						'author' => true,
-						'date' => true,
-						'time' => true				
+						'author' => false,
+						'date' => false,
+						'time' => false				
 					),
 				"type" => "multicheck",
 				"options" => array ( 
