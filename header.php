@@ -11,8 +11,7 @@
 	<link href='<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico' rel='shortcut icon' />
 	
 	<!-- CSS -->
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/reset.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/text.css" type="text/css" media="screen" />	
+	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/reset.css" type="text/css" media="screen" />	
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/menu.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/widgets.css" type="text/css" media="screen" />	
