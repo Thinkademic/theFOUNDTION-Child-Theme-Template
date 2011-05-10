@@ -16,7 +16,6 @@
 
 require_once(STYLESHEETPATH . '/functions/functions-appearance-options.php');
 
-
 // DEFINE DOES NOT OCCUR EARLY ENOUGH FOR CHILD THEMES
 define( 'TEXTDOMAIN', 'thefdt' );
 define( 'THEMECUSTOMMETAKEY', '_fsl_media_options' );

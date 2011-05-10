@@ -35,13 +35,16 @@ if ( !function_exists( 'of_get_option' ) ) {
  * This one shows/hides the an option when a checkbox is clicked.
  */
 
-add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
 
 function optionsframework_custom_scripts() { ?>
 
+<!-- functions-appearance-options.php -->
 <script type="text/javascript">
+
 jQuery(document).ready(function() {
 
+
+	/* CUFON FONT OPTIONS APPEARANCE > THEMEOPTIONS > TYPOGRAPHY */
 	jQuery('#section-enable_cufon_font_files .heading').hide();
 	jQuery('#section-cufon_rules .heading').hide();		
 
@@ -49,7 +52,6 @@ jQuery(document).ready(function() {
   		jQuery('#section-enable_cufon_font_files').fadeToggle(400);
   		jQuery('#section-cufon_rules').fadeToggle(400);
 	});
-	
 
 	if (jQuery('#enable_cufon_support:checked').val() !== undefined) {
 		jQuery('#section-enable_cufon_font_files').show();
@@ -60,38 +62,29 @@ jQuery(document).ready(function() {
 	}
 	
 	
-
-	
-
-	/*
+	/* TOGGLE INFO HEADING P */
 	jQuery('#of-nav a').click(function() {
-  			jQuery('#of_container #content .group .section-info P').hide();
+  			jQuery('#of_container #content .group .section-info P').show();
 	});
 
-
-
-	jQuery("#of_container #content .group .section-info").hoverIntent(
-	  function () {
-		jQuery("p", this).slideDown('slow');
-	  }, 
-	  function () {
-		jQuery("p", this).slideUp('fast');
-	  }
-	);
-	*/
-	
-
+	jQuery('#of_container #content .group .section-info').click(function() {
+  			jQuery('p', this).slideToggle();
+	});
 	
 });
 
 
-
 	<?php write_cufon_for_admin();	 ?>
-
 </script>
  
 <?php
 }
+add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
+
+
+
+
+
 
 /* 
  * Enqueue Sortable Experiment
@@ -138,7 +131,6 @@ function find_alternative_styles() {
 	return $alt_stylesheets;
 }
 
-
 /*	
 *	FIND LAYOUTS 
 *	NEEDS TO WORK
@@ -161,11 +153,8 @@ function find_layouts() {
 	return $alt_stylesheets;
 }
 
-
-
-
 /*
-*	CURRENT TEMPLATE
+*	DETERMINE CURRENT TEMPLATE AND USE SELECTED LAYOUT 
 */
 function layout_for_current_template(){
 
@@ -212,11 +201,6 @@ function enqueue_template_layout() {
 }
 add_action('fdt_enqueue_dynamic_css', 'enqueue_template_layout');
 
-
-
-
-
-
 /*	
 *	ENQUEUE STYLES SHEETS
 */
@@ -244,7 +228,7 @@ add_action('fdt_enqueue_dynamic_css', 'enqueue_alternative_stylesheets');
 
 
 /*	
-*	FIND CUFON FONTS FOR INCLUSION
+*	FIND CUFON FONT-FAMILY NAMES
 */
 function find_cufon_fonts() {
 
@@ -293,7 +277,6 @@ function find_cufon_fonts_filename() {
 	return $cuffon_fonts;
 }
 
-
 /*	
 *	ENQUEUE CUFON FONTS
 */
@@ -318,15 +301,8 @@ function enqueue_cufon_fonts() {
 }
 add_action('fdt_enqueue_dynamic_js', 'enqueue_cufon_fonts');
 
-
-
-
-
-
-
-
 /*	
-*	ADMIN ENQUEUE CUFON FONTS
+*	ADMIN - ENQUEUE CUFON FONTS
 */
 function admin_enqueue_cufon_fonts() {
 	
@@ -343,12 +319,13 @@ function admin_enqueue_cufon_fonts() {
 		
 		}
 		
+		
 }
 add_action('admin_print_scripts', 'admin_enqueue_cufon_fonts');
 
 
 /*	
-*	ADMIN WRITE CUFON COMMANDS
+*	ADMIN - FIND FONTS AND PRINT CUFON SCRIPT
 */
 function write_cufon_for_admin() {
 
@@ -364,8 +341,7 @@ function write_cufon_for_admin() {
 				if($value) {
 					$selector = "#".$themename."-".enable_cufon_font_files."-".$key." + label";
 					$font_family = $font_array[$key];
-					write_cufon_script($selector, $font_family);
-					
+					write_cufon_script($selector, $font_family);	
 				}	
 			}
 		
@@ -373,11 +349,10 @@ function write_cufon_for_admin() {
 		
 }
 
-
-
-
  
- 
+/*	
+*	ADMIN - PRINT CUFON SCRIPT
+*/
 function write_cufon_script( $selector, $font_family ){
 print <<<END
 
@@ -386,34 +361,29 @@ END;
 }
 
 
- /**
-  * extract name of the font
-  *
-  * @since 1.0
-  */
- function read_font_name($inputStr, $delimeterLeft, $delimeterRight, $debug = false)
- {
-     $posLeft = strpos($inputStr, $delimeterLeft);
-     if ($posLeft === false)
-     {
-         if ($debug)
-         {
-             echo "Warning: left delimiter '{$delimeterLeft}' not found";
-         }
-         return false;
-     }
-     $posLeft += strlen($delimeterLeft);
-     $posRight = strpos($inputStr, $delimeterRight, $posLeft);
-     if ($posRight === false)
-     {
-         if ($debug)
-         {
-             echo "Warning: right delimiter '{$delimeterRight}' not found";
-         }
-         return false;
-     }
-     return substr($inputStr, $posLeft, $posRight - $posLeft);
- } 
+/*
+*	ADMIN - FIND FONT-FAMILY NAME
+*/
+function read_font_name($inputStr, $delimeterLeft, $delimeterRight, $debug = false) {
+ 
+	$posLeft = strpos($inputStr, $delimeterLeft);
+	if ($posLeft === false) :
+		if ($debug)
+			echo "Warning: left delimiter '{$delimeterLeft}' not found";
+		return false;
+	endif;
+ 
+	$posLeft += strlen($delimeterLeft);
+	$posRight = strpos($inputStr, $delimeterRight, $posLeft);
+ 
+	if ($posRight === false) :
+		if ($debug) 
+				echo "Warning: right delimiter '{$delimeterRight}' not found";
+		return false;
+	endif;
+ 
+	return substr($inputStr, $posLeft, $posRight - $posLeft);
+} 
 
  
  
@@ -460,6 +430,12 @@ function thefdt_get_current_template( $echo = false ) {
 	
 	
 
+
+
+
+
+
+
 	
 /*
 *	TT - POST HEADER ACTION HOOK
@@ -467,6 +443,7 @@ function thefdt_get_current_template( $echo = false ) {
 function thefdt_loop_header() {
 	do_action("thefdt_loop_header");
 }
+
 /*
 *	RETRIEVE THE POST HEADER
 *	LABEL/TEXT THAT GOES BEFORE THE LOOP
@@ -484,16 +461,13 @@ function thefdt_get_loop_header() {
 }
 add_action('thefdt_loop_header', 'thefdt_get_loop_header');
 
-
-
-
-
 /*
 *	POST FOOTER ACTION HOOK
 */
 function thefdt_loop_footer() {
 	do_action("thefdt_loop_footer");
 }
+
 /*
 *	RETRIEVE THE POSTS FOOTER
 *	LABEL/TEXT THAT GOES BEFORE THE LOOP
