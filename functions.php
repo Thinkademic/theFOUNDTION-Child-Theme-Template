@@ -14,6 +14,10 @@
  http://thefoundationthemes.com/
 **************************************************************/
 
+
+
+
+
 /*
 *	DEFINE DOES NOT OCCUR EARLY ENOUGH FOR CHILD THEMES
 */	
@@ -21,10 +25,17 @@ define( 'TEXTDOMAIN', 'thefdt' );
 define( 'THEMECUSTOMMETAKEY', '_fsl_media_options' );
 
 
+
+
+
 /*
 *	LOAD OPTIONS, USES OPTIONS FRAMEWORK
 */
 require_once(STYLESHEETPATH . '/functions/functions-appearance-options.php');
+
+
+
+
 
 
 /**************************************************************
@@ -47,9 +58,10 @@ if( of_get_option( 'enable_custom_posttype_post', false ) == true)
 if( of_get_option( 'enable_custom_posttype_dictionary', false ) == true )
 	require_once(TEMPLATEPATH . '/functions/functions-posttype-dictionary.php');
 
-
-
-
+	
+	
+	
+	
 /**************************************************************
  [01] CHILD THEME APPEARANCE OPTION OVERRIDES
 **************************************************************/
@@ -59,20 +71,33 @@ require_once(STYLESHEETPATH . '/functions/functions-appearance-widgets.php');
 require_once(STYLESHEETPATH . '/functions/functions-appearance-menu.php');
 
 
+
+
+
 /**************************************************************
  [02] CHILD THEME FONT FUNCTIONS OVERRIDE
 **************************************************************/
 require_once(STYLESHEETPATH . '/functions/functions-fonts.php');
+
+
+
+
 
 /**************************************************************
  [03] CHILDTHEME JQUERY + JQUERY LIBRARIES OVERRIDES
 **************************************************************/
 require_once(STYLESHEETPATH . '/functions/functions-jquery.php');
 
+
+
+
+
 /**************************************************************
  [04] OVERRIDES FOR 3rd PARTY PLUGINS
 **************************************************************/
 require_once(STYLESHEETPATH . '/functions/functions-override-plugin.php');
+
+
 
 
 /**************************************************************

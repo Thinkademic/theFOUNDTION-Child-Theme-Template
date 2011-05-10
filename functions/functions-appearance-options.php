@@ -123,7 +123,7 @@ function enqueue_template_layout() {
 		// SETTINGS -> MEDIA -> EMBED -> MAX WIDTH
 		// AND ALTER THE CONTENT WIDTH
 		if($layout_file_name == 'layout-p.css' || $layout_file_name == 'layout-ts-p.css' || $layout_file_name == 'layout-p-bs.css' ) {
-			$content_width = of_get_option(  '$set_content_primary_width', '200' ) + of_get_option(  'set_content_secondary_width', '200' );		
+			# $content_width = of_get_option(  '$set_content_primary_width', '200' ) + of_get_option(  'set_content_secondary_width', '200' );		
 		}
 
 		// REGISTER & ENQUEUE STYLE
@@ -623,7 +623,9 @@ add_action('fdt_print_dynamic_themeoptions_js', 'thefdt_post_edit_links');
 
 
 
-
+/*
+*	OPTIONS FRAMEWORK JQUERY
+*/
 function optionsframework_custom_scripts() { ?>
 
 <!-- functions-appearance-options.php -->
@@ -675,11 +677,60 @@ if ( function_exists( 'of_get_option' ) ) {
 
 
 
+/*
+*	OUTPUT CSS RULES FOR HREF
+*/
+function body_href_link_css_output() {
+
+$link = of_get_option( 'body_href_link_value', '#333333' );
+$visited = of_get_option( 'body_href_visited_value', '#333333' );
+$hover = of_get_option( 'body_href_hover_value', '#333333' );
+$active = of_get_option( 'body_href_active_value', '#333333' );
+
+print <<<END
+	BODY A:link {
+		color: {$link};
+	}
+	BODY A:visited {
+		color: {$visited};
+	}
+	BODY A:hover {
+		color: {$hover};
+	}
+	BODY A:active 	{
+		color: {$active};
+	}
+END;
+}
+add_action('fdt_print_dyanmic_css','body_href_link_css_output');
 
 
 
 
 
+
+/*
+*	OUTPUT CSS RULES FOR BODY FONT
+*/
+function body_font_css_output() {
+
+$typography = of_get_option('body_font_css');
+
+if ($typography) :
+	$fontsize = $typography['size'];
+	$fontface = $typography['face'];
+	$fontstyle = $typography['style'];
+	$fontsize = $typography['color'];
+
+print <<<END
+
+	BODY {
+		font: '{$fontsize} {$fontface} {$fontstyle} {$fontcolor}';
+	}
+END;
+endif;
+}
+add_action('fdt_print_dyanmic_css','body_font_css_output');
 
 
 

@@ -37,7 +37,7 @@ function optionsframework_options() {
 	/*
 	*	INTRODUCTION TAB
 	*/
-	$options = array_merge( $options, introduction_options() );
+	#$options = array_merge( $options, introduction_options() );
 
 	
 	/*
@@ -347,8 +347,8 @@ function typography_options() {
 	$options[] = array( 
 					"name" => "Body Font",
 					"desc" => "Set the default font style, size weight and color. More specific CSS rules will over ride these settings.",
-					"id" => "default_font_settings",
-					"std" => array('size' => '12px','face' => 'verdana','style' => 'bold italic','color' => '#123456'),
+					"id" => "body_font_css",
+					"std" => array('size' => '12px','face' => 'verdana','style' => 'normal','color' => '#333333'),
 					"type" => "typography"
 					);		
 						
@@ -393,45 +393,45 @@ function hyperlinks_options() {
 						"type" => "heading"
 					);	
 	$options[] = array( 
-						"name" => "Hyperlink Styles",
+						"name" => __("Hyperlink Styles"),
 						"type" => "info",
 						"desc" => __("
 							Making your website links visible and visually discernable will help your visitor navigate your website. 
-							Take the time to adjust your default hyperlink color and styles.<br /> <br />
+							Take the time to adjust your default hyperlink color and styles.
+							
 							If you like to be more specific, please check out theFOUNDATION guide to styling links using the power
-							of CSS.
-						")
+							of CSS." )
 						);	
 
 						
 	$options[] = array( 
-						"name" => "A:link (default #2098a8)",
-						"desc" => "Select a Default Color for you Links",
+						"name" => __("A:link"),
+						"desc" => __("Select a Default Color for you Links"),
 						"id" => "body_href_link_value",
-						"std" => "#333333",
+						"std" => "#0000CC",
 						"type" => "color"
 						);       
 
 	$options[] = array( 
-						"name" => "A:visited",
-						"desc" => "Selected a Default Color for Visited Links",
+						"name" => __("A:visited"),
+						"desc" => __("Selected a Default Color for Visited Links"),
 						"id" => "body_href_visited_value",
-						"std" => "333333",
+						"std" => "#0000CC",
 						"type" => "color"
 						); 
 
 	$options[] = array( 
-						"name" => "A:hover (default #2098a8)",
-						"desc" => "Select a default hover value for Links upon mouse hover.",
-						"id" => "body_href_value_value",
-						"std" => "#330000",
+						"name" => __("A:hover"),
+						"desc" => __("Select a default hover value for Links upon mouse hover."),
+						"id" => "body_href_hover_value",
+						"std" => "#FF0000",
 						"type" => "color"
 						);       
 	$options[] = array( 
-						"name" => "A:active",
-						"desc" => "Select a default value for Links when focus is active",
+						"name" => __("A:active"),
+						"desc" => __("Select a default value for Links when focus is active"),
 						"id" => "body_href_active_value",
-						"std" => "#33000",
+						"std" => "#FF0000",
 						"type" => "color"
 						); 
 
@@ -479,13 +479,13 @@ function template_layout_options() {
 	//	CONTENT WIDTH VALUE								
 	$options[] = array( 
 						"name" => "Content > Primary Width",
-						"desc" => "Set the Primary Width Size for the Primary Content Area, This value is also used by by WordPress' $content_width to contrain the maximum image size",
+						"desc" => "Set the Primary Width Size for the Primary Content Area, This value is also used by by WordPress' $content_width to contrain the maximum image size for media and oembeds",
 						"id" => "set_content_primary_width",
 						"std" => "540",
 						"class" => "mini",							
 						"type" => "text"
 						); 
-	$options[] = array( 
+	$x_options[] = array( 
 						"name" => "Content > Secondary Width",
 						"desc" => "Set the Width of the Secondary Content Area",
 						"id" => "set_content_secondary_width",
@@ -563,7 +563,7 @@ function alternative_styles_options() {
 	$options[] = array( 
 					"name" => "Styles",
 					"type" => "info",
-					"desc" => "Configuring your website can be a time consuming task.  You can quickly switch embeded styles here.
+					"desc" => "Configuring your website can be a time consuming task.  You can quickly switch embeded styles here. To add/remove your own styles, add/delete your css files in the following location: <em>themefolder/css/styles</em>
 					",
 					);							
 	$options[] = array( 
@@ -978,6 +978,7 @@ function custom_post_type_support() {
 						"id" => "enable_custom_posttype_portfolio",
 						"std" => true,
 						"type" => "checkbox");
+	/*					
 	$options[] = array( "name" =>  __("Event"),
 						"desc" => __("Event"),
 						"id" => "enable_custom_posttype_event",
@@ -1008,7 +1009,7 @@ function custom_post_type_support() {
 						"id" => "enable_custom_posttype_dictionary",
 						"std" => false,
 						"type" => "checkbox");	
-
+	*/
 	
 	return $options;
 								
