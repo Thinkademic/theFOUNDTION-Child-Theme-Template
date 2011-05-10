@@ -725,12 +725,12 @@ if ($typography) :
 print <<<END
 
 	BODY {
-		font: '{$fontsize} {$fontface} {$fontstyle} {$fontcolor}';
+		font: {$fontsize} {$fontface} {$fontstyle} {$fontcolor};
 	}
 END;
 endif;
 }
-add_action('fdt_print_dyanmic_css','body_font_css_output');
+#add_action('fdt_print_dyanmic_css','body_font_css_output');
 
 
 

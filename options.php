@@ -344,7 +344,7 @@ function typography_options() {
 							Setting good typography  is an important aspect of design.
 						")
 						);						
-	$options[] = array( 
+	$x_options[] = array( 
 					"name" => "Body Font",
 					"desc" => "Set the default font style, size weight and color. More specific CSS rules will over ride these settings.",
 					"id" => "body_font_css",
