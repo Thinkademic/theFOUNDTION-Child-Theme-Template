@@ -224,8 +224,19 @@ add_action('fdt_enqueue_dynamic_css', 'enqueue_alternative_stylesheets');
 
 
 
-
-
+/*
+* OUTPUT CUFON RULES TO OUR DYNAMICALLY GENERATED JS FILE
+* MAYBE APPLY FILTER ON RULES,
+*/
+function enable_cufon_rules() {
+	$enable_cufon_support = of_get_option('enable_cufon_support', false );
+	$cufon_rules = of_get_option('cufon_rules', FALSE);
+	
+	if( $enable_cufon_support && $cufon_rules ):
+		echo htmlspecialchars_decode($cufon_rules, ENT_QUOTES);
+	endif;
+}
+add_action('fdt_print_dynamic_themeoptions_js', 'enable_cufon_rules');	
 
 /*	
 *	FIND CUFON FONT-FAMILY NAMES
@@ -629,5 +640,50 @@ function get_category_meta(){
 
 
 
+
+/*
+* OUTPUT JQUERY FOR SUCKERFISH DROP DOWNS
+*/
+function enable_suckerfish_dropdown() {
+	$enable_dropdown = of_get_option('enable_suckerfish_dropdown', false );
+	if( $enable_dropdown ){
+
+print <<<END
+	$(function(){
+		$(".masthead-menu").superfish(); 
+	});
+	
+END;
+
+	}
+}
+add_action('fdt_print_dynamic_themeoptions_js', 'enable_suckerfish_dropdown');
+
+
+/*
+*	JQUERY FOR POST EDIT LINKS
+*/
+function thefdt_post_edit_links() {
+
+print <<<END
+
+	$(function(){
+		/*
+		* ADMIN EDIT LINKS
+		*/
+		$(".editlink").hide();
+		$(".itemhead").hoverIntent(
+				function() { 
+					$(".editlink",this).fadeIn();
+				},
+				function() { 
+					$(".editlink",this).hide(); 
+				}
+		);
+	});
+	
+END;
+}
+add_action('fdt_print_dynamic_themeoptions_js', 'thefdt_post_edit_links');
 
 ?>

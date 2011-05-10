@@ -9,7 +9,7 @@ function init_jquery() {
 	add_action('init', 'register_jquery_plugins');
 	add_action('template_redirect', 'enqueue_jquery_plugins'); 	
 }
-		
+
 		
 
 /**************************************************************
@@ -34,22 +34,6 @@ function init_jquery_local() {
 		wp_register_script( 'jquery', $src.'/js/jquery142.min.js', false, 1.4);
 	endif;
 }
-
-
-
-
-/**************************************************************
- COMMENT REPLY ENQUEUE
-**************************************************************/
-function comment_reply_queue_js(){
-  if (!is_admin()){
-    if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1))
-      wp_enqueue_script( 'comment-reply' );
-  }
-}
-add_action('get_header', 'comment_reply_queue_js');
-
-
 
 
 /**************************************************************
@@ -103,8 +87,6 @@ function register_jquery_plugins() {
 **************************************************************/
 function enqueue_jquery_plugins() {
 		global $wp_scripts, $post;
-		
-			$meta = get_post_meta($post->ID, THEMECUSTOMMETAKEY, true);		
 		
 		#	LOAD JQUERY 
 			wp_enqueue_script('jquery');
@@ -163,59 +145,18 @@ function enqueue_jquery_plugins() {
 
 
 
-/**************************************************************
- OUTPUT JQUERY FOR DROP DOWNS
-**************************************************************/
-function enable_suckerfish_dropdown() {
-	$enable_dropdown = of_get_option('enable_suckerfish_dropdown', false );
-	if( $enable_dropdown ){
-
-print <<<END
-	$(function(){
-		
-		/**********************************************************
-		3)	ADMIN EDIT LINKS
-				WP FILE LOCATION : functions/functions-jquery.php
-				
-		{$enable_dropdown}		
-		**********************************************************/
-		$(".editlink").hide();
-		$(".itemhead").hoverIntent(
-				function() { 
-					$(".editlink",this).fadeIn();
-				},
-				function() { 
-					$(".editlink",this).hide(); 
-				}
-		);  
-
-		
-
-		$(".masthead-menu").superfish(); 
-	});
 	
-END;
-
-	}
-}
-add_action('fdt_print_dynamic_themeoptions_js', 'enable_suckerfish_dropdown');	
 
 
 /**************************************************************
- OUTPUT CUFON SCRIPT
- 
- MAYBE APPLY FILTER ON RULES,
+ COMMENT REPLY ENQUEUE
 **************************************************************/
-function enable_cufon_rules() {
-	$enable_cufon_support = of_get_option('enable_cufon_support', false );
-	
-	$cufon_rules = of_get_option('cufon_rules', FALSE);
-	
-	if( $enable_cufon_support && $cufon_rules ){
-	
-		echo htmlspecialchars_decode($cufon_rules, ENT_QUOTES);
-	}
+function comment_reply_queue_js(){
+  if (!is_admin()){
+    if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1))
+      wp_enqueue_script( 'comment-reply' );
+  }
 }
-add_action('fdt_print_dynamic_themeoptions_js', 'enable_cufon_rules');	
+add_action('get_header', 'comment_reply_queue_js');
 		
 ?>
