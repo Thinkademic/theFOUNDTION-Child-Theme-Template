@@ -53,7 +53,7 @@ function optionsframework_options() {
 	/*
 	*	HEADER OPTIONS
 	*/
-	$options = array_merge( $options, header_options() );
+	#$options = array_merge( $options, header_options() );
 	
 	/*
 	*	NAVIGATION LAYOUT OPTIONS
@@ -63,7 +63,7 @@ function optionsframework_options() {
 	/*
 	*	BRANDING ( LOGO + FAVICON) OPTIONS
 	*/
-	$options = array_merge( $options, branding_options() );
+	#$options = array_merge( $options, branding_options() );
 						
 	/*
 	*	TEMPLATE LAYOUT OPTIONS
@@ -98,12 +98,21 @@ function optionsframework_options() {
 	/*
 	*	CUSTOM CSS
 	*/
-	$options = array_merge($options, template_custom_css_options() );
+	#$options = array_merge($options, template_custom_css_options() );
+
+	/*
+	*	CUSTOM POST TYPE 
+	*/	
+	$options = array_merge($options, custom_post_type_support() );
 	
 	/*
 	*	CREDITS
 	*/	
 	$options = array_merge($options, template_credits_options() );
+	
+
+	
+	
 	
 	/*
 	*	TEST OPTIONS
@@ -398,31 +407,31 @@ function hyperlinks_options() {
 	$options[] = array( 
 						"name" => "A:link (default #2098a8)",
 						"desc" => "Select a Default Color for you Links",
-						"id" => "href_link_value",
-						"std" => "#2098a8",
+						"id" => "body_href_link_value",
+						"std" => "#333333",
 						"type" => "color"
 						);       
 
 	$options[] = array( 
 						"name" => "A:visited",
 						"desc" => "Selected a Default Color for Visited Links",
-						"id" => "href_visited_value",
-						"std" => "",
+						"id" => "body_href_visited_value",
+						"std" => "333333",
 						"type" => "color"
 						); 
 
 	$options[] = array( 
 						"name" => "A:hover (default #2098a8)",
 						"desc" => "Select a default hover value for Links upon mouse hover.",
-						"id" => "href_value_value",
-						"std" => "#2098a8",
+						"id" => "body_href_value_value",
+						"std" => "#330000",
 						"type" => "color"
 						);       
 	$options[] = array( 
 						"name" => "A:active",
 						"desc" => "Select a default value for Links when focus is active",
-						"id" => "href_active_value",
-						"std" => "",
+						"id" => "body_href_active_value",
+						"std" => "#33000",
 						"type" => "color"
 						); 
 
@@ -833,7 +842,6 @@ function template_single_settings(){
 
 
 
-
 /*
 *	TEMPLATE ARCHIVE SETTINGS
 */
@@ -949,6 +957,62 @@ function template_custom_css_options() {
 								
 }
 
+
+/*
+*	CUSTOM POST TYPES
+*/
+function custom_post_type_support() {
+	$options[] = array( 
+							"name" => __("Custom Post Types"),
+							"type" => "heading"
+						);			
+	$options[] = array( 
+							"name" => __("Activate Custom Post Types"),
+							"type" => "info",
+							"desc" => "
+								Your theme supports the following custom post types.
+							",
+						);		
+	$options[] = array( "name" =>  __("Portfolio"),
+						"desc" => __("Portfolio"),
+						"id" => "enable_custom_posttype_portfolio",
+						"std" => true,
+						"type" => "checkbox");
+	$options[] = array( "name" =>  __("Event"),
+						"desc" => __("Event"),
+						"id" => "enable_custom_posttype_event",
+						"std" => false,
+						"type" => "checkbox");						
+	$options[] = array( "name" =>  __("Designer"),
+						"desc" => __("Designer"),
+						"id" => "enable_custom_posttype_designer",
+						"std" => false,
+						"type" => "checkbox");
+	$options[] = array( "name" =>  __("Swatch"),
+						"desc" => __("Swatch"),
+						"id" => "enable_custom_posttype_swatch",
+						"std" => false,
+						"type" => "checkbox");							
+	$options[] = array( "name" =>  __("Product"),
+						"desc" => __("Product"),
+						"id" => "enable_custom_posttype_product",
+						"std" => false,
+						"type" => "checkbox");	
+	$options[] = array( "name" =>  __("Post Enhancements"),
+						"desc" => __("Post Type Enhancements"),
+						"id" => "enable_custom_posttype_post",
+						"std" => false,
+						"type" => "checkbox");	
+	$options[] = array( "name" =>  __("Dictionary"),
+						"desc" => __("Dictionary"),
+						"id" => "enable_custom_posttype_dictionary",
+						"std" => false,
+						"type" => "checkbox");	
+
+	
+	return $options;
+								
+}
 
 
 /*

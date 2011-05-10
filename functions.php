@@ -14,30 +14,41 @@
  http://thefoundationthemes.com/
 **************************************************************/
 
-require_once(STYLESHEETPATH . '/functions/functions-appearance-options.php');
-
-// DEFINE DOES NOT OCCUR EARLY ENOUGH FOR CHILD THEMES
+/*
+*	DEFINE DOES NOT OCCUR EARLY ENOUGH FOR CHILD THEMES
+*/	
 define( 'TEXTDOMAIN', 'thefdt' );
 define( 'THEMECUSTOMMETAKEY', '_fsl_media_options' );
 
+
+/*
+*	LOAD OPTIONS, USES OPTIONS FRAMEWORK
+*/
+require_once(STYLESHEETPATH . '/functions/functions-appearance-options.php');
+
+
 /**************************************************************
  [00] CUSTOM POST TYPES CUSTOM POST TYPES LOADED FROM PARENT THEME
- NOTE: SHOULD BE ENABLED IN THE CHILD THEME
  
- IF YOU ARE INTERESTED IN DEVELOPMING CUSTOM POST TYPES FOR THIS 
- FRAMEWORK PLEASE CONTACT...
- 
- NOTE:
- TEMPLATEPATH -> PARENT THEME	// NOT THE URL
- STYLESHEETPATH -> CHILD THEME	// NOT THE URL
+ ENABLED IN ADMIN > APPEARANCE > THEME OPTIONS > CUSTOM POST TYPE
 **************************************************************/
-require_once(TEMPLATEPATH . '/functions/functions-posttype-event.php');
-require_once(TEMPLATEPATH . '/functions/functions-posttype-portfolio.php');
-require_once(TEMPLATEPATH . '/functions/functions-posttype-designer.php');
-require_once(TEMPLATEPATH . '/functions/functions-posttype-swatch.php');
-require_once(TEMPLATEPATH . '/functions/functions-posttype-product.php');
-require_once(TEMPLATEPATH . '/functions/functions-posttype-post.php');
-require_once(TEMPLATEPATH . '/functions/functions-posttype-dictionary.php');
+if( of_get_option( 'enable_custom_posttype_event', false ) == true )
+	require_once(TEMPLATEPATH . '/functions/functions-posttype-event.php');
+if( of_get_option( 'enable_custom_posttype_portfolio', false ) == true )
+	require_once(TEMPLATEPATH . '/functions/functions-posttype-portfolio.php');
+if( of_get_option( 'enable_custom_posttype_designer', false ) == true )
+	require_once(TEMPLATEPATH . '/functions/functions-posttype-designer.php');
+if( of_get_option( 'enable_custom_posttype_swatch', false ) == true )
+	require_once(TEMPLATEPATH . '/functions/functions-posttype-swatch.php');
+if( of_get_option( 'enable_custom_posttype_product', false ) == true)
+	require_once(TEMPLATEPATH . '/functions/functions-posttype-product.php');
+if( of_get_option( 'enable_custom_posttype_post', false ) == true)
+	require_once(TEMPLATEPATH . '/functions/functions-posttype-post.php');
+if( of_get_option( 'enable_custom_posttype_dictionary', false ) == true )
+	require_once(TEMPLATEPATH . '/functions/functions-posttype-dictionary.php');
+
+
+
 
 /**************************************************************
  [01] CHILD THEME APPEARANCE OPTION OVERRIDES

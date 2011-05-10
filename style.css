@@ -22,9 +22,9 @@ INPUT, TEXTAREA
 }
 HR
 {
-	margin: 0;
-	border-style: none;
+	border: 0 solid #CCC;
 	clear: both;
+	height: 0;
 }
 BLOCKQUOTE
 {
@@ -53,6 +53,48 @@ DL DT
 DL DD
 {
 	padding-left: 10px;
+}
+H1, H2, H3, H4, H5, H6
+{
+	font-weight: 400;
+	clear: both;
+}
+H1
+{
+	font-size: 30px;
+}
+H2
+{
+	font-size: 26px;
+}
+H3
+{
+	font-size: 22px;
+}
+H4
+{
+	font-size: 19px;
+}
+H5
+{
+	font-size: 16px;
+}
+H6
+{
+	font-size: 15px;
+}
+OL
+{
+	list-style: decimal;
+}
+UL
+{
+	list-style: square;
+}
+LI
+{
+	list-style-type: none;
+	list-style-position: outside;
 }
 /*------- WORDPRESS CLASSES -------*/
 .sticky
