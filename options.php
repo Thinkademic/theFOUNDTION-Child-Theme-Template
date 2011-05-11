@@ -863,11 +863,11 @@ function template_archive_settings(){
 	$options[] = array( 
 				"name" => __('Change Loop Settings for the Archive Template', TEXTDOMAIN),
 				"type" => "info",
-				"desc" => "You can customize what displays when WordPress uses the Page Template. The Page Template is applied to entries made into the Page post type."
+				"desc" => "You can customize what displays when WordPress uses the Archive Template."
 				);
 	$options[] = array( 
 				"name" => "Loop Header",
-				"desc" => "Enter in descriptive text to describe the display of an Archive Page. This is placed before the Loop begins. This is not commonly used for Pages, the Title of the Page is sufficient in most cases.",
+				"desc" => "Enter in descriptive text to describe the display of an Archive Page. This is placed before the Loop begins",
 				"id" => "page_loop_header",
 				"std" => "Archives",
 				"type" => "text"
@@ -882,7 +882,7 @@ function template_archive_settings(){
 				);
 	$options[] = array( 
 				"name" => "Enable Entry Head Meta Display",
-				"desc" => "Each listed Page entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
+				"desc" => "Each listed Archive entry will have meta information that can be displayed below it's title. Enable/Disable its display here",
 				"id" => "page_itemhead_meta",
 				"std" => array ( 
 						'author' => true,
@@ -898,7 +898,7 @@ function template_archive_settings(){
 				);								
 	$options[] = array( 
 				"name" => "Enable Entry Foot Meta Display",
-				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
+				"desc" => "Each listed Archive entry has Meta Information that can be displayed after the entry's content. Enable/Disable its display here",
 				"id" => "page_itemfoot_meta",
 				"std" => array ( 
 						'author' => false,
