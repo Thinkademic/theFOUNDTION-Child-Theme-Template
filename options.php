@@ -37,7 +37,7 @@ function optionsframework_options() {
 	/*
 	*	INTRODUCTION TAB
 	*/
-	#$options = array_merge( $options, introduction_options() );
+	$options = array_merge( $options, introduction_options() );
 
 	
 	/*
@@ -343,12 +343,17 @@ function typography_options() {
 						"desc" => __("
 							Setting good typography  is an important aspect of design.
 						")
-						);						
-	$x_options[] = array( 
+						);
+	$options[] = array( "name" => "Enable Body Font",
+						"desc" => "Enable Body Font",
+						"id" => "enable_body_font_css",
+						"std" => true,
+						"type" => "checkbox");						
+	$options[] = array( 
 					"name" => "Body Font",
 					"desc" => "Set the default font style, size weight and color. More specific CSS rules will over ride these settings.",
 					"id" => "body_font_css",
-					"std" => array('size' => '12px','face' => 'verdana','style' => 'normal','color' => '#333333'),
+					"std" => array('size' => '12px','face' => 'Arial','style' => 'normal','color' => '#333333'),
 					"type" => "typography"
 					);		
 						
@@ -362,7 +367,7 @@ function typography_options() {
 			
 	$options[] = array( "name" => "Select the Cufon Fonts you like to Use",
 						"desc" => "Select the Cufon fonts  you would like to Use.",
-						"id" => "enable_cufon_font_files",
+						"id" => "cufon_font_files",
 						"std" => array(),
 						"type" => "multicheck",
 						"options" => $cufonfonts

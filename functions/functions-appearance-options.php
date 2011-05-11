@@ -228,7 +228,7 @@ function enqueue_cufon_fonts() {
 	$font_array_filename = find_cufon_fonts_filename();
 	
 	$cufon_font_path = get_stylesheet_directory_uri() . '/fonts/cufon/';
-	$cufon_font_files = of_get_option( 'enable_cufon_font_files', false ); 
+	$cufon_font_files = of_get_option( 'cufon_font_files', false ); 
 
 		if($cufon_font_files) {
 			foreach ($cufon_font_files as $key => $value) {
@@ -281,7 +281,7 @@ function write_cufon_for_admin() {
 		if($cufon_font_files) {
 			foreach ($cufon_font_files as $key => $value) {
 				if($value) {
-					$selector = "#".$themename."-".enable_cufon_font_files."-".$key." + label";
+					$selector = "#".$themename."-".cufon_font_files."-".$key." + label";
 					$font_family = $font_array[$key];
 					write_cufon_script($selector, $font_family);	
 				}	
@@ -633,20 +633,34 @@ function optionsframework_custom_scripts() { ?>
 
 jQuery(document).ready(function() {
 
+
+	/* BODY FONT OPTIONS APPEARANCE > THEMEOPTIONS > TYPOGRAPHY */
+	jQuery('#section-body_font_css .heading').hide();
+
+	jQuery('#enable_body_font_css').click(function() {
+  		jQuery('#section-body_font_css').fadeToggle(400);
+	});
+
+	if (jQuery('#enable_body_font_css:checked').val() !== undefined) {
+		jQuery('#section-body_font_css').show();
+	} else {
+		jQuery('#section-body_font_css').hide();	
+	}
+
 	/* CUFON FONT OPTIONS APPEARANCE > THEMEOPTIONS > TYPOGRAPHY */
-	jQuery('#section-enable_cufon_font_files .heading').hide();
+	jQuery('#section-cufon_font_files .heading').hide();
 	jQuery('#section-cufon_rules .heading').hide();		
 
 	jQuery('#enable_cufon_support').click(function() {
-  		jQuery('#section-enable_cufon_font_files').fadeToggle(400);
+  		jQuery('#section-cufon_font_files').fadeToggle(400);
   		jQuery('#section-cufon_rules').fadeToggle(400);
 	});
 
 	if (jQuery('#enable_cufon_support:checked').val() !== undefined) {
-		jQuery('#section-enable_cufon_font_files').show();
+		jQuery('#section-cufon_font_files').show();
 		jQuery('#section-cufon_rules').show();		
 	} else {
-		jQuery('#section-enable_cufon_font_files').hide();
+		jQuery('#section-cufon_font_files').hide();
 		jQuery('#section-cufon_rules').hide();		
 	}
 	
@@ -674,6 +688,32 @@ if ( function_exists( 'of_get_option' ) ) {
 }
 
 
+
+
+/*
+*	OUTPUT CSS RULES FOR BODY FONT
+*/
+function body_font_css_output() {
+
+$typography = of_get_option('body_font_css');
+$enable = of_get_option('enable_body_font_css', false);
+
+if ($enable) :
+	$fontsize = $typography['size'];
+	$fontface = $typography['face'];
+	$fontstyle = $typography['style'];
+	$fontcolor = $typography['color'];
+
+print <<<END
+
+	BODY {
+		font: {$fontstyle} {$fontsize} {$fontface};
+		color: {$fontcolor};
+	}
+END;
+endif;
+}
+add_action('fdt_print_dyanmic_css','body_font_css_output');
 
 
 
@@ -705,32 +745,6 @@ END;
 add_action('fdt_print_dyanmic_css','body_href_link_css_output');
 
 
-
-
-
-
-/*
-*	OUTPUT CSS RULES FOR BODY FONT
-*/
-function body_font_css_output() {
-
-$typography = of_get_option('body_font_css');
-
-if ($typography) :
-	$fontsize = $typography['size'];
-	$fontface = $typography['face'];
-	$fontstyle = $typography['style'];
-	$fontsize = $typography['color'];
-
-print <<<END
-
-	BODY {
-		font: {$fontsize} {$fontface} {$fontstyle} {$fontcolor};
-	}
-END;
-endif;
-}
-#add_action('fdt_print_dyanmic_css','body_font_css_output');
 
 
 
