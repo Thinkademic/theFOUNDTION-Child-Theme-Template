@@ -997,8 +997,7 @@ function custom_post_type_support() {
 						"desc" => __("Portfolio"),
 						"id" => "enable_custom_posttype_portfolio",
 						"std" => true,
-						"type" => "checkbox");
-	/*					
+						"type" => "checkbox");				
 	$options[] = array( "name" =>  __("Event"),
 						"desc" => __("Event"),
 						"id" => "enable_custom_posttype_event",
@@ -1029,7 +1028,6 @@ function custom_post_type_support() {
 						"id" => "enable_custom_posttype_dictionary",
 						"std" => false,
 						"type" => "checkbox");	
-	*/
 	
 	return $options;
 								
