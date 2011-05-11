@@ -1,10 +1,10 @@
 /*
 Theme Name: theFoundation Child Theme Template
-Theme URI: http://thefoundationthemes.com
-Description: This is a Child Theme Template for theFoundation Theme Framework.  It created to assist in developing new child themes for theFoundation.
-Author: BaoQuoc Doan ( Please Edit )
+Theme URI: http://thefoundation.foodshelterlove.com
+Description: Ugly Fish is Child Theme Template for theFoundation Theme Framework.  It created to assist in developing new child themes for theFoundation. Please Read Documentation for further details.
+Author: Mr. Wok
 Template: thefoundation
-Version: version 1.0 (Aa)
+Version: version 1.0 (Ugly Fish)
 
 ------- DEFAULT XHTML TAG SETTINGS -------*/
 BODY
@@ -249,10 +249,10 @@ LI
 #mastline
 {
 	width: auto;
-	height: 100px;
+	height: 160px;
 	clear: left;
 	float: left;
-	background: #666;
+	background: #AAA;
 }
 #mastline H1
 {
@@ -284,6 +284,7 @@ LI
 #content
 {
 	margin: 0 auto;
+	padding-top: 20px;
 	width: 920px;
 	overflow: hidden;
 	background: #EBEBEB;
@@ -631,17 +632,28 @@ LI
 	float: left;
 	margin: 0 0 15px;
 }
-#secondary .sidebar_primary
+#secondary .sidebar-featured
 {
-	background: transparent;
+	background: #989898;
 	float: left;
 	width: 320px;
+	min-height: 300px;
+	margin-bottom: 20px;
 }
-#secondary .sidebar_secondary
+#secondary .sidebar-primary
 {
-	background: transparent;
+	background: #A3A3A3;
 	float: left;
 	width: 320px;
+	min-height: 300px;
+	margin-bottom: 20px;
+}
+#secondary .sidebar-secondary
+{
+	background: #A4A4A4;
+	float: left;
+	width: 320px;
+	margin-bottom: 20px;
 }
 #secondary .widget
 {
