@@ -40,6 +40,15 @@ function optionsframework_options() {
 	if( of_get_option('enable_hide_introduction', false ) != true )
 		$options = array_merge( $options, introduction_options() );
 
+	/*
+	*	BACKGROUND OPTIONS
+	*/
+	$options = array_merge( $options, background_options() );
+
+	/*
+	*	HEADER OPTIONS
+	*/
+	$options = array_merge( $options, header_options() );	
 	
 	/*
 	*	TYPOGRAPHY OPTIONS
@@ -50,12 +59,7 @@ function optionsframework_options() {
 	*	HYPERLINK OPTIONS
 	*/
 	$options = array_merge( $options, hyperlinks_options() );
-	
-	/*
-	*	HEADER OPTIONS
-	*/
-	#$options = array_merge( $options, header_options() );
-	
+
 	/*
 	*	NAVIGATION LAYOUT OPTIONS
 	*/
@@ -248,18 +252,19 @@ function background_options(){
 	$options[] = array( 
 						"name" => "Background",
 						"type" => "info",
-						"std" => "One of the best ways to style your website is using a great background. A background can easily
+						"desc" => "One of the best ways to style your website is using a great background. A background can easily
 						take a bland website, and turn into an inviting website. The framework currently uses Wordpress built into
 						background changer, located in the Appearance menu.
 							",
-						);	
+						);
 
-	$options[] = array( "name" =>  "Body Background Color",
-						"desc" => "Pick a background color for the theme (default: #fff).",
-						"id" => "body_background",
-						"std" => "",
-						"type" => "color");
-								
+	$options[] = array( 
+						"name" => "Native Background Options",
+						"type" => "checkbox",
+						"std" => "false",
+						"id" => "enable_wordpress_background",
+						"desc" => 'Use Wordpress Background Options. You will find it under <em>Admin > Appearance > Background</em>'
+						);							
 
 	return $options;
 
@@ -289,12 +294,12 @@ function header_options() {
 			);	
 
 	$options[] = array( 
-			"name" =>  "Header Background Color",
-			"desc" => "Pick a background color for the header (default: #fff).",
-			"id" => "header_background",
-			"std" => "",
-			"type" => "color"
-			);   
+						"name" => "Native Background Options",
+						"type" => "checkbox",
+						"std" => "false",
+						"id" => "enable_wordpress_header",
+						"desc" => 'Use Wordpress Header Options. You will find it under <em>Admin > Appearance > Header</em>'
+						);	
 						
 						
 	return $options;
@@ -596,7 +601,7 @@ function alternative_styles_options() {
 
 
 /*
-*	INDEX LAYOUT
+*	LOOP FOR LAYOUT
 */
 function template_index_settings(){
 
@@ -688,7 +693,7 @@ function template_index_settings(){
 
 
 /*
-*	LAYOUT FOR INDEX.PHP
+*	LOOP FOR INDEX.PHP
 */
 function template_page_settings(){
 
@@ -768,7 +773,7 @@ function template_page_settings(){
 
 
 /*
-*	LAYOUT FOR SINGLE
+*	LOOP FOR SINGLE
 */
 function template_single_settings(){
 
@@ -858,7 +863,7 @@ function template_single_settings(){
 
 
 /*
-*	TEMPLATE ARCHIVE SETTINGS
+*	LOOP FOR ARCHIVE
 */
 function template_archive_settings(){
 
