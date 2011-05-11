@@ -37,7 +37,8 @@ function optionsframework_options() {
 	/*
 	*	INTRODUCTION TAB
 	*/
-	$options = array_merge( $options, introduction_options() );
+	if( of_get_option('enable_hide_introduction', false ) != true )
+		$options = array_merge( $options, introduction_options() );
 
 	
 	/*
@@ -178,7 +179,12 @@ function introduction_options() {
 							things don't work perfectly.  If you find a bug, reporting it will go a long way towards produce a dependable and
 							secure framework.  If you have the chops to improve upon the code base, you can also submit changes.									
 							",
-						);										
+						);
+	$options[] = array( "name" => __(""),
+						"desc" => __("Hide Introduction Tab"),
+						"id" => "enable_hide_introduction",
+						"std" => false,
+						"type" => "checkbox");							
 
 	return $options;
 }
@@ -399,19 +405,23 @@ function hyperlinks_options() {
 					);	
 	$options[] = array( 
 						"name" => __("Hyperlink Styles"),
-						"type" => "info",
 						"desc" => __("
 							Making your website links visible and visually discernable will help your visitor navigate your website. 
 							Take the time to adjust your default hyperlink color and styles.
 							
 							If you like to be more specific, please check out theFOUNDATION guide to styling links using the power
-							of CSS." )
+							of CSS." ),
+						"type" => "info"
 						);	
 
-						
+	$options[] = array( "name" => __("Hyperlink Colors"),
+						"desc" => __("Enable Body Hyperlink Colors"),
+						"id" => "enable_body_href",
+						"std" => false,
+						"type" => "checkbox");							
 	$options[] = array( 
 						"name" => __("A:link"),
-						"desc" => __("Select a Default Color for you Links"),
+						"desc" => __("Select a Default Color for <strong>A:LINK</strong>"),
 						"id" => "body_href_link_value",
 						"std" => "#0000CC",
 						"type" => "color"
@@ -419,7 +429,7 @@ function hyperlinks_options() {
 
 	$options[] = array( 
 						"name" => __("A:visited"),
-						"desc" => __("Selected a Default Color for Visited Links"),
+						"desc" => __("Selected a Default Color for <strong>A:VISITED</strong>"),
 						"id" => "body_href_visited_value",
 						"std" => "#0000CC",
 						"type" => "color"
@@ -427,14 +437,14 @@ function hyperlinks_options() {
 
 	$options[] = array( 
 						"name" => __("A:hover"),
-						"desc" => __("Select a default hover value for Links upon mouse hover."),
+						"desc" => __("Select a default hover value for <strong>A:HOVER</strong>"),
 						"id" => "body_href_hover_value",
 						"std" => "#FF0000",
 						"type" => "color"
 						);       
 	$options[] = array( 
 						"name" => __("A:active"),
-						"desc" => __("Select a default value for Links when focus is active"),
+						"desc" => __("Select a default value for Links <strong>A:ACTIVE</strong>"),
 						"id" => "body_href_active_value",
 						"std" => "#FF0000",
 						"type" => "color"

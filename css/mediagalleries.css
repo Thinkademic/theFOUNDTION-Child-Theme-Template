@@ -586,7 +586,7 @@ UL.anythingBase LI.panel
 }
 DIV.anythingSlider LI
 {
-	clear: none;
+	clear: none !important;
 }
 DIV.anythingSlider .arrow
 {

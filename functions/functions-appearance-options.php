@@ -102,6 +102,20 @@ function layout_for_current_template(){
 
 
 
+/*	
+*	ENQUEUE STYLES SHEETS
+*/
+function enqueue_alternative_stylesheets() {
+	global $data, $content_width;	
+
+	$alt_styles_path = get_stylesheet_directory_uri() . '/css/styles/';
+		$alt_style = of_get_option( 'alt_stylesheet', 'default.css' ); 
+		
+		wp_register_style('alt_style',  $alt_styles_path . $alt_style);
+		wp_enqueue_style('alt_style');
+
+}
+add_action('fdt_enqueue_dynamic_css', 'enqueue_alternative_stylesheets');
 
 
 /*	
@@ -132,20 +146,7 @@ function enqueue_template_layout() {
 }
 add_action('fdt_enqueue_dynamic_css', 'enqueue_template_layout');
 
-/*	
-*	ENQUEUE STYLES SHEETS
-*/
-function enqueue_alternative_stylesheets() {
-	global $data, $content_width;	
 
-	$alt_styles_path = get_stylesheet_directory_uri() . '/css/styles/';
-		$alt_style = of_get_option( 'alt_stylesheet', 'default.css' ); 
-		
-		wp_register_style('alt_style',  $alt_styles_path . $alt_style);
-		wp_enqueue_style('alt_style');
-
-}
-add_action('fdt_enqueue_dynamic_css', 'enqueue_alternative_stylesheets');
 
 
 
@@ -634,7 +635,7 @@ function optionsframework_custom_scripts() { ?>
 jQuery(document).ready(function() {
 
 
-	/* BODY FONT OPTIONS APPEARANCE > THEMEOPTIONS > TYPOGRAPHY */
+	/* BODY FONT OPTIONS :: APPEARANCE > THEMEOPTIONS > TYPOGRAPHY */
 	jQuery('#section-body_font_css .heading').hide();
 
 	jQuery('#enable_body_font_css').click(function() {
@@ -647,7 +648,7 @@ jQuery(document).ready(function() {
 		jQuery('#section-body_font_css').hide();	
 	}
 
-	/* CUFON FONT OPTIONS APPEARANCE > THEMEOPTIONS > TYPOGRAPHY */
+	/* CUFON FONT OPTIONS  :: APPEARANCE > THEMEOPTIONS > TYPOGRAPHY */
 	jQuery('#section-cufon_font_files .heading').hide();
 	jQuery('#section-cufon_rules .heading').hide();		
 
@@ -664,6 +665,31 @@ jQuery(document).ready(function() {
 		jQuery('#section-cufon_rules').hide();		
 	}
 	
+	/* HYPERLINK COLORS :: APPEARANCE > THEMEOPTIONS > HYPERLINKS */
+	jQuery('#section-body_href_link_value .heading').hide();
+	jQuery('#section-body_href_visited_value .heading').hide();
+	jQuery('#section-body_href_hover_value .heading').hide();
+	jQuery('#section-body_href_active_value .heading').hide();	
+		
+	jQuery('#enable_body_href').click(function() {
+		jQuery('#section-body_href_link_value').fadeToggle(400);
+		jQuery('#section-body_href_visited_value').fadeToggle(400);
+		jQuery('#section-body_href_hover_value').fadeToggle(400);
+		jQuery('#section-body_href_active_value').fadeToggle(400);
+	});
+
+	if (jQuery('#enable_body_href:checked').val() !== undefined) {
+		jQuery('#section-body_href_link_value').show();
+		jQuery('#section-body_href_visited_value').show();
+		jQuery('#section-body_href_hover_value').show();
+		jQuery('#section-body_href_active_value').show();		
+	} else {
+		jQuery('#section-body_href_link_value').hide();
+		jQuery('#section-body_href_visited_value').hide();
+		jQuery('#section-body_href_hover_value').hide();
+		jQuery('#section-body_href_active_value').hide();	
+	}
+
 	
 	/* TOGGLE INFO HEADING P */
 	jQuery('#of-nav a').click(function() {
