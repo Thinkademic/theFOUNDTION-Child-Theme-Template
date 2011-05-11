@@ -878,7 +878,7 @@ function template_archive_settings(){
 	$options[] = array( 
 				"name" => "Loop Header",
 				"desc" => "Enter in descriptive text to describe the display of an Archive Page. This is placed before the Loop begins",
-				"id" => "page_loop_header",
+				"id" => "archive_loop_header",
 				"std" => "Archives",
 				"type" => "text"
 				); 						
@@ -893,7 +893,7 @@ function template_archive_settings(){
 	$options[] = array( 
 				"name" => "Enable Entry Head Meta Display",
 				"desc" => "Each listed Archive entry will have meta information that can be displayed below it's title. Enable/Disable its display here",
-				"id" => "page_itemhead_meta",
+				"id" => "archive_itemhead_meta",
 				"std" => array ( 
 						'author' => true,
 						'date' => true,
@@ -909,7 +909,7 @@ function template_archive_settings(){
 	$options[] = array( 
 				"name" => "Enable Entry Foot Meta Display",
 				"desc" => "Each listed Archive entry has Meta Information that can be displayed after the entry's content. Enable/Disable its display here",
-				"id" => "page_itemfoot_meta",
+				"id" => "archive_itemfoot_meta",
 				"std" => array ( 
 						'author' => false,
 						'date' => false,
@@ -925,7 +925,7 @@ function template_archive_settings(){
 	$options[] = array( 
 				"name" => "Loop Footer",
 				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
-				"id" => "page_loop_footer",
+				"id" => "archive_loop_footer",
 				"std" => "",
 				"type" => "text"
 				); 		
