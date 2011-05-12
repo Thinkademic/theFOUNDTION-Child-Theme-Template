@@ -83,22 +83,22 @@ function optionsframework_options() {
 	/*
 	*	INDEX TEMPLATE LOOP
 	*/	
-	$options = array_merge($options, template_index_settings() );
+	$options = array_merge($options, loop_index_settings() );
 	
 	/*
 	*	SINGLE LOOP SETTINGS
 	*/	
-	$options = array_merge($options, template_single_settings() );
+	$options = array_merge($options, loop_single_settings() );
 		
 	/*
 	*	PAGE LOOP SETTINGS
 	*/	
-	$options = array_merge($options, template_page_settings() );
+	$options = array_merge($options, loop_page_settings() );
 		
 	/*
 	*	ARCHIVE LOOP SETTINGS
 	*/	
-	$options = array_merge($options, template_archive_settings() );
+	$options = array_merge($options, loop_archive_settings() );
 	
 	/*
 	*	CUSTOM CSS
@@ -122,7 +122,7 @@ function optionsframework_options() {
 	/*
 	*	TEST OPTIONS
 	*/
-	#$options = array_merge($options, test_options() );								
+	$options = array_merge($options, test_options() );								
 	
 	return $options;
 }
@@ -603,7 +603,7 @@ function alternative_styles_options() {
 /*
 *	LOOP FOR LAYOUT
 */
-function template_index_settings(){
+function loop_index_settings(){
 
 	// IF USING IMAGE RADIO BUTTONS, DEFINE A DIRECTORY PATH
 	$imagepath =  get_bloginfo('stylesheet_directory') . '/css/layouts/icons/';
@@ -638,10 +638,10 @@ function template_index_settings(){
 				"desc" => "Each listed Post entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
 				"id" => "index_itemhead_meta",
 				"std" => array ( 
-						'author' => true,
-						'date' => true,
-						'time' => true,
-						'comments' => true,
+						'author' => false,
+						'date' => false,
+						'time' => false,
+						'comments' => false,
 						'category' => false,
 						'tag' => false						
 					),
@@ -695,7 +695,7 @@ function template_index_settings(){
 /*
 *	LOOP FOR INDEX.PHP
 */
-function template_page_settings(){
+function loop_page_settings(){
 
 	// IF USING IMAGE RADIO BUTTONS, DEFINE A DIRECTORY PATH
 	$imagepath =  get_bloginfo('stylesheet_directory') . '/css/layouts/icons/';
@@ -775,7 +775,7 @@ function template_page_settings(){
 /*
 *	LOOP FOR SINGLE
 */
-function template_single_settings(){
+function loop_single_settings(){
 
 	// IF USING IMAGE RADIO BUTTONS, DEFINE A DIRECTORY PATH
 	$imagepath =  get_bloginfo('stylesheet_directory') . '/css/layouts/icons/';
@@ -810,10 +810,10 @@ function template_single_settings(){
 				"desc" => "Each listed Post entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
 				"id" => "single_itemhead_meta",
 				"std" => array ( 
-						'author' => true,
-						'date' => true,
-						'time' => true,
-						'comments' => true,
+						'author' => false,
+						'date' => false,
+						'time' => false,
+						'comments' => false,
 						'category' => false,
 						'tag' => false						
 					),
@@ -865,7 +865,7 @@ function template_single_settings(){
 /*
 *	LOOP FOR ARCHIVE
 */
-function template_archive_settings(){
+function loop_archive_settings(){
 
 	// IF USING IMAGE RADIO BUTTONS, DEFINE A DIRECTORY PATH
 	$imagepath =  get_bloginfo('stylesheet_directory') . '/css/layouts/icons/';
@@ -900,9 +900,9 @@ function template_archive_settings(){
 				"desc" => "Each listed Archive entry will have meta information that can be displayed below it's title. Enable/Disable its display here",
 				"id" => "archive_itemhead_meta",
 				"std" => array ( 
-						'author' => true,
-						'date' => true,
-						'time' => true				
+						'author' => false,
+						'date' => false,
+						'time' => false				
 					),
 				"type" => "multicheck",
 				"options" => array ( 

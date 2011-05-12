@@ -747,7 +747,6 @@ add_action('fdt_print_dyanmic_css','body_font_css_output');
 *	OUTPUT CSS RULES FOR HREF
 */
 function body_href_link_css_output() {
-
 $link = of_get_option( 'body_href_link_value', '#333333' );
 $visited = of_get_option( 'body_href_visited_value', '#333333' );
 $hover = of_get_option( 'body_href_hover_value', '#333333' );
@@ -768,7 +767,8 @@ print <<<END
 	}
 END;
 }
-add_action('fdt_print_dyanmic_css','body_href_link_css_output');
+if( of_get_option('enable_body_href', false ) )
+	add_action('fdt_print_dyanmic_css','body_href_link_css_output');
 
 
 
