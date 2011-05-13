@@ -31,7 +31,7 @@ define( 'THEMECUSTOMMETAKEY', '_fsl_media_options' );
 /*
 *	LOAD OPTIONS, USES OPTIONS FRAMEWORK
 */
-require_once(STYLESHEETPATH . '/functions/functions-appearance-options.php');
+require_once(STYLESHEETPATH . '/functions/functions-appearance-themeoptions.php');
 
 
 

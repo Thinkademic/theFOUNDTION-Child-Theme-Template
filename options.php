@@ -108,7 +108,7 @@ function optionsframework_options() {
 	/*
 	*	CUSTOM POST TYPE 
 	*/	
-	$options = array_merge($options, custom_post_type_support() );
+	#$options = array_merge($options, custom_post_type_support() );
 	
 	/*
 	*	CREDITS
@@ -829,7 +829,7 @@ function loop_single_settings(){
 				"type" => "heading"
 				);			
 	$options[] = array( 
-				"name" => __('Change Loop Settings for Archive the Single Template', TEXTDOMAIN),
+				"name" => __('Change Loop Settings for the Single Template', TEXTDOMAIN),
 				"type" => "info",
 				"desc" => "You can customize what display when WordPress uses the Single Template to display an entry made into the Post"
 				);
