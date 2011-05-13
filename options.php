@@ -194,7 +194,6 @@ function introduction_options() {
 }
 
 
-
 /*
 *	BRANDING OPTIONS
 */
@@ -237,8 +236,6 @@ function branding_options(){
 }
 
 
-
-
 /*
 *	BACKGROUND OPTIONS
 */
@@ -269,7 +266,6 @@ function background_options(){
 	return $options;
 
 }
-
 
 
 /*
@@ -335,7 +331,6 @@ function navigation_layout_options() {
 }
 
 
-
 /*
 *	TYPOGRAPHY OPTIONS
 */
@@ -367,7 +362,12 @@ function typography_options() {
 					"std" => array('size' => '12px','face' => 'Arial','style' => 'normal','color' => '#333333'),
 					"type" => "typography"
 					);		
-						
+	$X_options[] = array( "name" => "Header Font",
+					"desc" => "Choose a font from the <a href='http://google.com/webfonts'>Google WebFont Directory</a> and type its name in the text field.",
+					"id" => "google_hdr_font",
+					"std" => "",
+					"type" => "text"
+				);
 	$options[] = array( 
 				"name" => "Cufon",
 				"desc" => "Enable Support for Cufon Font Replacement",
@@ -396,7 +396,6 @@ function typography_options() {
 	return $options;
 
 }
-
 
 
 /*
@@ -498,21 +497,29 @@ function template_layout_options() {
 					
 	//	CONTENT WIDTH VALUE								
 	$options[] = array( 
-						"name" => "Content > Primary Width",
-						"desc" => "Set the Primary Width Size for the Primary Content Area, This value is also used by by WordPress' $content_width to contrain the maximum image size for media and oembeds",
-						"id" => "set_content_primary_width",
+						"name" => "Primary Width",
+						"desc" => __("Set the Primary Width Size for the Primary Content Area, Setting will alter the \$content_width"),
+						"id" => "set_content_width_primary",
 						"std" => "540",
 						"class" => "mini",							
 						"type" => "text"
 						); 
-	$x_options[] = array( 
-						"name" => "Content > Secondary Width",
-						"desc" => "Set the Width of the Secondary Content Area",
-						"id" => "set_content_secondary_width",
+	$options[] = array( 
+						"name" => "Secondary Width",
+						"desc" => __("Set the Width of the Secondary Content Area"),
+						"id" => "set_content_width_secondary",
 						"std" => "340",
 						"class" => "mini",							
 						"type" => "text"
 						); 
+	$options[] = array( 
+						"name" => "Full Width Primary",
+						"desc" => __("Set the Width of the Primary Area for Layouts that are Fixed Full Width will alter the \$content_width"),
+						"id" => "set_content_width_primary",
+						"std" => "880",
+						"class" => "mini",							
+						"type" => "text"
+						); 										
 	//	BUILD LAYOUT OPTIONS ARRAY
 	$layout_array = array (
 						'layout-p.css' => $imagepath . 'layout-p.png',
@@ -634,13 +641,13 @@ function loop_index_settings(){
 				'tag' => 'Tag'
 				);
 	$options[] = array( 
-				"name" => "Enable Entry Head Meta Display",
+				"name" => "Enable Meta Information Above Content",
 				"desc" => "Each listed Post entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
 				"id" => "index_itemhead_meta",
 				"std" => array ( 
-						'author' => false,
-						'date' => false,
-						'time' => false,
+						'author' => true,
+						'date' => true,
+						'time' => true,
 						'comments' => false,
 						'category' => false,
 						'tag' => false						
@@ -654,9 +661,27 @@ function loop_index_settings(){
 						'category' => 'Category',
 						'tag' => 'Tag'
 					)
-				);								
+				);
 	$options[] = array( 
-				"name" => "Enable Entry Foot Meta Display",
+				"name" => "Content Display Options",
+				"desc" => "Set How you would like to display your Content",
+				"id" => "index_content",
+				"std" => array ( 
+						'show_mediagalleries' => false,				
+						'the_post_thumbnail' => true,
+						'the_content' => true,
+						'the_excerpt' => false
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'show_mediagalleries' => "Show Media Gallery",				
+						'the_post_thumbnail' => "Featured Post Thumbnail",
+						'the_content' => "The Content",
+						'the_excerpt' => "The Excerpt"
+					)
+				);					
+	$options[] = array( 
+				"name" => "Enable Meta Information Below Content",
 				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
 				"id" => "index_itemfoot_meta",
 				"std" => array ( 
@@ -726,7 +751,7 @@ function loop_page_settings(){
 				'tag' => 'Tag'
 				);
 	$options[] = array( 
-				"name" => "Enable Entry Head Meta Display",
+				"name" => "Enable Meta Information Above Content",
 				"desc" => "Each listed Page entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
 				"id" => "page_itemhead_meta",
 				"std" => array ( 
@@ -740,9 +765,27 @@ function loop_page_settings(){
 						'date' => 'Date',
 						'time' => 'Time'
 					)
-				);								
+				);
 	$options[] = array( 
-				"name" => "Enable Entry Foot Meta Display",
+				"name" => "Content Display Options",
+				"desc" => "Set How you would like to display your Content",
+				"id" => "page_content",
+				"std" => array ( 
+						'show_mediagalleries' => false,				
+						'the_post_thumbnail' => true,
+						'the_content' => true,
+						'the_excerpt' => false
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'show_mediagalleries' => "Show Media Gallery",				
+						'the_post_thumbnail' => "Featured Post Thumbnail",
+						'the_content' => "The Content",
+						'the_excerpt' => "The Excerpt"
+					)
+				);					
+	$options[] = array( 
+				"name" => "Enable Meta Information Above Content",
 				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
 				"id" => "page_itemfoot_meta",
 				"std" => array ( 
@@ -806,7 +849,7 @@ function loop_single_settings(){
 				'tag' => 'Tag'
 				);
 	$options[] = array( 
-				"name" => "Enable Entry Head Meta Display",
+				"name" => "Enable Meta Information Above Content",
 				"desc" => "Each listed Post entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
 				"id" => "single_itemhead_meta",
 				"std" => array ( 
@@ -826,9 +869,27 @@ function loop_single_settings(){
 						'category' => 'Category',
 						'tag' => 'Tag'
 					)
-				);								
+				);
 	$options[] = array( 
-				"name" => "Enable Entry Foot Meta Display",
+				"name" => "Content Display Options",
+				"desc" => "Set How you would like to display your Content",
+				"id" => "single_content",
+				"std" => array ( 
+						'show_mediagalleries' => false,				
+						'the_post_thumbnail' => true,
+						'the_content' => true,
+						'the_excerpt' => false
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'show_mediagalleries' => "Show Media Gallery",				
+						'the_post_thumbnail' => "Featured Post Thumbnail",
+						'the_content' => "The Content",
+						'the_excerpt' => "The Excerpt"
+					)
+				);					
+	$options[] = array( 
+				"name" => "Enable Meta Information Above Content",
 				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
 				"id" => "single_itemfoot_meta",
 				"std" => array ( 
@@ -896,7 +957,7 @@ function loop_archive_settings(){
 				'tag' => 'Tag'
 				);
 	$options[] = array( 
-				"name" => "Enable Entry Head Meta Display",
+				"name" => "Enable Meta Information Above Content",
 				"desc" => "Each listed Archive entry will have meta information that can be displayed below it's title. Enable/Disable its display here",
 				"id" => "archive_itemhead_meta",
 				"std" => array ( 
@@ -910,9 +971,27 @@ function loop_archive_settings(){
 						'date' => 'Date',
 						'time' => 'Time'
 					)
-				);								
+				);
 	$options[] = array( 
-				"name" => "Enable Entry Foot Meta Display",
+				"name" => "Content Display Options",
+				"desc" => "Set How you would like to display your Content",
+				"id" => "archive_content",
+				"std" => array ( 
+						'show_mediagalleries' => false,				
+						'the_post_thumbnail' => true,
+						'the_content' => true,
+						'the_excerpt' => false
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'show_mediagalleries' => "Show Media Gallery",				
+						'the_post_thumbnail' => "Featured Post Thumbnail",
+						'the_content' => "The Content",
+						'the_excerpt' => "The Excerpt"
+					)
+				);				
+	$options[] = array( 
+				"name" => "Enable Meta Information Below Content",
 				"desc" => "Each listed Archive entry has Meta Information that can be displayed after the entry's content. Enable/Disable its display here",
 				"id" => "archive_itemfoot_meta",
 				"std" => array ( 
