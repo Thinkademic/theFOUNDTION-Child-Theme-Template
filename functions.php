@@ -19,11 +19,11 @@
 
 
 /*
-*	DEFINE DOES NOT OCCUR EARLY ENOUGH FOR CHILD THEMES
+*	DEFINE CONSTANTS AND UNIVERSAL VARS
 */	
 define( 'TEXTDOMAIN', 'thefdt' );
 define( 'THEMECUSTOMMETAKEY', '_fsl_media_options' );
-
+$content_width = $data['set_content_primary_width'];
 
 
 
@@ -33,34 +33,6 @@ define( 'THEMECUSTOMMETAKEY', '_fsl_media_options' );
 */
 require_once(STYLESHEETPATH . '/functions/functions-appearance-themeoptions.php');
 
-
-
-
-
-
-/**************************************************************
- [00] CUSTOM POST TYPES CUSTOM POST TYPES LOADED FROM PARENT THEME
- 
- ENABLED IN ADMIN > APPEARANCE > THEME OPTIONS > CUSTOM POST TYPE
-**************************************************************/
-if( of_get_option( 'enable_custom_posttype_event', false ) == true )
-	require_once(TEMPLATEPATH . '/functions/functions-posttype-event.php');
-if( of_get_option( 'enable_custom_posttype_portfolio', false ) == true )
-	require_once(TEMPLATEPATH . '/functions/functions-posttype-portfolio.php');
-if( of_get_option( 'enable_custom_posttype_designer', false ) == true )
-	require_once(TEMPLATEPATH . '/functions/functions-posttype-designer.php');
-if( of_get_option( 'enable_custom_posttype_swatch', false ) == true )
-	require_once(TEMPLATEPATH . '/functions/functions-posttype-swatch.php');
-if( of_get_option( 'enable_custom_posttype_product', false ) == true)
-	require_once(TEMPLATEPATH . '/functions/functions-posttype-product.php');
-if( of_get_option( 'enable_custom_posttype_post', false ) == true)
-	require_once(TEMPLATEPATH . '/functions/functions-posttype-post.php');
-if( of_get_option( 'enable_custom_posttype_dictionary', false ) == true )
-	require_once(TEMPLATEPATH . '/functions/functions-posttype-dictionary.php');
-
-	
-	
-	
 	
 /**************************************************************
  [01] CHILD THEME APPEARANCE OPTION OVERRIDES
@@ -69,9 +41,6 @@ require_once(STYLESHEETPATH . '/functions/functions-appearance-sidebars.php');
 require_once(STYLESHEETPATH . '/functions/functions-appearance-header.php');
 require_once(STYLESHEETPATH . '/functions/functions-appearance-widgets.php');
 require_once(STYLESHEETPATH . '/functions/functions-appearance-menu.php');
-
-
-
 
 
 /**************************************************************
@@ -98,29 +67,6 @@ require_once(STYLESHEETPATH . '/functions/functions-jquery.php');
 require_once(STYLESHEETPATH . '/functions/functions-override-plugin.php');
 
 
-
-
-/**************************************************************
- [05] SET CONTENT WIDTH
-**************************************************************/
-$content_width = $data['set_content_primary_width'];
-
-
-/**************************************************************
- [05] REMOVE ADMIN BAR
-**************************************************************/
-#add_filter( 'show_admin_bar', '__return_false' );
-#wp_deregister_script('admin-bar');
-#wp_deregister_style('admin-bar');
-#remove_action('wp_footer','wp_admin_bar_render',1000);	
-#add_action( 'admin_print_scripts-profile.php', 'hide_admin_bar_prefs' );
-function hide_admin_bar_prefs() { 
-	echo '
-	<style type="text/css">
-		.show-admin-bar { display: none; }
-	</style>
-	';
-}
 
 
 /**************************************************************

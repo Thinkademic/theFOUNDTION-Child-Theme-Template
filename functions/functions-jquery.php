@@ -52,7 +52,7 @@ function register_jquery_plugins() {
 	wp_register_script('supersubs', 	$src."/js/supersubs.js", false, '0.2b', false);
 	
 	wp_register_script('crossslide', 	$src."/js/jquery.cross-slide.js", false, '0.3.3', false);
-	wp_register_script('jcycle',		$src."/js/jquery.cycle.all.js", array('smoothdiv'), '2.99', false);
+	wp_register_script('jcyclegallery',		$src."/js/jquery.cycle.all.js", array('smoothdiv'), '2.99', false);
 
 	wp_register_script('filterable', 	$src."/js/filterable.js", false, '', false);
 	wp_register_script('scrollto', 		$src."/js/jquery.scrollTo.js", false, '1.4.2', false);
@@ -73,9 +73,9 @@ function register_jquery_plugins() {
 	wp_register_script('qtip',		 	$src."/js/jquery.qtip.js", false, '1.0.0r3', false);	
 	wp_register_script('lazyload',	 	$src."/js/lazyload.js", false, '1.5.0', false);
 
-	wp_register_script('nivoslider',	 	$src."/js/jquery.nivo.slider.js",  array('jcycle'), '2.5.1', false);		
+	wp_register_script('nivoslider',	 	$src."/js/jquery.nivo.slider.js",  false, '2.5.1', false);		
 	
-	wp_register_script('portfoliomaker',	 $src."/js/jquery.portfoliomaker.js",  array('jcycle', 'filterable', 'scrollto', 'localscroll', 'serialscroll', 'fancybox'), '1', false);		
+	wp_register_script('portfoliomaker',	 $src."/js/jquery.portfoliomaker.js",  array('jcyclegallery', 'filterable', 'scrollto', 'localscroll', 'serialscroll', 'fancybox'), '1', false);		
 	wp_register_script('customthemejquery',	 $src."/js/jquery.".get_stylesheet().".js", false, '1', false);		
 }
 
@@ -110,7 +110,7 @@ function enqueue_jquery_plugins() {
 				use_wp_enqueue( 'crossslide', $load );				// - 	http://tobia.github.com/crossslide/
 
 			$load = false;	
-				use_wp_enqueue( 'jcycle', $load );							// - 	http://jquery.malsup.com/cycle/
+				use_wp_enqueue( 'jcyclegallery', $load );							// - 	http://jquery.malsup.com/cycle/
 
 			if( is_page_template( 'page_portfoliomaker.php') || is_page_template( 'page_portfoliomakermodal.php') || (is_single() && ('portfolio' == get_post_type()))	)
 				use_wp_enqueue( 'portfoliomaker', true  );					
@@ -136,7 +136,7 @@ function enqueue_jquery_plugins() {
 		
 		#	JSCROLLPANE
 			$load = false;
-				use_wp_enqueue( 'jscrollpane', $load );
+				use_wp_enqueue( 'jscrollpane', $load );		
 				
 		#	CUSTOM
 			$load = false;

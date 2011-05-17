@@ -108,7 +108,7 @@ function optionsframework_options() {
 	/*
 	*	CUSTOM POST TYPE 
 	*/	
-	#$options = array_merge($options, custom_post_type_support() );
+	$options = array_merge($options, custom_post_type_support() );
 	
 	/*
 	*	CREDITS
@@ -122,7 +122,7 @@ function optionsframework_options() {
 	/*
 	*	TEST OPTIONS
 	*/
-	$options = array_merge($options, test_options() );								
+	#$options = array_merge($options, test_options() );								
 	
 	return $options;
 }
@@ -515,7 +515,7 @@ function template_layout_options() {
 	$options[] = array( 
 						"name" => "Full Width Primary",
 						"desc" => __("Set the Width of the Primary Area for Layouts that are Fixed Full Width will alter the \$content_width"),
-						"id" => "set_content_width_primary",
+						"id" => "set_content_full_width_primary",
 						"std" => "880",
 						"class" => "mini",							
 						"type" => "text"
