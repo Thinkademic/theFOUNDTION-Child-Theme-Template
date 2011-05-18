@@ -6,8 +6,8 @@
 function theme_header_setup() {
 		define( 'HEADER_TEXTCOLOR', 'ffffff' );
 		define( 'HEADER_IMAGE', get_stylesheet_directory_uri() .'/images/logo/logo_default.png' ); 			// 	%S IS THE TEMPLATE DIR URI
-		define( 'HEADER_IMAGE_WIDTH', apply_filters( 'foundation_header_image_width', 180) );
-		define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'foundation_header_image_height',	180) );
+		define( 'HEADER_IMAGE_WIDTH', apply_filters( 'thefdt_header_image_width', 180) );
+		define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'thefdt_header_image_height', 180) );
 
 		define( 'NO_HEADER_TEXT', true );																							//		DONTS SUPPORT TEXT COLOR CHANGE
 		
@@ -32,13 +32,18 @@ function theme_header_setup() {
 **************************************************************/	
 function enable_header_style() {
 	echo '	
-	<style type="text/css">
-        #mastline h1 {
-            background: url( "'.get_header_image().'");
-			height: '.HEADER_IMAGE_HEIGHT.'px;
-			width: '.HEADER_IMAGE_WIDTH.'px;			
-        }
-    </style>
+		<style type="text/css">
+			#mastline h1 {
+				background: url( "'.get_header_image().'");
+				height: '.HEADER_IMAGE_HEIGHT.'px;
+				width: '.HEADER_IMAGE_WIDTH.'px;			
+			}
+			#mastline h1 a {
+				background: transparent !important;
+				height: '.HEADER_IMAGE_HEIGHT.'px;
+				width: '.HEADER_IMAGE_WIDTH.'px;			
+			}			
+		</style>
 	';
 }
 

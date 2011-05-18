@@ -3,9 +3,7 @@
 {
 	background: transparent;
 	overflow: hidden;
-	margin-left: 20px;
-	margin-right: 20px;
-	width: 880px;
+	width: 940px;
 	float: left;
 	display: inline;
 	clear: left;
@@ -15,9 +13,8 @@
 {
 	float: left;
 	clear: both;
-	width: 320px;
-	margin-left: 20px;
-	margin-top: 20px;
+	width: 940px;
+	margin-top: 10px;
 	overflow: hidden;
 	background: #B8B8B8;
 }

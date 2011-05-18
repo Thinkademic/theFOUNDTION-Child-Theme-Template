@@ -26,14 +26,6 @@ define( 'THEMECUSTOMMETAKEY', '_fsl_media_options' );
 $content_width = $data['set_content_primary_width'];
 
 
-
-
-/*
-*	LOAD OPTIONS, USES OPTIONS FRAMEWORK
-*/
-require_once(STYLESHEETPATH . '/functions/functions-appearance-themeoptions.php');
-
-	
 /**************************************************************
  [01] CHILD THEME APPEARANCE OPTION OVERRIDES
 **************************************************************/
@@ -102,38 +94,39 @@ add_theme_support( 'post-formats', array(
 function setup_theme_image_formats() {
 		
 		if (is_admin() && isset($_GET['activated'] ) && $pagenow == "themes.php" ) {
-			update_option( 'thumbnail_size_w',  '165' );
-			update_option( 'thumbnail_size_h', '110' );
+			update_option( 'thumbnail_size_w',  '340' );
+			update_option( 'thumbnail_size_h', '225' );
 			update_option( 'thumbnail_crop', 1 );
 			
-			update_option( 'medium_size_w', '540' );
-			update_option( 'medium_size_h', '360' );
+			update_option( 'medium_size_w', '580' );       // ~ 16 to 9 :: 580 > 325 :: FOR LANDSCAPE
+			update_option( 'medium_size_h', '380' );        // ~  4 to 3  :: 280 > 380 :: FOR PORTRAITE
 			
-			update_option( 'large_size_w', '880' );
-			update_option( 'large_size_h', '540' );	
+			update_option( 'large_size_w', '940' );            // ~ 16 to 9 :: 940 > 530
+			update_option( 'large_size_h', '520' );             // ~ 4 to 3 :: 520 > 390		
 						
-			#header( 'Location: '.admin_url().'admin.php?page=my_theme' ) ;
+			#header( 'Location: '.admin_url().'admin.php?page=my_theme' ) ;			// RELOCATE PAGE AFTER ACTIVATION
 		}			
 
 	#	SETUP DEFAULT CROP OPTIONS ON DEFAULT WORDPRESS MEDIA SIZES
 		if(	false === get_option("medium_crop")	)
 			add_option("medium_crop", "0");
 		else
-			update_option("medium_crop", "1");
+			update_option("medium_crop", "0");
 			
 		if(false === get_option("large_crop"))
-			add_option("medium_crop", "0");
+			add_option("large_crop", "1");
 		else
 			update_option("large_crop", "1");			
 	
 	#	ESTABLISH CUSTOM THUMBSIZE SIZES	
-		add_image_size( "minithumbnail", 85, 50, true );			// DIMENSION SIZE FOR THUMBNAIL SIZE 	:: 360 X 240
-		add_image_size( "minimedium", 130, 75, true );			// DIMENSION SIZE FOR MEDIUM 			:: 540 X 360
-		add_image_size( "minilarge", 170, 95, true );				// DIMENSION SIZE FOR LARGE IMAGES 		:: 880 X 540
-		add_image_size( "headerlogo", 180, 180, true );			// DIMENSION SIZE FOR HEADER IMAGES
-		add_image_size( "squarethumbnail", 50, 50, true );		// DIMENSION SIZE FOR LARGE IMAGES 		:: 880 X 540
-		add_image_size( "squaremedium", 80, 80, true );		// DIMENSION SIZE FOR LARGE IMAGES 		:: 880 X 540
-		add_image_size( "squarelarge", 160, 160, true );			// DIMENSION SIZE FOR LARGE IMAGES 		:: 880 X 540		
+		add_image_size( "minithumbnail", 85, 50, true );		// DIMENSION SIZE FOR 'MINITHUMBNAIL'
+		add_image_size( "minimedium", 130, 75, true );			// DIMENSION SIZE FOR 'MINIMEDIUM'
+		add_image_size( "minilarge", 170, 95, true );				// DIMENSION SIZE FOR 'MINILARGE'
+		add_image_size( "headerlogo", 180, 180, true );			// DIMENSION SIZE FOR 'HEADERLOGO'
+		#add_image_size( "squarethumbnail", 50, 50, true );		// DIMENSION SIZE FOR 'SQAURETHUMBNAIL'
+		#add_image_size( "squaremedium", 80, 80, true );		// DIMENSION SIZE FOR 'SQUAREMEDIUM'
+		#add_image_size( "squarelarge", 160, 160, true );			// DIMENSION SIZE FOR 'SQUARELARGE'
+		
 }
 
 

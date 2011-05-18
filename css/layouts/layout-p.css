@@ -2,8 +2,7 @@
 {
 	background: transparent;
 	overflow: hidden;
-	margin-left: 20px;
-	width: 880px;
+	width: 940px;
 	float: left;
 	display: block;
 	clear: left;
@@ -11,11 +10,9 @@
 #secondary
 {
 	background: transparent;
-	margin-left: 20px;
-	margin-top: 20px;
 	float: left;
 	height: 200px;
-	width: 880px;
+	width: 940px;
 	display: block;
 	clear: left;
 }

@@ -297,6 +297,23 @@ function header_options() {
 						"desc" => 'Use Wordpress Header Options. You will find it under <em>Admin > Appearance > Header</em>'
 						);	
 						
+	$options[] = array( 
+						"name" => "Header Image Width",
+						"desc" => __("Set the Width of the Header Background"),
+						"id" => "header_width",
+						"std" => "125",
+						"class" => "mini",
+						"type" => "text"
+						);						
+						
+	$options[] = array( 
+						"name" => "Header Image Height",
+						"desc" => __("Set the Height of the Header Background)"),
+						"id" => "header_height",
+						"std" => "125",
+						"class" => "mini",
+						"type" => "text"
+						);						
 						
 	return $options;
 
@@ -500,7 +517,7 @@ function template_layout_options() {
 						"name" => "Primary Width",
 						"desc" => __("Set the Primary Width Size for the Primary Content Area, Setting will alter the \$content_width"),
 						"id" => "set_content_width_primary",
-						"std" => "540",
+						"std" => get_option('medium_size_w'),
 						"class" => "mini",							
 						"type" => "text"
 						); 
@@ -516,7 +533,7 @@ function template_layout_options() {
 						"name" => "Full Width Primary",
 						"desc" => __("Set the Width of the Primary Area for Layouts that are Fixed Full Width will alter the \$content_width"),
 						"id" => "set_content_full_width_primary",
-						"std" => "880",
+						"std" => get_option('large_size_w'),
 						"class" => "mini",							
 						"type" => "text"
 						); 										
@@ -629,7 +646,7 @@ function loop_index_settings(){
 				"name" => "Loop Header",
 				"desc" => "Enter in descriptive text to describe the listing of each POST entry. This is placed before the Loop begins. For example: <strong>Latest Blog Post</strong> would precede a listing of the latest blog post.",
 				"id" => "index_loop_header",
-				"std" => "Latest Blog Post",
+				"std" => "",
 				"type" => "text"
 				); 						
 	$item_meta = array ( 

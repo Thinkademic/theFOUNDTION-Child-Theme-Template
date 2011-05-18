@@ -18,26 +18,6 @@
 	background: #D2CAC9;
 	text-align: center;
 }
-/*------- Social Media -------*/
-#socialmedia
-{
-	clear: both;
-	width: 200px;
-	background: #008000;
-	z-index: 20;
-}
-#socialmedia UL LI
-{
-	float: left;
-}
-.sociable
-{
-	clear: both;
-}
-.sociable UL LI
-{
-	clear: none;
-}
 /*-------- TEMPLATE : IMAGE.PHP --------*/
 #imagenav
 {

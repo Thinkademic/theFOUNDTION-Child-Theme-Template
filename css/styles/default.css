@@ -12,8 +12,8 @@
 #masthead
 {
 	margin: 0 auto;
-	width: 880px;
-	padding: 0 20px;
+	width: 940px;
+	padding: 10px;
 	line-height: 1;
 	background: #BBB;
 }
@@ -29,7 +29,6 @@
 #mastline
 {
 	width: auto;
-	height: 160px;
 	clear: left;
 	float: left;
 	background: #AAA;
@@ -37,11 +36,12 @@
 #mastline H1
 {
 	clear: none;
+	margin: 0px;
+	padding: 0px;
 }
 #mastline H1 A
 {
 	display: block;
-	background: #C3C3C3;
 	padding: 0;
 }
 #mastline H1 A SPAN
@@ -64,8 +64,8 @@
 #content
 {
 	margin: 0 auto;
-	padding-top: 20px;
-	width: 920px;
+	padding: 10px;
+	width: 940px;
 	overflow: hidden;
 	background: #EBEBEB;
 }
@@ -146,6 +146,8 @@
 }
 .itemtext
 {
+	font-size: 125%;
+	line-height: 1.5;
 }
 .itemtext A
 {
@@ -418,7 +420,7 @@
 	float: left;
 	min-height: 300px;
 	width: 100%;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 #secondary .sidebar-primary
 {
@@ -426,14 +428,14 @@
 	float: left;
 	width: 100%;
 	min-height: 300px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 #secondary .sidebar-secondary
 {
 	background: #A4A4A4;
 	float: left;
 	width: 100%;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 #secondary .widget
 {
@@ -467,20 +469,33 @@
 	width: 100%;
 }
 /*------- FOOTER + FOOTBOX -------*/
+#footbox
+{
+	width: 100%;
+	background: #7E7E7E;
+	margin: 0 auto;
+}
 #footer
 {
 	clear: both;
-	width: 100%;
-	margin: 0;
-	height: 100px;
-	background: #808080;
-}
-#footbox
-{
-	width: 920px;
-	background: #D2D2D2;
+	width: 940px;
 	margin: 0 auto;
-	height: 100px;
+	padding: 10px;
+	min-height: 200px;
+	background: #C4C4C4;
+}
+#footer>DIV
+{
+	clear: none;
+	width: 220px;
+	float: left;
+	margin: 0 20px 0 auto;
+	min-height: 200px;
+	background: #A7A0A0;
+}
+#footer>DIV:last-child
+{
+	margin: 0 0 0 auto;
 }
 #footer UL LI SPAN
 {
@@ -545,26 +560,16 @@
 #single
 {
 }
-/*------- SINGLE-PORTFOLIO.PHP -------*/
-#single_portfolio #primary
-{
-	width: 880px;
-	margin: 0;
-}
-#single_portfolio #content
-{
-	width: 880px;
-}
 /*------- PAGE_PORTFOLIO.PHP -------*/
 #page_portfolio #content
 {
-	width: 920px;
+	width: 960px;
 	/*[disabled]width:100%;*/
 	padding: 0;
 }
 #page_portfolio #masthead
 {
-	width: 920px;
+	width: 960px;
 	margin: 0 auto;
 	background: #15159E;
 }
@@ -578,7 +583,7 @@
 #page_portfolio #primary #page_portfolio_content
 {
 	margin: 0px;
-	width: 880px;
+	width: 960px;
 	background: #D3BACA;
 }
 #page_portfolio .portfolio_content .post_content

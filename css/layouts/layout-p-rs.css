@@ -3,8 +3,7 @@
 {
 	background: transparent;
 	overflow: hidden;
-	margin-left: 20px;
-	width: 540px;
+	width: 580px;
 	float: left;
 	display: inline;
 	clear: left;
@@ -13,8 +12,7 @@
 #secondary
 {
 	float: right;
-	width: 320px;
-	margin-right: 20px;
+	width: 340px;
 	overflow: hidden;
 	background: #B8B8B8;
 }
