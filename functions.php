@@ -177,4 +177,24 @@ add_filter('get_the_excerpt', 'replace_excerpt', 19);
 add_filter( 'widget_text', array( $wp_embed, 'run_shortcode' ), 8 );
 add_filter( 'widget_text', array( $wp_embed, 'autoembed'), 8 );
 
+
+
+/**************************************************************
+ [08] INCLUDE IMAGE IN RSS
+**************************************************************/
+function rss_post_thumbnail($content) {
+	global $post;
+		$featured_image = get_the_post_thumbnail( $post->ID, 'medium', array('class' => 'alignleft'));
+		
+		if( $featured_image ) :
+			return "<p>" . $featured_image . "</p>";
+		else :
+			echo "<p>" . get_first_image($post->ID, 'thumbnail') . "</p>";
+		endif;
+		
+	return $content;
+}
+add_filter('the_excerpt_rss', 'rss_post_thumbnail');
+add_filter('the_content_feed', 'rss_post_thumbnail');
+
 ?>
