@@ -396,7 +396,7 @@ function typography_options() {
 			);
 	$options[] = array( 
 				"name" => "Select the Font Face you like to use",
-				"desc" => "Select the Font Face You would like to use",
+				"desc" => "Select the Font Face You would like to enable.  Make sure you apply the proper font-family name to your selectors.  To add your own font faces, place a folder inside your themes font folder and include a style sheet with the name 'stylesheet.css' inside that folder",
 				"id" => "fontface_font_files",
 				"std" => array(),
 				"type" => "multicheck",
