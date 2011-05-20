@@ -129,9 +129,6 @@ function optionsframework_options() {
 
 
 
-
-
-
 /*
 *	INTRODUCTIONS OPTIONS
 */
@@ -254,13 +251,14 @@ function background_options(){
 						background changer, located in the Appearance menu.
 							",
 						);
-
+	$admin_address = get_admin_url( "", 'themes.php?page=custom-background');
+	$background_page = '<a href="'.$admin_address.'" title="Edit Custom Background">Background</a>';
 	$options[] = array( 
 						"name" => "Native Background Options",
 						"type" => "checkbox",
 						"std" => "false",
 						"id" => "enable_wordpress_background",
-						"desc" => 'Use Wordpress Background Options. You will find it under <em>Admin > Appearance > Background</em>'
+						"desc" => 'Use Wordpress Background Options. You will find it under <em>Admin > Appearance > '.$background_page.'</em>'
 						);							
 
 	return $options;
@@ -288,13 +286,14 @@ function header_options() {
 					Headers can also be simple or complicated. Take time to enable or disable header features.
 				",
 			);	
-
+	$admin_address = get_admin_url( "", 'themes.php?page=custom-header');
+	$header_page = '<a href="'.$admin_address.'" title="Edit Custom Background">Header</a>';
 	$options[] = array( 
 						"name" => "Native Background Options",
 						"type" => "checkbox",
 						"std" => "false",
 						"id" => "enable_wordpress_header",
-						"desc" => 'Use Wordpress Header Options. You will find it under <em>Admin > Appearance > Header</em>'
+						"desc" => 'Use Wordpress Header Options. You will find it under <em>Admin > Appearance > '.$header_page.'</em>'
 						);	
 						
 	$options[] = array( 
@@ -355,6 +354,8 @@ function typography_options() {
 
 	// MULTICHECK ARRAY
 	$cufonfonts = find_cufon_fonts();
+	$fontface	 = find_font_face_fonts();
+	$google_fonts = find_google_fonts();
 
 	$options[] = array( 
 						"name" => __('Typography', TEXTDOMAIN),
@@ -385,6 +386,23 @@ function typography_options() {
 					"std" => "",
 					"type" => "text"
 				);
+	// FONT FACE SUPPORT			
+	$options[] = array( 
+				"name" => "Font Face",
+				"desc" => "Enable Support for Font Face",
+				"id" => "enable_fontface_support",
+				"std" => false,
+				"type" => "checkbox"
+			);
+	$options[] = array( 
+				"name" => "Select the Font Face you like to use",
+				"desc" => "Select the Font Face You would like to use",
+				"id" => "fontface_font_files",
+				"std" => array(),
+				"type" => "multicheck",
+				"options" => $fontface
+			);				
+	// CUFON FONT SUPPORT			
 	$options[] = array( 
 				"name" => "Cufon",
 				"desc" => "Enable Support for Cufon Font Replacement",
@@ -392,16 +410,13 @@ function typography_options() {
 				"std" => false,
 				"type" => "checkbox"
 			);
-			
 	$options[] = array( "name" => "Select the Cufon Fonts you like to Use",
 						"desc" => "Select the Cufon fonts  you would like to Use.",
 						"id" => "cufon_font_files",
 						"std" => array(),
 						"type" => "multicheck",
 						"options" => $cufonfonts
-						);		
-
-			
+						);								
 	$options[] = array( 
 							"name" => "Apply Cufon Jquery Rules Here",
 							"desc" => "Include your Cufon Rules. Be sure to use proper syntax, otherwise it might break your website. Double Quotes will be escaped. Use Single quotes instead",
@@ -477,7 +492,6 @@ function hyperlinks_options() {
 	return $options;
 
 }
-
 
 
 /*
@@ -589,7 +603,6 @@ function template_layout_options() {
 }
 
 
-
 /*
 *	ALTERNATIVE STYLES
 */
@@ -621,7 +634,6 @@ function alternative_styles_options() {
 					
 	return $options;
 }
-
 
 
 /*
@@ -802,7 +814,7 @@ function loop_page_settings(){
 					)
 				);					
 	$options[] = array( 
-				"name" => "Enable Meta Information Above Content",
+				"name" => "Enable Meta Information Below Content",
 				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
 				"id" => "page_itemfoot_meta",
 				"std" => array ( 

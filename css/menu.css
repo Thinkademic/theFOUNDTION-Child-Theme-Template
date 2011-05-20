@@ -8,13 +8,10 @@
 }
 .sitenav LI A:hover
 {
-	background: url(./../images/gradient/black20.png);
-	color: #F0F0F0;
 }
 /*------- THEME SPECIFIC NAV MENU -------*/
 #thefoundation_child-nav
 {
-	background: #DDD;
 	float: left;
 	width: 100%;
 	z-index: 1002;
@@ -23,14 +20,12 @@
 #mastlinetop-nav
 {
 	float: left;
-	background: #CCC;
 	width: 100%;
 	z-index: 1001;
 }
 /*------- MASTLINE BOTTOM -------*/
 #mastlinebottom-nav
 {
-	background: #888;
 	width: 100%;
 	float: left;
 	clear: both;
@@ -101,15 +96,12 @@ UL.masthead-menu LI LI LI:hover UL, UL.masthead-menu LI LI LI.sfHover UL
 }
 .masthead-menu UL
 {
-	background: url(./../images/gradient/white60.png);
 }
 .masthead-menu UL UL
 {
-	background: url(./../images/gradient/white80.png);
 }
 .masthead-menu LI
 {
-	background: url(./../images/gradient/black10.png);
 }
 .masthead-menu LI LI
 {
@@ -126,8 +118,6 @@ UL.masthead-menu LI LI LI:hover UL, UL.masthead-menu LI LI LI.sfHover UL
 }
 .masthead-menu A:hover
 {
-	background: url(./../images/gradient/black10.png) !important;
-	color: #FFFFFF;
 }
 .masthead-menu LI:hover, .masthead-menu LI.sfHover, .masthead-menu A:focus, .masthead-menu A:hover, .masthead-menu A:active
 {

@@ -15,7 +15,6 @@
 	width: 940px;
 	padding: 10px;
 	line-height: 1;
-	background: #BBB;
 }
 #masthead:after
 {
@@ -31,7 +30,6 @@
 	width: auto;
 	clear: left;
 	float: left;
-	background: #AAA;
 }
 #mastline H1
 {
@@ -67,7 +65,6 @@
 	padding: 10px;
 	width: 940px;
 	overflow: hidden;
-	background: #EBEBEB;
 }
 /*------- SIMPLE SINGLE NAVIGATION -------*/
 .navigation
@@ -97,18 +94,15 @@
 }
 .postnav A
 {
-	background: #BDBDBD;
 	padding: 5px;
 }
 .postnav SPAN
 {
-	background: #858585;
 	padding: 5px;
 }
 /*------- PRIMARY -------*/
 #primary
 {
-	background: transparent;
 	overflow: hidden;
 	display: inline;
 	clear: left;
@@ -406,7 +400,6 @@
 #secondary
 {
 	overflow: hidden;
-	background: #B8B8B8;
 }
 /*------- SECONDARY STYLING -------*/
 #secondary #secondary-featured
@@ -416,7 +409,6 @@
 }
 #secondary .sidebar-featured
 {
-	background: #989898;
 	float: left;
 	min-height: 300px;
 	width: 100%;
@@ -424,7 +416,6 @@
 }
 #secondary .sidebar-primary
 {
-	background: #A3A3A3;
 	float: left;
 	width: 100%;
 	min-height: 300px;
@@ -432,7 +423,6 @@
 }
 #secondary .sidebar-secondary
 {
-	background: #A4A4A4;
 	float: left;
 	width: 100%;
 	margin-bottom: 10px;
@@ -756,4 +746,13 @@
 {
 	left: 14em;
 	margin: 0px 0 0 0px;
+}
+/*------- CSS DEBUG*/
+#wrapper DIV
+{
+	background: url(./../../images/gradient/black10.png) !important;
+}
+.sitenav UL LI
+{
+	background: url(./../../images/gradient/white50.png) !important;
 }
