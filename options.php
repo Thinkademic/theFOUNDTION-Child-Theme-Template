@@ -18,9 +18,7 @@ function optionsframework_option_name() {
 
 }
 
-
-
-/**
+/*
  * Defines an array of options that will be used to generate the settings page and be saved in the database.
  * When creating the "id" fields, make sure to use all lowercase and no spaces.
  *  
@@ -28,91 +26,58 @@ function optionsframework_option_name() {
 function optionsframework_options() {
 	
 
-	/*
-	*	BUILD OUR OPTIONS PANEL TABS
-	*/			
+
+	// BUILD OUR OPTIONS PANEL TABS		
 	$options = array();
 		
 
-	/*
-	*	INTRODUCTION TAB
-	*/
+	// INTRODUCTION
 	if( of_get_option('enable_hide_introduction', false ) != true )
 		$options = array_merge( $options, introduction_options() );
 
-	/*
-	*	BACKGROUND OPTIONS
-	*/
+	// ALTERNATIVE STYLES
+	$options = array_merge($options, alternative_styles_options() );
+				
+	// BACKGROUND
 	$options = array_merge( $options, background_options() );
 
-	/*
-	*	HEADER OPTIONS
-	*/
+	// HEADER
 	$options = array_merge( $options, header_options() );	
 	
-	/*
-	*	TYPOGRAPHY OPTIONS
-	*/
+	// BRANDING LOGO
+	#$options = array_merge( $options, branding_options() );	
+	
+	// TYPOGRAPHY
 	$options = array_merge( $options, typography_options() );
 	
-	/*
-	*	HYPERLINK OPTIONS
-	*/
+	// HYPERLINKS
 	$options = array_merge( $options, hyperlinks_options() );
 
-	/*
-	*	NAVIGATION LAYOUT OPTIONS
-	*/
+	// NAVIGATION
 	$options = array_merge( $options, navigation_layout_options() );
 	
-	/*
-	*	BRANDING ( LOGO + FAVICON) OPTIONS
-	*/
-	#$options = array_merge( $options, branding_options() );
-						
-	/*
-	*	TEMPLATE LAYOUT OPTIONS
-	*/
+	// TEMPLATE LAYOUTS
 	$options = array_merge( $options, template_layout_options() );
 		
-	/*
-	*	ALTERNATIVE STYLES LAYOUT TAB
-	*/	
-	$options = array_merge($options, alternative_styles_options() );
-	
-	/*
-	*	INDEX TEMPLATE LOOP
-	*/	
+	// LOOP FOR INDEX.PHP
 	$options = array_merge($options, loop_index_settings() );
 	
-	/*
-	*	SINGLE LOOP SETTINGS
-	*/	
+	// LOOP FOR SINGLE.PHP
 	$options = array_merge($options, loop_single_settings() );
 		
-	/*
-	*	PAGE LOOP SETTINGS
-	*/	
+	// LOOP FOR PAGE.PHP
 	$options = array_merge($options, loop_page_settings() );
 		
-	/*
-	*	ARCHIVE LOOP SETTINGS
-	*/	
+	// LOOP FOR ARCHIVE	
 	$options = array_merge($options, loop_archive_settings() );
 	
-	/*
-	*	CUSTOM CSS
-	*/
+	// CUSTOM CSS [TO IMPLEMENT]
 	#$options = array_merge($options, template_custom_css_options() );
 
-	/*
-	*	CUSTOM POST TYPE 
-	*/	
+	// CUSTOM POSTTYPE
 	$options = array_merge($options, custom_post_type_support() );
 	
-	/*
-	*	CREDITS
-	*/	
+	// CREDITS
 	$options = array_merge($options, template_credits_options() );
 	
 
@@ -974,7 +939,7 @@ function loop_archive_settings(){
 				"name" => "Loop Header",
 				"desc" => "Enter in descriptive text to describe the display of an Archive Page. This is placed before the Loop begins",
 				"id" => "archive_loop_header",
-				"std" => "Archives",
+				"std" => "",
 				"type" => "text"
 				); 						
 	$item_meta = array ( 
@@ -1106,32 +1071,32 @@ function custom_post_type_support() {
 						"id" => "enable_custom_posttype_portfolio",
 						"std" => true,
 						"type" => "checkbox");				
-	$options[] = array( "name" =>  __("Event"),
+	$x_options[] = array( "name" =>  __("Event"),
 						"desc" => __("Event"),
 						"id" => "enable_custom_posttype_event",
 						"std" => false,
 						"type" => "checkbox");						
-	$options[] = array( "name" =>  __("Designer"),
+	$x_options[] = array( "name" =>  __("Designer"),
 						"desc" => __("Designer"),
 						"id" => "enable_custom_posttype_designer",
 						"std" => false,
 						"type" => "checkbox");
-	$options[] = array( "name" =>  __("Swatch"),
+	$x_options[] = array( "name" =>  __("Swatch"),
 						"desc" => __("Swatch"),
 						"id" => "enable_custom_posttype_swatch",
 						"std" => false,
 						"type" => "checkbox");							
-	$options[] = array( "name" =>  __("Product"),
+	$x_options[] = array( "name" =>  __("Product"),
 						"desc" => __("Product"),
 						"id" => "enable_custom_posttype_product",
 						"std" => false,
 						"type" => "checkbox");	
-	$options[] = array( "name" =>  __("Post Enhancements"),
+	$x_options[] = array( "name" =>  __("Post Enhancements"),
 						"desc" => __("Post Type Enhancements"),
 						"id" => "enable_custom_posttype_post",
 						"std" => false,
 						"type" => "checkbox");	
-	$options[] = array( "name" =>  __("Dictionary"),
+	$x_options[] = array( "name" =>  __("Dictionary"),
 						"desc" => __("Dictionary"),
 						"id" => "enable_custom_posttype_dictionary",
 						"std" => false,
