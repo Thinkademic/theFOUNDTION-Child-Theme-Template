@@ -1036,12 +1036,12 @@ function socialmedia_support() {
 						"std" => true,
 						"type" => "checkbox");				
 	$options[] = array( "name" => "Facebook User Id",
-						"desc" => "Facebook User Id",
+						"desc" => "Facebook Id",
 						"id" => "social_media_facebook_profile",
 						"std" => "",
 						"type" => "text");						
-	$options[] = array( "name" => "Twitter User Id",
-						"desc" => "Facebook User Id",
+	$options[] = array( "name" => "Twitter Username",
+						"desc" => "Ener the Twitter Username. For example http://www.twitter.com/username",
 						"id" => "social_media_twitter_profile",
 						"std" => "",
 						"type" => "text");			
