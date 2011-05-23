@@ -71,6 +71,9 @@ function optionsframework_options() {
 	// LOOP FOR ARCHIVE	
 	$options = array_merge($options, loop_archive_settings() );
 	
+	// SOCIAL MEDIA [TO IMPLEMENT]
+	$options = array_merge($options, socialmedia_support() );	
+	
 	// CUSTOM CSS [TO IMPLEMENT]
 	#$options = array_merge($options, template_custom_css_options() );
 
@@ -1012,6 +1015,42 @@ function loop_archive_settings(){
 }
 
 
+/*
+*	SOCIAL MEDIA SUPPORT
+*/
+function socialmedia_support() {
+	$options[] = array( 
+							"name" => __("Social Media"),
+							"type" => "heading"
+						);			
+	$options[] = array( 
+							"name" => __("Activate Social Media Options"),
+							"type" => "info",
+							"desc" => "
+								Your theme supports the following social media.
+							",
+						);		
+	$options[] = array( "name" =>  __("Box Counts"),
+						"desc" => __("Enable Social Media Box Counts"),
+						"id" => "enable_social_media_box_count",
+						"std" => true,
+						"type" => "checkbox");				
+	$options[] = array( "name" => "Facebook User Id",
+						"desc" => "Facebook User Id",
+						"id" => "social_media_facebook_profile",
+						"std" => "",
+						"type" => "text");						
+	$options[] = array( "name" => "Twitter User Id",
+						"desc" => "Facebook User Id",
+						"id" => "social_media_twitter_profile",
+						"std" => "",
+						"type" => "text");			
+						
+	
+	return $options;
+								
+}
+
 
 /*
 *	CUSTOM CSS SETTINGS
@@ -1105,6 +1144,7 @@ function custom_post_type_support() {
 	return $options;
 								
 }
+
 
 
 /*
