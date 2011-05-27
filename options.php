@@ -97,6 +97,158 @@ function optionsframework_options() {
 
 
 
+
+
+/*
+*	BUILDS THE META ARRAY
+*/
+function build_option_meta_array( $atts = null ) {
+
+	extract( $atts, EXTR_SKIP );
+	
+	$options_array = array ( 
+					'author' => 'Author',
+					'date' => 'Date',
+					'time' => 'Time',
+					'comments' => 'Comments',
+					'category' => 'Category',
+					'tag' => 'Tag'
+				);
+	$options_array = apply_filters( 'build_option_meta_array', $options_array );
+
+	$options_meta_array = array( 
+			"name" => $name,
+			"desc" =>$desc,
+			"id" => $id,
+			"std" => array ( 
+					'author' => true,
+					'date' => true,
+					'time' => true,
+					'comments' => false,
+					'category' => false,
+					'tag' => false						
+				),
+			"type" => "multicheck",
+			"options" => $options_array
+			);
+			
+	return $options_meta_array;
+}
+
+/*
+*	BUILDS THE META ARRAY (HEAD)
+*/
+function build_option_meta_head_array( $template = null ) {
+
+	if($template == null )
+		return;
+
+	$id = $template."_itemhead_meta";
+	$array = build_option_meta_array( array(
+		'id' => $id,
+		'name' => __("Meta Above Content"),
+		'desc'  => __("Each listed Post entry will have meta Information that can be displayed above it's title. Enable/Disable their display here")
+		)
+	);
+	
+	return $array;
+}
+
+/*
+*	BUILDS THE META ARRAY (FOOT)
+*/
+function build_option_meta_foot_array( $template = null ) {
+
+	if($template == null )
+		return;
+		
+	$id = $template."_itemfoot_meta";
+	$array = build_option_meta_array( array(
+		'id' => $id,
+		'name' => __("Meta Below Content"),
+		'desc'  => __("Each listed Post entry will have meta Information that can be displayed below it's title. Enable/Disable their display here")
+		)
+	);
+	
+	return $array;
+}
+
+/*
+ * BUILD CONTENT OPTIONS ARRAY
+ */
+function build_option_content_array( $template = null ) {
+
+	if($template == null )
+		return;
+
+	$array = array( 
+				"name" => "Content Display Options",
+				"desc" => "Set How you would like to display your Content",
+				"id" => $template."_content",
+				"std" => array ( 
+						'show_mediagalleries' => false,				
+						'the_post_thumbnail' => true,
+						'the_content' => true,
+						'the_excerpt' => false
+					),
+				"type" => "multicheck",
+				"options" => array ( 
+						'show_mediagalleries' => "Show Media Gallery",				
+						'the_post_thumbnail' => "Featured Post Thumbnail",
+						'the_content' => "The Content",
+						'the_excerpt' => "The Excerpt"
+					)
+				);
+				
+	return $array;
+
+}
+
+/*
+*	BUILDS THE META ARRAY (HEAD)
+*/
+function build_option_loop_head_array( $template = null ) {
+
+	if($template == null )
+		return;
+
+	$id = $template."_loop_header";
+	$array = array( 
+				"name" => "Loop Header",
+				"desc" => __("Enter in descriptive text to describe the listing of each POST entry. This is placed before the Loop begins. For example: <strong>Latest Blog Post</strong> would precede a listing of post."),
+				"id" => $id,
+				"std" => "",
+				"type" => "text"
+				); 
+	
+	return $array;
+}
+
+/*
+*	BUILDS THE META ARRAY (FOOT)
+*/
+function build_option_loop_foot_array( $template = null ) {
+
+	if($template == null )
+		return;
+		
+	$id = $template."_loop_footer";
+	$array = array( 
+				"name" => "Loop Footer",
+				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
+				"id" => $id,
+				"std" => "",
+				"type" => "text"
+				); 
+	
+	return $array;
+}
+
+
+
+
+
+
 /*
 *	INTRODUCTIONS OPTIONS
 */
@@ -622,96 +774,16 @@ function loop_index_settings(){
 				"type" => "info",
 				"desc" => "Customize what displays when the Index Template is being used by Wordpress.  This is the default template that is applied when other templates are not present in the theme."
 				);
-	$options[] = array( 
-				"name" => "Loop Header",
-				"desc" => "Enter in descriptive text to describe the listing of each POST entry. This is placed before the Loop begins. For example: <strong>Latest Blog Post</strong> would precede a listing of the latest blog post.",
-				"id" => "index_loop_header",
-				"std" => "",
-				"type" => "text"
-				); 						
-	$item_meta = array ( 
-				'author' => 'Author',
-				'date' => 'Date',
-				'time' => 'Time',
-				'comments' => 'Comments',
-				'category' => 'Category',
-				'tag' => 'Tag'
-				);
-	$options[] = array( 
-				"name" => "Enable Meta Information Above Content",
-				"desc" => "Each listed Post entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
-				"id" => "index_itemhead_meta",
-				"std" => array ( 
-						'author' => true,
-						'date' => true,
-						'time' => true,
-						'comments' => false,
-						'category' => false,
-						'tag' => false						
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'author' => 'Author',
-						'date' => 'Date',
-						'time' => 'Time',
-						'comments' => 'Comments',
-						'category' => 'Category',
-						'tag' => 'Tag'
-					)
-				);
-	$options[] = array( 
-				"name" => "Content Display Options",
-				"desc" => "Set How you would like to display your Content",
-				"id" => "index_content",
-				"std" => array ( 
-						'show_mediagalleries' => false,				
-						'the_post_thumbnail' => true,
-						'the_content' => true,
-						'the_excerpt' => false
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'show_mediagalleries' => "Show Media Gallery",				
-						'the_post_thumbnail' => "Featured Post Thumbnail",
-						'the_content' => "The Content",
-						'the_excerpt' => "The Excerpt"
-					)
-				);					
-	$options[] = array( 
-				"name" => "Enable Meta Information Below Content",
-				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
-				"id" => "index_itemfoot_meta",
-				"std" => array ( 
-						'author' => false,
-						'date' => false,
-						'time' => false,
-						'comments' => false,
-						'category' => false,
-						'tag' => false						
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'author' => 'Author',
-						'date' => 'Date',
-						'time' => 'Time',
-						'comments' => 'Comments',
-						'category' => 'Category',
-						'tag' => 'Tag'
-					)
-				);								
-	$options[] = array( 
-				"name" => "Loop Footer",
-				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
-				"id" => "index_loop_footer",
-				"std" => "",
-				"type" => "text"
-				); 
+	$options[] = build_option_loop_head_array("index");						
+	$options[] = build_option_meta_head_array("index");
+	$options[] = build_option_content_array("index");					
+	$options[] = build_option_meta_foot_array("index");							
+	$options[] = build_option_loop_foot_array("index");
 				
 		
 
 	return $options;
 }
-
 
 
 /*
@@ -732,84 +804,17 @@ function loop_page_settings(){
 				"type" => "info",
 				"desc" => "You can customize what displays when WordPress uses the Page Template. The Page Template is applied to entries made into the Page post type."
 				);
-	$options[] = array( 
-				"name" => "Loop Header",
-				"desc" => "Enter in descriptive text to describe the display of a Page. This is placed before the Loop begins. This is not commonly used for Pages, the Title of the Page is sufficient in most cases.",
-				"id" => "page_loop_header",
-				"std" => "",
-				"type" => "text"
-				); 						
-	$item_meta = array ( 
-				'author' => 'Author',
-				'date' => 'Date',
-				'time' => 'Time',
-				'comments' => 'Comments',
-				'category' => 'Category',
-				'tag' => 'Tag'
-				);
-	$options[] = array( 
-				"name" => "Enable Meta Information Above Content",
-				"desc" => "Each listed Page entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
-				"id" => "page_itemhead_meta",
-				"std" => array ( 
-						'author' => false,
-						'date' => false,
-						'time' => false				
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'author' => 'Author',
-						'date' => 'Date',
-						'time' => 'Time'
-					)
-				);
-	$options[] = array( 
-				"name" => "Content Display Options",
-				"desc" => "Set How you would like to display your Content",
-				"id" => "page_content",
-				"std" => array ( 
-						'show_mediagalleries' => false,				
-						'the_post_thumbnail' => true,
-						'the_content' => true,
-						'the_excerpt' => false
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'show_mediagalleries' => "Show Media Gallery",				
-						'the_post_thumbnail' => "Featured Post Thumbnail",
-						'the_content' => "The Content",
-						'the_excerpt' => "The Excerpt"
-					)
-				);					
-	$options[] = array( 
-				"name" => "Enable Meta Information Below Content",
-				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
-				"id" => "page_itemfoot_meta",
-				"std" => array ( 
-						'author' => false,
-						'date' => false,
-						'time' => false				
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'author' => 'Author',
-						'date' => 'Date',
-						'time' => 'Time'
-					)
-				);								
-	$options[] = array( 
-				"name" => "Loop Footer",
-				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
-				"id" => "page_loop_footer",
-				"std" => "",
-				"type" => "text"
-				); 	
+	$options[] = build_option_loop_head_array("page");						
+	$options[] = build_option_meta_head_array("page");
+	$options[] = build_option_content_array("page");					
+	$options[] = build_option_meta_foot_array("page");							
+	$options[] = build_option_loop_foot_array("page");
+				
 				
 	return $options;
 
 
 }
-
 
 
 /*
@@ -830,94 +835,15 @@ function loop_single_settings(){
 				"type" => "info",
 				"desc" => "You can customize what display when WordPress uses the Single Template to display an entry made into the Post"
 				);
-	$options[] = array( 
-				"name" => "Loop Header",
-				"desc" => "Enter in descriptive text to describe the the display of a Single Post. This is placed before the Loop begins. For example: <strong>You are Readiing</strong> precede a listing of the latest blog post.",
-				"id" => "single_loop_header",
-				"std" => "",
-				"type" => "text"
-				); 						
-	$item_meta = array ( 
-				'author' => 'Author',
-				'date' => 'Date',
-				'time' => 'Time',
-				'comments' => 'Comments',
-				'category' => 'Category',
-				'tag' => 'Tag'
-				);
-	$options[] = array( 
-				"name" => "Enable Meta Information Above Content",
-				"desc" => "Each listed Post entry will have meta Information that can be displayed below it's title. Enable/Disable their display here",
-				"id" => "single_itemhead_meta",
-				"std" => array ( 
-						'author' => false,
-						'date' => false,
-						'time' => false,
-						'comments' => false,
-						'category' => false,
-						'tag' => false						
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'author' => 'Author',
-						'date' => 'Date',
-						'time' => 'Time',
-						'comments' => 'Comments',
-						'category' => 'Category',
-						'tag' => 'Tag'
-					)
-				);
-	$options[] = array( 
-				"name" => "Content Display Options",
-				"desc" => "Set How you would like to display your Content",
-				"id" => "single_content",
-				"std" => array ( 
-						'show_mediagalleries' => false,				
-						'the_post_thumbnail' => true,
-						'the_content' => true,
-						'the_excerpt' => false
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'show_mediagalleries' => "Show Media Gallery",				
-						'the_post_thumbnail' => "Featured Post Thumbnail",
-						'the_content' => "The Content",
-						'the_excerpt' => "The Excerpt"
-					)
-				);					
-	$options[] = array( 
-				"name" => "Enable Meta Information Above Content",
-				"desc" => "Each listed Post entry has Meta Information that can be displayed after the entry's content. Enable/Disable their display here",
-				"id" => "single_itemfoot_meta",
-				"std" => array ( 
-						'author' => false,
-						'date' => false,
-						'time' => false,
-						'comments' => false,
-						'category' => false,
-						'tag' => false						
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'author' => 'Author',
-						'date' => 'Date',
-						'time' => 'Time',
-						'comments' => 'Comments',
-						'category' => 'Category',
-						'tag' => 'Tag'
-					)
-				);								
-	$options[] = array( 
-				"name" => "Loop Footer",
-				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
-				"id" => "single_loop_footer",
-				"std" => "",
-				"type" => "text"
-				); 		
+	$options[] = build_option_loop_head_array("single");						
+	$options[] = build_option_meta_head_array("single");
+	$options[] = build_option_content_array("single");					
+	$options[] = build_option_meta_foot_array("single");							
+	$options[] = build_option_loop_foot_array("single");
+				
 				
 	return $options;
 }
-
 
 
 /*
@@ -938,79 +864,13 @@ function loop_archive_settings(){
 				"type" => "info",
 				"desc" => "You can customize what displays when WordPress uses the Archive Template."
 				);
-	$options[] = array( 
-				"name" => "Loop Header",
-				"desc" => "Enter in descriptive text to describe the display of an Archive Page. This is placed before the Loop begins",
-				"id" => "archive_loop_header",
-				"std" => "",
-				"type" => "text"
-				); 						
-	$item_meta = array ( 
-				'author' => 'Author',
-				'date' => 'Date',
-				'time' => 'Time',
-				'comments' => 'Comments',
-				'category' => 'Category',
-				'tag' => 'Tag'
-				);
-	$options[] = array( 
-				"name" => "Enable Meta Information Above Content",
-				"desc" => "Each listed Archive entry will have meta information that can be displayed below it's title. Enable/Disable its display here",
-				"id" => "archive_itemhead_meta",
-				"std" => array ( 
-						'author' => false,
-						'date' => false,
-						'time' => false				
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'author' => 'Author',
-						'date' => 'Date',
-						'time' => 'Time'
-					)
-				);
-	$options[] = array( 
-				"name" => "Content Display Options",
-				"desc" => "Set How you would like to display your Content",
-				"id" => "archive_content",
-				"std" => array ( 
-						'show_mediagalleries' => false,				
-						'the_post_thumbnail' => true,
-						'the_content' => true,
-						'the_excerpt' => false
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'show_mediagalleries' => "Show Media Gallery",				
-						'the_post_thumbnail' => "Featured Post Thumbnail",
-						'the_content' => "The Content",
-						'the_excerpt' => "The Excerpt"
-					)
-				);				
-	$options[] = array( 
-				"name" => "Enable Meta Information Below Content",
-				"desc" => "Each listed Archive entry has Meta Information that can be displayed after the entry's content. Enable/Disable its display here",
-				"id" => "archive_itemfoot_meta",
-				"std" => array ( 
-						'author' => false,
-						'date' => false,
-						'time' => false				
-					),
-				"type" => "multicheck",
-				"options" => array ( 
-						'author' => 'Author',
-						'date' => 'Date',
-						'time' => 'Time'
-					)
-				);								
-	$options[] = array( 
-				"name" => "Loop Footer",
-				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
-				"id" => "archive_loop_footer",
-				"std" => "",
-				"type" => "text"
-				); 		
-		
+	$options[] = build_option_loop_head_array("archive");						
+	$options[] = build_option_meta_head_array("archive");
+	$options[] = build_option_content_array("archive");					
+	$options[] = build_option_meta_foot_array("archive");							
+	$options[] = build_option_loop_foot_array("archive");
+				
+				
 	return $options;
 }
 
