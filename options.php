@@ -646,7 +646,7 @@ function template_layout_options() {
 						",
 					);
 					
-	//	CONTENT WIDTH VALUE								
+	// CONTENT WIDTH VALUE								
 	$options[] = array( 
 						"name" => "Primary Width",
 						"desc" => __("Set the Primary Width Size for the Primary Content Area, Setting will alter the \$content_width"),
@@ -670,17 +670,12 @@ function template_layout_options() {
 						"std" => get_option('large_size_w'),
 						"class" => "mini",							
 						"type" => "text"
-						); 										
-	//	BUILD LAYOUT OPTIONS ARRAY
-	$layout_array = array (
-						'layout-p.css' => $imagepath . 'layout-p.png',
-						'layout-ls-p.css' => $imagepath . 'layout-ls-p.png',
-						'layout-p-rs.css' => $imagepath . 'layout-p-rs.png',
-						'layout-ts-p.css' => $imagepath . 'layout-ts-p.png',
-						'layout-p-bs.css' => $imagepath . 'layout-p-bs.png'										
-						);
-	// INDEX TEMPLATE LAYOUT					
-						$layout_default = 'layout-ls-p.css';	
+						); 			
+						
+	// LAYOUT OPTIONS
+	$layout_default = find_default_layout();
+	$layout_array = find_layouts();
+
 	$options[] = array( 
 						"name" => "Index",
 						"desc" => "Select the Layout for Your Index.php Template",
@@ -895,12 +890,12 @@ function socialmedia_support() {
 						"id" => "enable_social_media_box_count",
 						"std" => true,
 						"type" => "checkbox");				
-	$options[] = array( "name" => "Facebook User Id",
+	$options[] = array( "name" => "Facebook ",
 						"desc" => "Facebook Id",
 						"id" => "social_media_facebook_profile",
 						"std" => "",
 						"type" => "text");						
-	$options[] = array( "name" => "Twitter Username",
+	$options[] = array( "name" => "Twitter",
 						"desc" => "Ener the Twitter Username. For example http://www.twitter.com/username",
 						"id" => "social_media_twitter_profile",
 						"std" => "",
