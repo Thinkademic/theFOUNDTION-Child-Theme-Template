@@ -756,3 +756,7 @@
 {
 	background: url(./../../images/gradient/white50.png) !important;
 }
+.sitenav UL LI:hover
+{
+	background: url(./../../images/gradient/white80.png) !important;
+}
