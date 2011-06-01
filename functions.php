@@ -56,7 +56,8 @@ require_once(STYLESHEETPATH . '/functions/functions-override-plugin.php');
  */
 function thefdt_settings_media()
 {
-
+    global $pagenow;
+    
     if (is_admin() && isset($_GET['activated']) && $pagenow == "themes.php") {
         update_option('thumbnail_size_w', '340');
         update_option('thumbnail_size_h', '225');
