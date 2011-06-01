@@ -14,19 +14,19 @@ function theme_header_setup()
 
     define('NO_HEADER_TEXT', true); // DONT SUPPORT TEXT COLOR CHANGE
 
-    add_custom_image_header('enable_header_style', 'enable_admin_header_style'); // SETUP HEADER STYLE SHEET FUNCTION
+    add_custom_image_header('enable_header_style', 'enable_admin_header_style');              // SETUP HEADER STYLE SHEET FUNCTION
 
     /*
-         register_default_headers(                                                                       // REGISTER HEADERS
-             array (
-                         'Default Child Theme Header Image' => array (
-                             'url' => '%s/images/header/header_default.png',
-                             'thumbnail_url' => '%s/images/header/header_default.png',
-                             'description' => __( 'Default Child Theme Header Image', 'thefoundation' )
-                             )
-             )
-         );
-         */
+     register_default_headers(                                                                // REGISTER HEADERS
+         array (
+                     'Default Child Theme Header Image' => array (
+                         'url' => '%s/images/header/header_default.png',
+                         'thumbnail_url' => '%s/images/header/header_default.png',
+                         'description' => __( 'Default Child Theme Header Image', 'thefoundation' )
+                         )
+         )
+     );
+    */
 
 }
 

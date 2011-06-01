@@ -28,32 +28,32 @@
 			It will ignore the 'menu' parameter logic, and follow the 'theme_location' logic
 		
 		************************************************** */
-		$themefoldername = get_stylesheet();			# USE THE THEMES' FOLDER NAME AS THE PREFIX FOR THE MENU LOCATION NAME
+		$themefoldername = get_stylesheet();        # USE THE THEMES' FOLDER NAME AS THE PREFIX FOR THE MENU LOCATION NAME
 		$location = $themefoldername."-nav";		# THE LOCATION NAME, USE THIS NAME WITH THE wp_nav_menu() function
 		wp_nav_menu( 
 			array( 
-				'theme_location' => $location,				# DISPLAYS A CUSTOM SELECTED MENU FOR THE SPECIFICED LOCATION, SHOW EMPTY IF NOT IS SELECTED
-				//  'menu'            =>  	$location, 			# THE id, slug, name OF THE CUSTOM MENU AS DEFINED IN ADMIN > APPEARANCE > MENU.	
-				'container' => 'div',							# CONTAINER TAG, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED
-				'container_id' => $location,					# CONTAINTER ID, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED
-				'container_class' => 'sitenav',						# CONTAINTER CLASS, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED				
-				'menu_id' => '',						# UL ID			
-				'menu_class' => 'masthead-menu',		# UL CLASS
-				'fallback_cb'  => null,		# DOES NOT WORK WITH THE 'theme_location' parameter
-				'depth' => 0										# DEPTH OF MENU, '0' VALUE MEANS ALL
+				'theme_location'  => $location,     # DISPLAYS A CUSTOM SELECTED MENU FOR THE SPECIFICED LOCATION, SHOW EMPTY IF NOT IS SELECTED
+				//'menu'          => $location,     # THE id, slug, name OF THE CUSTOM MENU AS DEFINED IN ADMIN > APPEARANCE > MENU.
+				'container'       => 'div',         # CONTAINER TAG, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED
+				'container_id'    => $location,     # CONTAINTER ID, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED
+				'container_class' => 'sitenav',     # CONTAINTER CLASS, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED
+				'menu_id'         => '',                # UL ID
+				'menu_class'      => 'masthead-menu',   # UL CLASS
+				'fallback_cb'     => null,              # DOES NOT WORK WITH THE 'theme_location' parameter
+				'depth'           => 0                  # DEPTH OF MENU, '0' VALUE MEANS ALL
 			) 
 		); 		
 		
 		wp_nav_menu( 
 			array( 
-				'theme_location' => 'mastlinetop-nav',				# DISPLAYS A CUSTOM SELECTED MENU FOR THE SPECIFICED LOCATION, SHOW EMPTY IF NOT IS SELECTED
-				'container' => 'div',							# CONTAINER TAG, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED
-				'container_id' => 'mastlinetop-nav',					# CONTAINTER ID, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED
-				'container_class' => 'sitenav',						# CONTAINTER CLASS, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED				
-				'menu_id' => '',						# UL ID			
-				'menu_class' => 'masthead-menu',					# UL CLASS
-				'fallback_cb'  => null,		# DOES NOT WORK WITH THE 'theme_location' parameter
-				'depth' => 0										# DEPTH OF MENU, '0' VALUE MEANS ALL
+				'theme_location'  => 'mastlinetop-nav',     # DISPLAYS A CUSTOM SELECTED MENU FOR THE SPECIFICED LOCATION, SHOW EMPTY IF NOT IS SELECTED
+				'container'       => 'div',                 # CONTAINER TAG, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED
+				'container_id'    => 'mastlinetop-nav',     # CONTAINTER ID, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED
+				'container_class' => 'sitenav',             # CONTAINTER CLASS, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED
+				'menu_id'         => '',					# UL ID
+				'menu_class'      => 'masthead-menu',       # UL CLASS
+				'fallback_cb'     => null,                  # DOES NOT WORK WITH THE 'theme_location' parameter
+				'depth'           => 0                      # DEPTH OF MENU, '0' VALUE MEANS ALL
 			) 
 		); 	
 		?>
@@ -69,14 +69,14 @@
 		<?php
 			wp_nav_menu( 
 				array( 
-					'theme_location' => 'mastlinebottom-nav',				# DISPLAYS A CUSTOM SELECTED MENU FOR THE SPECIFICED LOCATION, SHOW EMPTY IF NOT IS SELECTED
-					'container' => 'div',							# CONTAINER TAG, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED
-					'container_id' => 'mastlinebottom-nav',					# CONTAINTER ID, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED
-					'container_class' => 'sitenav',						# CONTAINTER CLASS, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED				
-					'menu_id' => '',						# UL ID			
-					'menu_class' => 'masthead-menu',					# UL CLASS
-					'fallback_cb'  => null,		# DOES NOT WORK WITH THE 'theme_location' parameter
-					'depth' => 0										# DEPTH OF MENU, '0' VALUE MEANS ALL
+					'theme_location' => 'mastlinebottom-nav',    # DISPLAYS A CUSTOM SELECTED MENU FOR THE SPECIFICED LOCATION, SHOW EMPTY IF NOT IS SELECTED
+					'container' => 'div',                        # CONTAINER TAG, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED
+					'container_id' => 'mastlinebottom-nav',      # CONTAINTER ID, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED
+					'container_class' => 'sitenav',              # CONTAINTER CLASS, NOT APPLIED WHEN 'fallback_cb' FUNCTION IS USED
+					'menu_id' => '',                             # UL ID
+					'menu_class' => 'masthead-menu',             # UL CLASS
+					'fallback_cb'  => null,                      # DOES NOT WORK WITH THE 'theme_location' parameter
+					'depth' => 0                                 # DEPTH OF MENU, '0' VALUE MEANS ALL
 				) 
 			); 	
 		?>	

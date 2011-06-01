@@ -1,11 +1,18 @@
 <?php
-/************************************************************** 
- CUSTOMIZE NAV MENUS ARE LOCATED IN THE BACK END OF WORDPRESS AT
- http://yourwebsite.com/wp-admin/nav-menus.php
- 
- TO UTILIZE REGISTERED NAV MENUS PLEASE READ THE CODEX
- http://codex.wordpress.org/Function_Reference/wp_nav_menu
-**************************************************************/
+/****
+ * functions/functions-appearance-menu.php
+ *
+ * SETUP MENUS FOR THEME
+ */
+
+
+/**
+ * CUSTOMIZE NAV MENUS ARE LOCATED IN THE BACK END OF WORDPRESS AT
+ * http://yourwebsite.com/wp-admin/nav-menus.php
+ *
+ * TO UTILIZE REGISTERED NAV MENUS PLEASE READ THE CODEX
+ * http://codex.wordpress.org/Function_Reference/wp_nav_menu
+ */
 function register_theme_menu() {
 	# REGISTER A UNIQUE NAV MENU
 	# WILL PRODUCE A LOCATION NAME
