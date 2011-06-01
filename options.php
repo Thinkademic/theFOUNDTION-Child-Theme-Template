@@ -310,7 +310,6 @@ function introduction_options() {
 	return $options;
 }
 
-
 /*
 *	BRANDING OPTIONS
 */
@@ -352,7 +351,6 @@ function branding_options(){
 
 }
 
-
 /*
 *	BACKGROUND OPTIONS
 */
@@ -384,7 +382,6 @@ function background_options(){
 	return $options;
 
 }
-
 
 /*
 *	HEADER OPTIONS
@@ -438,7 +435,6 @@ function header_options() {
 
 }
 
-
 /*
 *	NAVIGATION OPTIONS
 */
@@ -465,7 +461,6 @@ function navigation_layout_options() {
 	return $options;
 
 }
-
 
 /*
 *	TYPOGRAPHY OPTIONS
@@ -549,7 +544,6 @@ function typography_options() {
 
 }
 
-
 /*
 *	HYPERLINK OPTIONS
 */
@@ -613,7 +607,6 @@ function hyperlinks_options() {
 
 }
 
-
 /*
 *	TEMPLATE LAYOUT TAB
 */
@@ -646,7 +639,7 @@ function template_layout_options() {
 						",
 					);
 					
-	// CONTENT WIDTH VALUE								
+	// CONTENT WIDTH VALUE			
 	$options[] = array( 
 						"name" => "Primary Width",
 						"desc" => __("Set the Primary Width Size for the Primary Content Area, Setting will alter the \$content_width"),
@@ -671,6 +664,15 @@ function template_layout_options() {
 						"class" => "mini",							
 						"type" => "text"
 						); 			
+	// READ MORE					
+	$options[] = array( 
+						"name" => "Read More...",
+						"desc" => __("Replace the default ellipse with text."),
+						"id" => "set_excerpt_more",
+						"std" => "Read More...",					
+						"type" => "text"
+						); 
+
 						
 	// LAYOUT OPTIONS
 	$layout_default = find_default_layout();
@@ -717,7 +719,6 @@ function template_layout_options() {
 
 }
 
-
 /*
 *	ALTERNATIVE STYLES
 */
@@ -750,7 +751,6 @@ function alternative_styles_options() {
 	return $options;
 }
 
-
 /*
 *	LOOP FOR LAYOUT
 */
@@ -779,7 +779,6 @@ function loop_index_settings(){
 
 	return $options;
 }
-
 
 /*
 *	LOOP FOR INDEX.PHP
@@ -811,7 +810,6 @@ function loop_page_settings(){
 
 }
 
-
 /*
 *	LOOP FOR SINGLE
 */
@@ -840,7 +838,6 @@ function loop_single_settings(){
 	return $options;
 }
 
-
 /*
 *	LOOP FOR ARCHIVE
 */
@@ -868,7 +865,6 @@ function loop_archive_settings(){
 				
 	return $options;
 }
-
 
 /*
 *	SOCIAL MEDIA SUPPORT
@@ -906,7 +902,6 @@ function socialmedia_support() {
 								
 }
 
-
 /*
 *	CUSTOM CSS SETTINGS
 */
@@ -943,7 +938,6 @@ function template_custom_css_options() {
 	return $options;
 								
 }
-
 
 /*
 *	CUSTOM POST TYPES
@@ -1000,8 +994,6 @@ function custom_post_type_support() {
 								
 }
 
-
-
 /*
 *	CREDITS OPTIONS
 */
@@ -1022,7 +1014,6 @@ function template_credits_options() {
 	return $options;
 
 }
-
 
 /*
 *	TEST OPTIONS

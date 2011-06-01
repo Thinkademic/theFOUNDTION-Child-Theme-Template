@@ -162,13 +162,7 @@ function improved_trim_excerpt($text) {
 #add_filter('get_the_excerpt', 'improved_trim_excerpt', 10);
 
 
-/************************************************************************
- [10] REPLACE EXCERPT ELLIPSE
-************************************************************************/
-function replace_excerpt($content) {
-	return str_replace('[...]', '...<a class="read_more" href="'. get_permalink() .'">Continue Reading &raquo;</a>', $content);
-}
-add_filter('get_the_excerpt', 'replace_excerpt', 19);
+
 
 
 /**************************************************************
