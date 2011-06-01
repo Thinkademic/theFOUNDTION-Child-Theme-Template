@@ -235,7 +235,7 @@ function build_option_loop_foot_array( $template = null ) {
 	$id = $template."_loop_footer";
 	$array = array( 
 				"name" => "Loop Footer",
-				"desc" => "Althought it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
+				"desc" => "Although it is uncommon, you can have a can place text that will display after the listing of post entries.  You could create a back to top link, or a thank you note.",
 				"id" => $id,
 				"std" => "",
 				"type" => "text"
@@ -260,20 +260,16 @@ function introduction_options() {
 	$options[] = array( 
 						"name" => "Welcome",
 						"desc" => "You are using a child theme that is built on <b><a href='http://framework.thefoundationthemes.com'>theFOUNDATION</a></b> theme framework to power your WordPress Site.
-									There are many aspects of your website that can be customized from the options panel. It's perfect for most users who need make quick adjustments
-									to their website. 
-									
-									If you are an advance or inclined user and would like to build child theme on <b>theFOUNDATION</b> framework, then please take the time to watch/read up 
-									on how the framework is organized. The overview is informative and brief and will help you navigate the code base.  It will also help you get familiar with the naming conventions and nomenclature.
+									There are many aspects of your website that can be customized from the options panel. It's perfect for most users who need make quick adjustments 									to their website.
+
+									If you are an advance or inclined user and would like to build child theme on <b>theFOUNDATION</b> framework, then please take the time to watch/read up on how the framework is organized. The overview is informative and brief and will help you navigate the code base.  It will also help you get familiar with the naming conventions and nomenclature.
 									
 									One benefit with your decision to use this framework is that you have an architect dedicated to growing quality support documentation. For more specific information please check out the areas below.		
 						",
 						"type" => "info");
 	$options[] = array( 
 							"name" => "Get Support",
-							"desc" => "You can find support in a variety of ways.  The theFOUNDATION has an official community forum to support 
-										 organic self help. Don't worry, the Architect behind theFOUNDATION spends time nurturing this forum. So your
-										 questions will be heard and answered.
+							"desc" => "You can find support in a variety of ways.  The theFOUNDATION has an official community forum to support  organic self help. Don't worry, the Architect behind theFOUNDATION spends time nurturing this forum. So your questions will be heard and answered.
 						",
 						"type" => "info");			
 	$options[] = array( 
@@ -281,25 +277,19 @@ function introduction_options() {
 							"type" => "info",
 							"desc" => "You can find  free and premium child themes specifically crafted for your niche interest.  Just visit the gallery.
 							
-							If you have a created a child theme and would like to feature it, please shoot me a message. We also have a showcase
-							gallery for websites that are built on theFOUNDATION framework.
+							If you have a created a child theme and would like to feature it, please shoot me a message. We also have a showcase gallery for websites that are built on theFOUNDATION framework.
 							",
 						);						
 	$options[] = array( 
 							"name" => "Request a feature",
 							"type" => "info",
-							"desc" => "The Architect behind theFOUNDATION is eagar to implement key features and if you find yourself wishing that
-							the framework was able to do just a little more, then submit a suggestion.  We can work together to make this a great
-							opensource theme framework that rivals premium theme framework providers.
+							"desc" => "The Architect behind theFOUNDATION is eagar to implement key features and if you find yourself wishing that the framework was able to do just a little more, then submit a suggestion.  We can work together to make this a great opensource theme framework that rivals premium theme framework providers.
 							",
 						);			
 	$options[] = array( 
 							"name" => "Report a Bug",
 							"type" => "info",
-							"desc" => "theFOUNDATION theme framework is currently being developed by a passionate architect.  Sometimes 
-							things don't work perfectly.  If you find a bug, reporting it will go a long way towards produce a dependable and
-							secure framework.  If you have the chops to improve upon the code base, you can also submit changes.									
-							",
+							"desc" => "theFOUNDATION theme framework is currently being developed by a passionate architect.  Sometimes things don't work perfectly.  If you find a bug, reporting it will go a long way towards produce a dependable and secure framework.  If you have the chops to improve upon the code base, you can also submit changes.							",
 						);
 	$options[] = array( "name" => __(""),
 						"desc" => __("Hide Introduction Tab"),
@@ -364,9 +354,7 @@ function background_options(){
 	$options[] = array( 
 						"name" => "Background",
 						"type" => "info",
-						"desc" => "One of the best ways to style your website is using a great background. A background can easily
-						take a bland website, and turn into an inviting website. The framework currently uses Wordpress built into
-						background changer, located in the Appearance menu.
+						"desc" => "One of the best ways to style your website is using a great background. A background can easily take a bland website, and turn into an inviting website. The framework currently uses Wordpress built into background changer, located in the Appearance menu.
 							",
 						);
 	$admin_address = get_admin_url( "", 'themes.php?page=custom-background');
@@ -397,8 +385,7 @@ function header_options() {
 	$options[] = array( 
 				"name" => "Header",
 				"type" => "info",
-				"desc" => " The Header can be one of the most attention grabbing elements of a website. It helps establishes your website's brand, 
-					and is often used to convey the personality behind a website. theFOUNDATION uses the built in theme header appreance options.
+				"desc" => " The Header can be one of the most attention grabbing elements of a website. It helps establishes your website's brand, and is often used to convey the personality behind a website. theFOUNDATION uses the built in theme header appreance options.
 					
 					Headers can also be simple or complicated. Take time to enable or disable header features.
 				",
@@ -556,11 +543,9 @@ function hyperlinks_options() {
 	$options[] = array( 
 						"name" => __("Hyperlink Styles"),
 						"desc" => __("
-							Making your website links visible and visually discernable will help your visitor navigate your website. 
-							Take the time to adjust your default hyperlink color and styles.
+							Making your website links visible and visually discernable will help your visitor navigate your website. Take the time to adjust your default hyperlink color and styles.
 							
-							If you like to be more specific, please check out theFOUNDATION guide to styling links using the power
-							of CSS." ),
+							If you like to be more specific, please check out theFOUNDATION guide to styling links using the power of CSS." ),
 						"type" => "info"
 						);	
 
@@ -624,18 +609,11 @@ function template_layout_options() {
 	$options[] = array( 
 						"name" => "Set the Layout for Supported Templates",
 						"type" => "info",
-						"desc" => "WordPress has a native <a href='http://codex.wordpress.org/Template_Hierarchy'>template logic</a>
-						which this framework uses to provide you with options to configure your layouts. 
-						
-						<br/><br/>
-						The default 'index.php' template is what Wordpress defaults to depending on the theme, you can have 
-						specific templates to display your website content.  
-					
-						<br/><br />
-						Configure the layouts for this child theme's suported templates below. You can refer to the Template hierarchy chart as a guide to which
-						template takes precedence. The Options are listed from lowest to hightest. 
-						If you like would like to create a template for one that does not exist you can read or watch our guide on how to add or edit
-						Wordpress Template files.
+						"desc" => "WordPress has a native <a href='http://codex.wordpress.org/Template_Hierarchy'>template logic</a> which this framework uses to provide you with options to configure your layouts. 
+
+						The default 'index.php' template is what Wordpress defaults to depending on the theme, you can have specific templates to display your website content.
+
+						Configure the layouts for this child theme's suported templates below. You can refer to the Template hierarchy chart as a guide to which template takes precedence. The Options are listed from lowest to hightest. If you like would like to create a template for one that does not exist you can read or watch our guide on how to add or edit Wordpress Template files.
 						",
 					);
 					
@@ -915,16 +893,9 @@ function template_custom_css_options() {
 							"name" => "Custom Css",
 							"type" => "info",
 							"desc" => "
-								theFOUNDATION has an organized way of including css. Familiarize yourself with the setup to quickly identify elements
-								for styling. You can read up on the CSS guide for more information. There is also a community css code snippet respository,
-								if you are looking for ideas to  quickly add css styling for specifc design elements to your website.
-								
-								<br /><br />
-								If you are inclined you can also easily add your own css rules below.  You can also load a custom css
-								file if you like as well. If you like your changes to be permanent, then I recommend that you add a 
-								css file to your										
-								<span class='highlight'>wp-content/themes/<strong>childthemefoldername</strong>/css/load/</span> folder.  
-								Any css file located there will not be erased if you decide to reset the options.
+								theFOUNDATION has an organized way of including css. Familiarize yourself with the setup to quickly identify elements for styling. You can read up on the CSS guide for more information. There is also a community css code snippet respository, if you are looking for ideas to  quickly add css styling for specifc design elements to your website.
+
+								If you are inclined you can also easily add your own css rules below.  You can also load a custom css file if you like as well. If you like your changes to be permanent, then I recommend that you add a css file to your <span class='highlight'>wp-content/themes/<strong>childthemefoldername</strong>/css/load/</span> folder. Any css file located there will not be erased if you decide to reset the options.
 							",
 						);		
 	$options[] = array( 
@@ -1006,8 +977,7 @@ function template_credits_options() {
 	$options[] = array( 
 							"name" => "Credits",
 							"type" => "info",
-							"desc" => "It's important to give credit to the variety of projects and individuals that have 
-							contributed in direct and indirect ways.
+							"desc" => "It's important to give credit to the variety of projects and individuals that have contributed in direct and indirect ways.
 						",
 					);
 
