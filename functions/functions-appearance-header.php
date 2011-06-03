@@ -1,4 +1,11 @@
 <?php
+/****
+ * functions/functions-appearance-header.php
+ *
+ * SETUP HEADER
+ */
+
+
 /**
  * SETUP UP HEADER STYLE FOR OUR THEME
  *

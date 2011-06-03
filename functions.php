@@ -26,7 +26,7 @@ $content_width = $data['set_content_primary_width'];
 
 
 /**
- * [01] CHILD THEME APPEARANCE OPTION OVERRIDES
+ * CHILD THEME APPEARANCE OPTION OVERRIDES
  */
 require_once(STYLESHEETPATH . '/functions/functions-appearance-sidebars.php');
 require_once(STYLESHEETPATH . '/functions/functions-appearance-header.php');
@@ -36,7 +36,7 @@ require_once(STYLESHEETPATH . '/functions/functions-appearance-menu.php');
 
 
 /**
- * CHILDTHEME JQUERY + JQUERY LIBRARIES OVERRIDES
+ * CHILDTHEME JQUERY + JQUERY LIBRARIES PARENT THEME OVERRIDES
  */
 require_once(STYLESHEETPATH . '/functions/functions-jquery.php');
 
