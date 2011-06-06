@@ -13,213 +13,6 @@
 {
 	clear: left;
 }
-/*ANYTHING SLIDER*/
-DIV.anythingSlider
-{
-	position: relative;
-	margin: 0 auto;
-	padding: 0;
-	margin-bottom: 35px;
-	background: #101010;
-	border: 1px solid #717171;
-}
-DIV.as-box
-{
-	background: #101010;
-	padding: 10px 3px;
-}
-DIV.as-title
-{
-	padding: 0;
-	margin: 0;
-	/*+placement:shift;*/
-	position: relative;
-	left: 0;
-	top: 0;
-}
-DIV.as-title H3
-{
-	color: #FFF;
-	font-size: 19px;
-	line-height: 1;
-	margin: 0;
-	text-indent: 5px;
-}
-DIV.as-content
-{
-	font-size: 12px;
-	padding: 0 5px;
-	color: #968D8D;
-}
-DIV.anythingSlider .anythingWindow
-{
-	overflow: hidden;
-	position: relative;
-	width: 100%;
-	height: 100%;
-}
-UL.anythingBase
-{
-	background: #101010;
-	list-style: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	margin: 0;
-	padding: 0;
-}
-UL.anythingBase LI.panel
-{
-	background: transparent;
-	display: block;
-	float: left;
-	padding: 0;
-	margin: 0;
-}
-DIV.anythingSlider LI
-{
-	clear: none !important;
-}
-DIV.anythingSlider .arrow
-{
-	top: 50%;
-	position: absolute;
-	display: block;
-	z-index: 10000000;
-}
-DIV.anythingSlider .arrow A
-{
-	display: block;
-	height: 120px;
-	margin: -60px 0 0;
-	width: 45px;
-	text-align: center;
-	outline: 0;
-	background: url(./../images/anythingslider/arrows-default.png) no-repeat;
-	text-indent: -9999px;
-}
-DIV.anythingSlider .forward
-{
-	right: 0;
-	/*[empty]background:;*/
-}
-DIV.anythingSlider .back
-{
-	left: 0;
-}
-DIV.anythingSlider .forward A
-{
-	background-position: -1px -39px;
-}
-DIV.anythingSlider .back A
-{
-	background-position: -88px -40px;
-}
-DIV.anythingSlider .forward A:hover, DIV.anythingSlider .forward A.hover
-{
-	background-position: 11px -245px;
-}
-DIV.anythingSlider .back A:hover, DIV.anythingSlider .back A.hover
-{
-	background-position: -101px -244px;
-}
-DIV.anythingSlider .anythingControls
-{
-	outline: 0;
-	background: url(./../images/gradient/black70.png);
-	margin: 0;
-	padding: 5px 0px;
-	width: 100%;
-	/*+placement:anchor-bottom-left 0px -28px;*/
-	position: absolute;
-	left: 0px;
-	bottom: -28px;
-}
-DIV.anythingSlider.activeSlider .thumbNav A
-{
-}
-DIV.anythingSlider.activeSlider .thumbNav A.cur
-{
-	color: #1A1A1A;
-}
-DIV.anythingSlider .thumbNav
-{
-	width: 90%;
-	margin: 0 auto 0 5px;
-}
-DIV.anythingSlider .thumbNav LI
-{
-	display: inline;
-	height: 18px;
-}
-DIV.anythingSlider .thumbNav A
-{
-	display: inline-block;
-	text-decoration: none;
-	padding: 3px 3px 3px 9px;
-	height: 18px;
-	text-align: center;
-	color: #FFFFFF;
-	outline: none;
-	width: 4px;
-	height: 12px;
-	text-indent: -9999em;
-	background: url(./../images/anythingslider/button.png) no-repeat center;
-}
-DIV.anythingSlider .thumbNav A:hover
-{
-	background: url(./../images/anythingslider/buttonon.png) no-repeat center;
-}
-DIV.anythingSlider.activeSlider .thumbNav A.cur
-{
-	background: url(./../images/anythingslider/buttonon.png) no-repeat center;
-}
-DIV.anythingSlider.rtl .thumbNav A
-{
-	float: right;
-}
-DIV.anythingSlider.rtl .thumbNav
-{
-	float: right;
-}
-DIV.anythingSlider .start-stop
-{
-	padding: 5px;
-	background: #69BD1B;
-	color: #444;
-	font-size: 10px;
-	margin: 2%;
-	line-height: 6px;
-	font-style: italic;
-	height: 8px;
-	text-align: center;
-	text-decoration: none;
-	z-index: 100;
-	width: 5%;
-	outline: 0;
-	/*+border-radius:3px;*/
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	-khtml-border-radius: 3px;
-	border-radius: 3px 3px 3px 3px;
-	/*+placement:anchor-top-right -5px 5px;*/
-	position: absolute;
-	right: -5px;
-	top: 5px;
-}
-DIV.anythingSlider .start-stop.playing
-{
-	background: #B28;
-	color: #FFFFFF;
-}
-DIV.anythingSlider .start-stop:hover, DIV.anythingSlider .start-stop.hover
-{
-	color: #333;
-}
-DIV.anythingSlider .start-stop:hover, DIV.anythingSlider .start-stop.hover
-{
-	background-image: none;
-}
 /*FANCYBOX*/
 #fancybox-loading
 {
@@ -248,7 +41,7 @@ DIV.anythingSlider .start-stop:hover, DIV.anythingSlider .start-stop.hover
 	left: 0;
 	width: 40px;
 	height: 480px;
-	background-image: url(./../images/fancybox/fancybox.png);
+	background-image: url(./../../images/fancybox/fancybox.png);
 }
 #fancybox-overlay
 {
@@ -320,7 +113,7 @@ DIV.anythingSlider .start-stop:hover, DIV.anythingSlider .start-stop.hover
 	right: -15px;
 	width: 30px;
 	height: 30px;
-	background-image: url(./../images/fancybox/fancybox.png);
+	background-image: url(./../../images/fancybox/fancybox.png);
 	background-position: -40px 0px;
 	cursor: pointer;
 	z-index: 81103;
@@ -390,7 +183,7 @@ DIV.anythingSlider .start-stop:hover, DIV.anythingSlider .start-stop.hover
 #fancybox-title-over
 {
 	padding: 10px;
-	background-image: url(./../images/fancybox/fancy_title_over.png);
+	background-image: url(./../../images/fancybox/fancy_title_over.png);
 	display: block;
 }
 #fancybox-title-wrap
@@ -405,7 +198,7 @@ DIV.anythingSlider .start-stop:hover, DIV.anythingSlider .start-stop.hover
 #fancybox-title-left
 {
 	padding-left: 15px;
-	background-image: url(./../images/fancybox/fancybox.png);
+	background-image: url(./../../images/fancybox/fancybox.png);
 	background-position: -40px -90px;
 	background-repeat: no-repeat;
 	width: 0px;
@@ -415,7 +208,7 @@ DIV.anythingSlider .start-stop:hover, DIV.anythingSlider .start-stop.hover
 {
 	font-weight: bold;
 	line-height: 29px;
-	background-image: url(./../images/fancybox/fancybox-x.png);
+	background-image: url(./../../images/fancybox/fancybox-x.png);
 	background-position: 0px -40px;
 	color: #FFF;
 	border-left: 1px solid #000000;
@@ -423,7 +216,7 @@ DIV.anythingSlider .start-stop:hover, DIV.anythingSlider .start-stop.hover
 #fancybox-title-right
 {
 	padding-left: 15px;
-	background-image: url(./../images/fancybox/fancybox.png);
+	background-image: url(./../../images/fancybox/fancybox.png);
 	background-position: -55px -90px;
 	background-repeat: no-repeat;
 }
@@ -435,7 +228,7 @@ DIV.anythingSlider .start-stop:hover, DIV.anythingSlider .start-stop.hover
 	width: 35%;
 	cursor: pointer;
 	outline: none;
-	background-image: url(./../images/fancybox/blank.gif);
+	background-image: url(./../../images/fancybox/blank.gif);
 	z-index: 81102;
 	display: none;
 }
@@ -461,12 +254,12 @@ DIV.anythingSlider .start-stop:hover, DIV.anythingSlider .start-stop.hover
 }
 #fancybox-left-ico
 {
-	background-image: url(./../images/fancybox/fancybox.png);
+	background-image: url(./../../images/fancybox/fancybox.png);
 	background-position: -40px -30px;
 }
 #fancybox-right-ico
 {
-	background-image: url(./../images/fancybox/fancybox.png);
+	background-image: url(./../../images/fancybox/fancybox.png);
 	background-position: -40px -60px;
 }
 #fancybox-left:hover, #fancybox-right:hover
@@ -498,13 +291,13 @@ DIV.anythingSlider .start-stop:hover, DIV.anythingSlider .start-stop.hover
 	top: -20px;
 	left: 0;
 	width: 100%;
-	background-image: url(./../images/fancybox/fancybox-x.png);
+	background-image: url(./../../images/fancybox/fancybox-x.png);
 }
 #fancy-bg-ne
 {
 	top: -20px;
 	right: -20px;
-	background-image: url(./../images/fancybox/fancybox.png);
+	background-image: url(./../../images/fancybox/fancybox.png);
 	background-position: -40px -162px;
 }
 #fancy-bg-e
@@ -512,14 +305,14 @@ DIV.anythingSlider .start-stop:hover, DIV.anythingSlider .start-stop.hover
 	top: 0;
 	right: -20px;
 	height: 100%;
-	background-image: url(./../images/fancybox/fancybox-y.png);
+	background-image: url(./../../images/fancybox/fancybox-y.png);
 	background-position: -20px 0px;
 }
 #fancy-bg-se
 {
 	bottom: -20px;
 	right: -20px;
-	background-image: url(./../images/fancybox/fancybox.png);
+	background-image: url(./../../images/fancybox/fancybox.png);
 	background-position: -40px -182px;
 }
 #fancy-bg-s
@@ -527,14 +320,14 @@ DIV.anythingSlider .start-stop:hover, DIV.anythingSlider .start-stop.hover
 	bottom: -20px;
 	left: 0;
 	width: 100%;
-	background-image: url(./../images/fancybox/fancybox-x.png);
+	background-image: url(./../../images/fancybox/fancybox-x.png);
 	background-position: 0px -20px;
 }
 #fancy-bg-sw
 {
 	bottom: -20px;
 	left: -20px;
-	background-image: url(./../images/fancybox/fancybox.png);
+	background-image: url(./../../images/fancybox/fancybox.png);
 	background-position: -40px -142px;
 }
 #fancy-bg-w
@@ -542,13 +335,13 @@ DIV.anythingSlider .start-stop:hover, DIV.anythingSlider .start-stop.hover
 	top: 0;
 	left: -20px;
 	height: 100%;
-	background-image: url(./../images/fancybox/fancybox-y.png);
+	background-image: url(./../../images/fancybox/fancybox-y.png);
 }
 #fancy-bg-nw
 {
 	top: -20px;
 	left: -20px;
-	background-image: url(./../images/fancybox/fancybox.png);
+	background-image: url(./../../images/fancybox/fancybox.png);
 	background-position: -40px -122px;
 }
 /*FANCYBOX IE*/

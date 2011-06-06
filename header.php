@@ -16,9 +16,7 @@
 	
 	<!-- CSS -->
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/mediagalleries.css" type="text/css" media="screen" />
 
-	
 	<!-- WPHEAD -->
 <?php
 wp_head(); 

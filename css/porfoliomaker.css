@@ -1,0 +1,209 @@
+/*------- PAGE_PORTFOLIO.PHP -------*/
+#page_portfolio #content
+{
+	width: 920px;
+	/*[disabled]width:100%;*/
+	padding: 0;
+}
+#page_portfolio #masthead
+{
+	width: 920px;
+	margin: 0 auto;
+	background: #15159E;
+}
+#page_portfolio #primary
+{
+	float: left;
+	margin: 0 auto;
+	clear: both;
+	width: auto;
+}
+#page_portfolio #primary #page_portfolio_content
+{
+	margin: 0px;
+	width: 880px;
+	background: #D3BACA;
+}
+#page_portfolio .portfolio_content .post_content
+{
+	float: left;
+	width: auto;
+	margin: 15px 0;
+	clear: both;
+	padding-top: 17px;
+}
+/*------- PAGE_PORTFOLIO.php [page_gallery_template] -------*/
+#page_portfolio .media_grouping
+{
+	float: left;
+	background: #000;
+}
+#page_portfolio .portfolio_content .media_grouping
+{
+	margin: 0 auto 0 0;
+	float: left;
+}
+#slidetoggle
+{
+}
+#slidetoggle SPAN
+{
+	float: left;
+	padding: 10px;
+	margin-left: 5px;
+	background: #86D9FE;
+}
+#portfolio_previewer_box
+{
+	padding: 0px;
+	clear: both;
+}
+#portfolio_previewer
+{
+	width: 900px;
+	margin: 0 auto;
+	background: #FFA500;
+	height: 300px;
+	/*[disabled]clear:both;*/
+}
+#portfolio_previewer UL
+{
+	float: left;
+	margin: 0;
+}
+#portfolio_previewer LI
+{
+	background: #242424;
+	float: left;
+	display: inline;
+	height: 215px;
+	overflow: hidden;
+	width: 215px;
+	/*[disabled]padding:1px;*/
+	margin: 0px 5px 5px 0;
+}
+#portfolio_previewer A
+{
+	display: block;
+	clear: both;
+	width: 220px;
+	background: transparent;
+}
+#portfolio_previewer SPAN
+{
+	background: url(./../images/gradient/black40.png);
+	width: 210px;
+	word-break: break-all;
+	word-wrap: break-word;
+	color: #F0F0F0;
+	padding: 10px;
+	margin: 5px;
+	float: left;
+	position: relative;
+	left: -5px;
+	top: -245px;
+}
+#portfolio_previewer IMG
+{
+	background: transparent;
+	padding: 0px;
+}
+.portfolio_content P
+{
+	margin-bottom: 1em;
+}
+.portfolio_content .post_content
+{
+	float: left;
+	width: 365px;
+}
+.portfolio_content UL, .portfolio_content OL
+{
+	margin-bottom: 1em;
+}
+.portfolio_content UL LI, .portfolio_content OL LI
+{
+	border-bottom: 1px solid #F0F0F0;
+}
+.portfolio_content OL LI
+{
+	margin-left: 1.5em;
+	list-style-position: outside;
+	list-style-type: decimal;
+}
+/*------- PORTFOLIO FILTER*/
+#portfolio-filter, #portfolio-filter UL
+{
+	float: left;
+	padding: 0;
+	list-style-type: none;
+	list-style-position: outside;
+	position: relative;
+	line-height: 1.5em;
+	background: #63FEE6;
+	border-bottom: 0px solid #000000;
+	width: 960px;
+}
+#portfolio-filter A
+{
+	float: left;
+	display: block;
+	padding: 10px;
+	color: #799AC7;
+}
+#portfolio-filter A:hover
+{
+	color: #010101;
+}
+#portfolio-filter LI
+{
+	float: left;
+	position: relative;
+}
+#portfolio-filter UL
+{
+	position: absolute;
+	display: none;
+	width: 12em;
+	top: 2.2em;
+	left: 0px;
+}
+#portfolio-filter UL A
+{
+	border-left: 0px solid #C8C8C8;
+	background: #CCC;
+}
+#portfolio-filter LI UL
+{
+	border-top: 0px solid #C8C8C8;
+	width: 14em;
+	margin: 0;
+}
+#portfolio-filter LI UL A
+{
+	width: 12em;
+	height: auto;
+	float: left;
+	border-bottom: 0px solid #C8C8C8;
+}
+#portfolio-filter UL UL
+{
+	top: auto;
+}
+#portfolio-filter LI UL UL
+{
+	left: 14em;
+	margin: 0px 0 0 0px;
+}
+
+
+/*------- SINGLE-PORTFOLIO.PHP -------*/
+#single_portfolio #primary
+{
+	width: 880px;
+	margin: 0;
+}
+#single_portfolio #content
+{
+	width: 880px;
+}
