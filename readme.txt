@@ -1,5 +1,5 @@
 === README ===
-CURRENTLY UNDER HEAVY DEVELOPMENT
-BETA ONLY
+theFOUNDATION child theme Template
+is a designed to help you create a new theFOUNDATION theme.
 
-CODING STANDARD AND FORMAT HAS NOT BEEN APPLIED
+Documentation can be found online at thefoundationthemes.com

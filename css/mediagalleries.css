@@ -1,0 +1,16 @@
+/*[fmt]CC90-1C0C-1*/
+/*------- theFoundation Gallery -------*/
+.thefoundation-gallery
+{
+}
+.thefoundation-gallery IMG
+{
+	margin: 0 auto 10px;
+	clear: both;
+	display: block;
+}
+.thefoundation-gallery .wp-caption
+{
+	clear: left;
+	margin: 10px;
+}

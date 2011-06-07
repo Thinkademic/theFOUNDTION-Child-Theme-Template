@@ -1,0 +1,154 @@
+/*------- Calendar Widget -------*/
+#wp-calendar
+{
+	width: 300px;
+}
+#wp-calendar TD
+{
+	background: #D2CAC9;
+	text-align: center;
+}
+#wp-calendar #prev
+{
+	background: #D2CAC9;
+	text-align: center;
+}
+#wp-calendar #next
+{
+	background: #D2CAC9;
+	text-align: center;
+}
+/*------- Social Media -------*/
+#socialmedia
+{
+	clear: both;
+	width: 200px;
+	background: #008000;
+	z-index: 20;
+}
+#socialmedia UL LI
+{
+	float: left;
+}
+.sociable
+{
+	clear: both;
+}
+.sociable UL LI
+{
+	clear: none;
+}
+/*-------- TEMPLATE : IMAGE.PHP --------*/
+#imagenav
+{
+	padding: 0.6em 0 0;
+	width: 100%;
+	background: transparent;
+	text-align: center;
+	font-size: 0.8em;
+}
+#imagenav IMG
+{
+	border: 1px solid #999;
+	padding: 5px;
+	margin: 0;
+	background: #CCC;
+	width: 60px;
+	height: 60px;
+}
+#imagenav .left
+{
+	display: block;
+	width: 70px;
+	height: 110px;
+	float: left;
+	text-align: left;
+	margin-left: 0.6em;
+}
+#imagenav .right
+{
+	display: block;
+	width: 70px;
+	height: 110px;
+	float: right;
+	text-align: right;
+	margin-right: 0.6em;
+}
+#imagenav A.backto
+{
+	clear: both;
+	width: 100%;
+	display: block;
+	color: #FF33DD;
+}
+#imagenav A.backto:hover
+{
+	color: #999;
+}
+#imagenav SPAN
+{
+	display: block;
+	margin-bottom: 1.5em;
+}
+/*------- SEARCH WIDGET -------*/
+.widget_search H3
+{
+	display: none;
+}
+#searchbox
+{
+	padding: 0;
+	float: left;
+	clear: both;
+	height: 27px;
+	overflow: hidden;
+	padding: 5px;
+	background: #A2A2B1;
+}
+#searchbox UL
+{
+	margin: 0;
+}
+#searchbox UL LI
+{
+	list-style-type: none;
+}
+#searchbox #searchinput
+{
+	width: 140px;
+	background: #8D8D8D;
+}
+#searchbox LABEL
+{
+	float: left;
+	display: inline-block;
+	height: 25px;
+	line-height: 2.2;
+	font-size: 12px;
+	margin-right: 0px;
+	text-transform: uppercase;
+	padding: 0 5px;
+	border: 1px solid #FFF;
+	background: #FFFFFF;
+}
+#searchbox INPUT
+{
+	display: block;
+	float: left;
+	font-size: 14px;
+	border-width: 0px;
+}
+#searchbox #searchsubmit
+{
+	display: block;
+	float: left;
+	padding: 0px;
+	height: 27px;
+	width: 27px;
+	text-align: center;
+}
+* HTML #search LABEL, * HTML #searchinput, * HTML #searchsubmit
+{
+	line-height: 1;
+	margin: 0.15em 0;
+}
