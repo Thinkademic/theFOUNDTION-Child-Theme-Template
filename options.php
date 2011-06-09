@@ -1,5 +1,5 @@
 <?php
-/**
+/***
  * A unique identifier is defined to store the options in the database and reference them from the theme.
  * By default it uses the theme name, in lowercase and without spaces, but this can be changed if needed.
  * If the identifier changes, it'll appear as if the options have been reset.
@@ -19,7 +19,7 @@ function optionsframework_option_name()
 
 }
 
-/*
+/**
  * Defines an array of options that will be used to generate the settings page and be saved in the database.
  * When creating the "id" fields, make sure to use all lowercase and no spaces.
  *  
@@ -85,7 +85,7 @@ function optionsframework_options()
     $options = array_merge($options, template_credits_options());
 
 
-    /*
+    /**
      *	TEST OPTIONS
      */
     #$options = array_merge($options, test_options() );
@@ -94,7 +94,7 @@ function optionsframework_options()
 }
 
 
-/*
+/**
 *	BUILDS THE META ARRAY
 */
 function build_option_meta_array($atts = null)
@@ -131,7 +131,7 @@ function build_option_meta_array($atts = null)
     return $options_meta_array;
 }
 
-/*
+/**
 *	BUILDS THE META ARRAY (HEAD)
 */
 function build_option_meta_head_array($template = null)
@@ -151,7 +151,7 @@ function build_option_meta_head_array($template = null)
     return $array;
 }
 
-/*
+/**
 *	BUILDS THE META ARRAY (FOOT)
 */
 function build_option_meta_foot_array($template = null)
@@ -171,7 +171,7 @@ function build_option_meta_foot_array($template = null)
     return $array;
 }
 
-/*
+/**
  * BUILD CONTENT OPTIONS ARRAY
  */
 function build_option_content_array($template = null)
@@ -203,7 +203,7 @@ function build_option_content_array($template = null)
 
 }
 
-/*
+/**
 *	BUILDS THE META ARRAY (HEAD)
 */
 function build_option_loop_head_array($template = null)
@@ -224,7 +224,7 @@ function build_option_loop_head_array($template = null)
     return $array;
 }
 
-/*
+/**
 *	BUILDS THE META ARRAY (FOOT)
 */
 function build_option_loop_foot_array($template = null)
@@ -246,7 +246,7 @@ function build_option_loop_foot_array($template = null)
 }
 
 
-/*
+/**
 *	INTRODUCTIONS OPTIONS
 */
 function introduction_options()
@@ -298,7 +298,7 @@ function introduction_options()
     return $options;
 }
 
-/*
+/**
 *	BRANDING OPTIONS
 */
 function branding_options()
@@ -340,7 +340,7 @@ function branding_options()
 
 }
 
-/*
+/**
 *	BACKGROUND OPTIONS
 */
 function background_options()
@@ -371,7 +371,7 @@ function background_options()
 
 }
 
-/*
+/**
 *	HEADER OPTIONS
 */
 function header_options()
@@ -423,7 +423,7 @@ function header_options()
 
 }
 
-/*
+/**
 *	NAVIGATION OPTIONS
 */
 function navigation_layout_options()
@@ -451,7 +451,7 @@ function navigation_layout_options()
 
 }
 
-/*
+/**
 *	TYPOGRAPHY OPTIONS
 */
 function typography_options()
@@ -534,7 +534,7 @@ function typography_options()
 
 }
 
-/*
+/**
 *	HYPERLINK OPTIONS
 */
 function hyperlinks_options()
@@ -594,7 +594,7 @@ function hyperlinks_options()
 
 }
 
-/*
+/**
 *	TEMPLATE LAYOUT TAB
 */
 function template_layout_options()
@@ -700,7 +700,7 @@ function template_layout_options()
 
 }
 
-/*
+/**
 *	ALTERNATIVE STYLES
 */
 function alternative_styles_options()
@@ -725,7 +725,7 @@ function alternative_styles_options()
         "name" => "Theme Stylesheet",
         "desc" => "Select your themes alternative color scheme.",
         "id" => "alt_stylesheet",
-        "std" => "default.css",
+        "std" => find_default_style(),
         "type" => "radio",
         "options" => find_alternative_styles()
     );
@@ -733,7 +733,7 @@ function alternative_styles_options()
     return $options;
 }
 
-/*
+/**
 *	LOOP FOR LAYOUT
 */
 function loop_index_settings()
@@ -762,7 +762,7 @@ function loop_index_settings()
     return $options;
 }
 
-/*
+/**
 *	LOOP FOR INDEX.PHP
 */
 function loop_page_settings()
@@ -793,7 +793,7 @@ function loop_page_settings()
 
 }
 
-/*
+/**
 *	LOOP FOR SINGLE
 */
 function loop_single_settings()
@@ -822,7 +822,7 @@ function loop_single_settings()
     return $options;
 }
 
-/*
+/**
 *	LOOP FOR ARCHIVE
 */
 function loop_archive_settings()
@@ -851,7 +851,7 @@ function loop_archive_settings()
     return $options;
 }
 
-/*
+/**
 *	SOCIAL MEDIA SUPPORT
 */
 function socialmedia_support()
@@ -888,7 +888,7 @@ function socialmedia_support()
 
 }
 
-/*
+/**
 *	CUSTOM CSS SETTINGS
 */
 function template_custom_css_options()
@@ -918,7 +918,7 @@ If you are inclined you can also easily add your own css rules below.  You can a
 
 }
 
-/*
+/**
 *	CUSTOM POST TYPES
 */
 function custom_post_type_support()
@@ -974,7 +974,7 @@ function custom_post_type_support()
 
 }
 
-/*
+/**
 *	CREDITS OPTIONS
 */
 function template_credits_options()
@@ -995,7 +995,7 @@ function template_credits_options()
 
 }
 
-/*
+/**
 *	TEST OPTIONS
 */
 function test_options()
