@@ -18,58 +18,6 @@
 	background: #D2CAC9;
 	text-align: center;
 }
-/*-------- TEMPLATE : IMAGE.PHP --------*/
-#imagenav
-{
-	padding: 0.6em 0 0;
-	width: 100%;
-	background: transparent;
-	text-align: center;
-	font-size: 0.8em;
-}
-#imagenav IMG
-{
-	border: 1px solid #999;
-	padding: 5px;
-	margin: 0;
-	background: #CCC;
-	width: 60px;
-	height: 60px;
-}
-#imagenav .left
-{
-	display: block;
-	width: 70px;
-	height: 110px;
-	float: left;
-	text-align: left;
-	margin-left: 0.6em;
-}
-#imagenav .right
-{
-	display: block;
-	width: 70px;
-	height: 110px;
-	float: right;
-	text-align: right;
-	margin-right: 0.6em;
-}
-#imagenav A.backto
-{
-	clear: both;
-	width: 100%;
-	display: block;
-	color: #FF33DD;
-}
-#imagenav A.backto:hover
-{
-	color: #999;
-}
-#imagenav SPAN
-{
-	display: block;
-	margin-bottom: 1.5em;
-}
 /*------- SEARCH WIDGET -------*/
 .widget_search H3
 {

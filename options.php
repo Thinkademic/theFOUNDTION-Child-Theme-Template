@@ -476,7 +476,7 @@ function typography_options()
     $options[] = array("name" => "Enable Body Font",
                        "desc" => "Enable Body Font",
                        "id" => "enable_body_font_css",
-                       "std" => true,
+                       "std" => false,
                        "type" => "checkbox");
     $options[] = array(
         "name" => "Body Font",
