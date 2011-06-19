@@ -464,6 +464,7 @@
 	width: 100%;
 	background: #7E7E7E;
 	margin: 0 auto;
+	float: left;
 }
 #footer
 {
@@ -471,8 +472,13 @@
 	width: 940px;
 	margin: 0 auto;
 	padding: 10px;
-	min-height: 200px;
 	background: #C4C4C4;
+	float: left;
+	margin-left: 50%;
+	/*+placement:shift -480px 0px;*/
+	position: relative;
+	left: -480px;
+	top: 0px;
 }
 #footer>DIV
 {
@@ -480,12 +486,48 @@
 	width: 220px;
 	float: left;
 	margin: 0 20px 0 auto;
-	min-height: 200px;
+	min-height: 171px;
 	background: #A7A0A0;
 }
-#footer>DIV:last-child
+#footer>DIV.col4
 {
 	margin: 0 0 0 auto;
+}
+#footer>DIV#footertop
+{
+	clear: both;
+	width: 100% !important;
+	float: left;
+	margin: 0 20px 10px auto;
+	min-height: 28px;
+	background: #A7A0A0;
+}
+#footer>DIV#footertop UL
+{
+	float: left;
+}
+#footer>DIV#footertop LI
+{
+	float: left;
+	padding: 5px;
+}
+#footer>DIV#footerbottom
+{
+	clear: both;
+	width: 100% !important;
+	float: left;
+	margin: 10px 20px 0 auto;
+	min-height: 28px;
+	background: #A7A0A0;
+}
+#footer>DIV#footerbottom UL
+{
+	float: left;
+}
+#footer>DIV#footerbottom LI
+{
+	float: left;
+	padding: 5px;
 }
 #footer UL LI SPAN
 {
