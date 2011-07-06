@@ -870,7 +870,7 @@ function socialmedia_support()
     $options[] = array("name" => __("Box Counts"),
                        "desc" => __("Enable Social Media Box Counts"),
                        "id" => "enable_social_media_box_count",
-                       "std" => true,
+                       "std" => false,
                        "type" => "checkbox");
     $options[] = array("name" => "Facebook ",
                        "desc" => "Facebook Id",

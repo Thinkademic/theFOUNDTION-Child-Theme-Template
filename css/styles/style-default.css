@@ -466,20 +466,6 @@
 	margin: 0 auto;
 	float: left;
 }
-#footer
-{
-	clear: both;
-	width: 940px;
-	margin: 0 auto;
-	padding: 10px;
-	background: #C4C4C4;
-	float: left;
-	margin-left: 50%;
-	/*+placement:shift -480px 0px;*/
-	position: relative;
-	left: -480px;
-	top: 0px;
-}
 #footer>DIV
 {
 	clear: none;
@@ -604,4 +590,18 @@
 .sitenav UL LI:hover
 {
 	background: url(./../../images/gradient/white80.png) !important;
+}
+#footer
+{
+	clear: both;
+	width: 940px;
+	margin: 0 auto;
+	padding: 10px;
+	background: #C4C4C4;
+	float: left;
+	margin-left: 50%;
+	/*+placement:shift -480px 0px;*/
+	position: relative;
+	left: -480px;
+	top: 0px;
 }

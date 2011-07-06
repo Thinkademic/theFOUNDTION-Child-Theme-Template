@@ -54,7 +54,7 @@ function framework_register_sidebars()
                      ));
 
 
-    // SECONARY SIDEBARS
+    // SECONDARY SIDEBARS
     register_sidebar(array(
                           'name' => 'Sidebar Featured',
                           'id' => 'sidebar-featured',
