@@ -186,7 +186,7 @@ function build_option_content_array($template = null)
         "id" => $template . "_content",
         "std" => array(
             'show_mediagalleries' => false,
-            'the_post_thumbnail' => true,
+            'the_post_thumbnail' => false,
             'the_content' => true,
             'the_excerpt' => false
         ),
