@@ -152,8 +152,11 @@ function build_option_meta_head_array($template = null)
 }
 
 /**
-*	BUILDS THE META ARRAY (FOOT)
-*/
+ * BUILDS THE META ARRAY (FOOT)
+ *
+ * @param null $template
+ * @return array
+ */
 function build_option_meta_foot_array($template = null)
 {
 
@@ -173,6 +176,9 @@ function build_option_meta_foot_array($template = null)
 
 /**
  * BUILD CONTENT OPTIONS ARRAY
+ * 
+ * @param null $template
+ * @return array
  */
 function build_option_content_array($template = null)
 {
@@ -185,15 +191,15 @@ function build_option_content_array($template = null)
         "desc" => "Set How you would like to display your Content",
         "id" => $template . "_content",
         "std" => array(
-            'show_mediagalleries' => false,
-            'the_post_thumbnail' => false,
+            //  'show_mediagalleries' => false,
+            //  'the_post_thumbnail' => false,
             'the_content' => true,
             'the_excerpt' => false
         ),
-        "type" => "multicheck",
+        "type" => "radio",
         "options" => array(
-            'show_mediagalleries' => "Show Media Gallery",
-            'the_post_thumbnail' => "Featured Post Thumbnail",
+            //  'show_mediagalleries' => "Show Media Gallery",
+            //  'the_post_thumbnail' => "Featured Post Thumbnail",
             'the_content' => "The Content",
             'the_excerpt' => "The Excerpt"
         )
@@ -444,7 +450,7 @@ function navigation_layout_options()
         "name" => "Enable Drop Down Menu Support",
         "desc" => "Enable Drop Down Menu Support.",
         "id" => "enable_suckerfish_dropdown",
-        "std" => false,
+        "std" => true,
         "type" => "checkbox"
     );
     return $options;
