@@ -4,9 +4,11 @@
  * Time: 5:50 PM
  *
  * Jquery Usage should under the No Conflict Mode
- * 
- *
- *
  */
 
 
+jQuery(document).ready(function($) {
+
+
+
+});
