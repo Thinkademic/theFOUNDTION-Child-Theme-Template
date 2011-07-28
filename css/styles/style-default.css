@@ -103,8 +103,8 @@
 /*------- PRIMARY -------*/
 #primary
 {
+    display: block;
 	overflow: hidden;
-	display: inline;
 	clear: left;
 }
 .item
