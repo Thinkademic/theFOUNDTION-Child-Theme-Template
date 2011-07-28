@@ -190,11 +190,9 @@ function build_option_content_array($template = null)
         "name" => "Content Display Options",
         "desc" => "Set How you would like to display your Content",
         "id" => $template . "_content",
-        "std" => "the_content"
+        "std" => "the_content",
         "type" => "radio",
         "options" => array(
-            //  'show_mediagalleries' => "Show Media Gallery",
-            //  'the_post_thumbnail' => "Featured Post Thumbnail",
             'the_content' => "The Content",
             'the_excerpt' => "The Excerpt"
         )
