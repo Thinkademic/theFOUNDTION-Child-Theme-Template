@@ -393,7 +393,7 @@ function header_options()
     $admin_address = get_admin_url("", 'themes.php?page=custom-header');
     $header_page = '<a href="' . $admin_address . '" title="Edit Custom Background">Header</a>';
     $options[] = array(
-        "name" => "Native Background Options",
+        "name" => "Native Header Options",
         "type" => "checkbox",
         "std" => "false",
         "id" => "enable_wordpress_header",
