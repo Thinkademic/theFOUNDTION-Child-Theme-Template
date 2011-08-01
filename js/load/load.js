@@ -1,12 +1,7 @@
 /**
- * User: mrwok
- * Date: 7/5/11
- * Time: 5:50 PM
- *
- * Jquery Usage should under the No Conflict Mode
+ * Use Jquery Under No Conflict Mode
+ * Reference Jquery.com | noconflict() for help
  */
-
-
 jQuery(document).ready(function($) {
 
 

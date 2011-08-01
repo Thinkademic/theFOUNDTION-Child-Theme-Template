@@ -103,7 +103,7 @@
 /*------- PRIMARY -------*/
 #primary
 {
-    display: block;
+	display: block;
 	overflow: hidden;
 	clear: left;
 }
@@ -466,18 +466,41 @@
 	margin: 0 auto;
 	float: left;
 }
-#footer>DIV
+#footer
+{
+	clear: both;
+	width: 940px;
+	margin: 0 auto;
+	padding: 10px;
+	background: #C4C4C4;
+	float: left;
+	margin-left: 50%;
+	/*+placement:shift -480px 0px;*/
+	position: relative;
+	left: -480px;
+	top: 0px;
+}
+#footer #primary-footer>DIV.col1
 {
 	clear: none;
-	width: 220px;
+	width: 940px;
 	float: left;
 	margin: 0 20px 0 auto;
 	min-height: 171px;
 	background: #A7A0A0;
 }
-#footer>DIV.col4
+#footer #secondary-footer>DIV>DIV
 {
-	margin: 0 0 0 auto;
+	clear: none;
+	width: 305px;
+	float: left;
+	margin: 10px 12px 0 auto;
+	min-height: 171px;
+	background: #A7A0A0;
+}
+#footer #secondary-footer>DIV>DIV.col4
+{
+	margin: 10px 0 0 auto;
 }
 #footer>DIV#footertop
 {
@@ -590,18 +613,4 @@
 .sitenav UL LI:hover
 {
 	background: url(./../../images/gradient/white80.png) !important;
-}
-#footer
-{
-	clear: both;
-	width: 940px;
-	margin: 0 auto;
-	padding: 10px;
-	background: #C4C4C4;
-	float: left;
-	margin-left: 50%;
-	/*+placement:shift -480px 0px;*/
-	position: relative;
-	left: -480px;
-	top: 0px;
 }
