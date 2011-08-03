@@ -18,6 +18,9 @@
 
 /**
  *	DEFINE CONSTANTS AND UNIVERSAL VARS
+ *
+ * STYLESHEETPATH :: IS THE CHILD THEME PATH, IF NOT CHILD THEME THEN ITS THE PARENT THEME
+ * TEMPLATEPATH :: IS THE PARENT THEME PATH
  */
 define( 'TEXTDOMAIN', 'thefdt' );
 define( 'THEMECUSTOMMETAKEY', '_fsl_media_options' );
@@ -98,7 +101,6 @@ function thefdt_settings_media()
 /**
  * APPLY SHORT CODE AND AUTO EMBED FOR WIDGETS
  */
-
 add_filter( 'widget_text', array( $wp_embed, 'run_shortcode' ), 8 );
 add_filter( 'widget_text', array( $wp_embed, 'autoembed'), 8 );
 
