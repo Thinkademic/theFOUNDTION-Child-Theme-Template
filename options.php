@@ -361,7 +361,7 @@ function background_options()
     $options[] = array(
         "name" => "Native Background Options",
         "type" => "checkbox",
-        "std" => "false",
+        "std" => false,
         "id" => "enable_wordpress_background",
         "desc" => 'Use Wordpress Background Options. You will find it under <em>Admin > Appearance > ' . $background_page . '</em>'
     );
@@ -385,17 +385,17 @@ function header_options()
     $options[] = array(
         "name" => "Header",
         "type" => "info",
-        "desc" => " The Header can be one of the most attention grabbing elements of a website. It helps establishes your website's brand, and is often used to convey the personality behind a website. theFOUNDATION uses the built in theme header appreance options.
+        "desc" => __(" The Header can be one of the most attention grabbing elements of a website. It helps establishes your website's brand, and is often used to convey the personality behind a website. theFOUNDATION utilizes Wordpress' built in theme header appreance options.
 					
 					Headers can also be simple or complicated. Take time to enable or disable header features.
-				",
+				")
     );
     $admin_address = get_admin_url("", 'themes.php?page=custom-header');
     $header_page = '<a href="' . $admin_address . '" title="Edit Custom Background">Header</a>';
     $options[] = array(
         "name" => "Native Header Options",
         "type" => "checkbox",
-        "std" => "false",
+        "std" => false,
         "id" => "enable_wordpress_header",
         "desc" => 'Use Wordpress Header Options. You will find it under <em>Admin > Appearance > ' . $header_page . '</em>'
     );
@@ -938,32 +938,32 @@ function custom_post_type_support()
                        "id" => "enable_custom_posttype_portfolio",
                        "std" => true,
                        "type" => "checkbox");
-    $x_options[] = array("name" => __("Event"),
+    $options[] = array("name" => __("Event"),
                          "desc" => __("Event"),
                          "id" => "enable_custom_posttype_event",
                          "std" => false,
                          "type" => "checkbox");
-    $x_options[] = array("name" => __("Designer"),
+    $options[] = array("name" => __("Designer"),
                          "desc" => __("Designer"),
                          "id" => "enable_custom_posttype_designer",
                          "std" => false,
                          "type" => "checkbox");
-    $x_options[] = array("name" => __("Swatch"),
+    $options[] = array("name" => __("Swatch"),
                          "desc" => __("Swatch"),
                          "id" => "enable_custom_posttype_swatch",
                          "std" => false,
                          "type" => "checkbox");
-    $x_options[] = array("name" => __("Product"),
+    $options[] = array("name" => __("Product"),
                          "desc" => __("Product"),
                          "id" => "enable_custom_posttype_product",
                          "std" => false,
                          "type" => "checkbox");
-    $x_options[] = array("name" => __("Post Enhancements"),
+    $options[] = array("name" => __("Post Enhancements"),
                          "desc" => __("Post Type Enhancements"),
                          "id" => "enable_custom_posttype_post",
                          "std" => false,
                          "type" => "checkbox");
-    $x_options[] = array("name" => __("Dictionary"),
+    $options[] = array("name" => __("Dictionary"),
                          "desc" => __("Dictionary"),
                          "id" => "enable_custom_posttype_dictionary",
                          "std" => false,

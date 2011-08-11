@@ -2,46 +2,22 @@
 /****
  * functions/functions-appearance-header.php
  *
- * SETUP HEADER
+ * Place functions related to setting up your wordpress custom header
+ *
+ * @link http://hitchhackerguide.com/2011/02/12/register_default_headers/
  */
+define('HEADER_TEXTCOLOR', 'ffffff');
+define('HEADER_IMAGE', get_stylesheet_directory_uri() . '/images/logo/logo_default.png'); // %S IS THE TEMPLATE DIR URI
+define('HEADER_IMAGE_WIDTH', apply_filters('thefdt_header_image_width', 180));
+define('HEADER_IMAGE_HEIGHT', apply_filters('thefdt_header_image_height', 180));
+define('NO_HEADER_TEXT', true); // DONT SUPPORT TEXT COLOR CHANGE
+add_custom_image_header('enable_header_style', 'enable_admin_header_style');              // SETUP HEADER STYLE SHEET FUNCTION
+
+/*
 
 
 /**
- * SETUP UP HEADER STYLE FOR OUR THEME
- *
- * @PLUGGABLE
- * @TODO: SEARCH FOR HEADERS INSIDE A HEADER FOLDER AND LOAD AS AN OPTION
- */
-function theme_header_setup()
-{
-    define('HEADER_TEXTCOLOR', 'ffffff');
-    define('HEADER_IMAGE', get_stylesheet_directory_uri() . '/images/logo/logo_default.png'); // %S IS THE TEMPLATE DIR URI
-    define('HEADER_IMAGE_WIDTH', apply_filters('thefdt_header_image_width', 180));
-    define('HEADER_IMAGE_HEIGHT', apply_filters('thefdt_header_image_height', 180));
-
-    define('NO_HEADER_TEXT', true); // DONT SUPPORT TEXT COLOR CHANGE
-
-    add_custom_image_header('enable_header_style', 'enable_admin_header_style');              // SETUP HEADER STYLE SHEET FUNCTION
-
-    /*
-     register_default_headers(                                                                // REGISTER HEADERS
-         array (
-                     'Default Child Theme Header Image' => array (
-                         'url' => '%s/images/header/header_default.png',
-                         'thumbnail_url' => '%s/images/header/header_default.png',
-                         'description' => __( 'Default Child Theme Header Image', 'thefoundation' )
-                         )
-         )
-     );
-    */
-
-}
-
-
-/**
- * OUTPUT CSS
- *
- * @PLUGGABLE
+ * OUTPUT CSS FOR HEADER
  */
 function enable_header_style()
 {
@@ -64,8 +40,6 @@ function enable_header_style()
 
 /**
  * OUTPUT ADMIN CSS
- *
- * @PLUGGABLE
  */
 function enable_admin_header_style()
 {

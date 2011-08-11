@@ -1,8 +1,9 @@
 <?php
-/**************************************************************
-INTIATE JQUERY SETUP
-FUNCTION IS CALLED IN PARENT THEME
- **************************************************************/
+/**
+ * INTIATE JQUERY SETUP
+ *
+ * FUNCTION IS CALLED IN PARENT THEME
+ */
 function init_jquery()
 {
     #add_action('init', 'init_jquery_google');
@@ -12,9 +13,10 @@ function init_jquery()
 }
 
 
-/**************************************************************
-USE GOOGLE'S JQUERY SCRIPT
- **************************************************************/
+/**
+ * USE GOOGLE'S JQUERY SCRIPT
+ *
+ */
 function init_jquery_google()
 {
     if (!is_admin()):
@@ -24,9 +26,9 @@ function init_jquery_google()
 }
 
 
-/**************************************************************
-USE LOCAL JQUERY SCRIPT
- **************************************************************/
+/**
+ * USE LOCAL JQUERY SCRIPT
+ */
 function init_jquery_local()
 {
     if (!is_admin()):
@@ -37,9 +39,11 @@ function init_jquery_local()
 }
 
 
-/**************************************************************
-[PG] REGISTER SCRIPTS
- **************************************************************/
+/**
+ * REGISTER SCRIPTS
+ *
+ * SCRIPTS CAN ALSO BE ENQUEUED BY PLACING THEM IN THE 'themefolder/js/load' FOLDER
+ */
 function register_jquery_plugins()
 {
     $src = get_stylesheet_directory_uri();

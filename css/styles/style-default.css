@@ -1,3 +1,20 @@
+/*------- DEFAULT LINKS -------*/
+BODY A:LINK
+{
+	color: #FA0105;
+}
+BODY A:VISTED
+{
+	color: #FA0105;
+}
+BODY A:ACTIVE
+{
+	color: #FA0105;
+}
+BODY A:HOVER
+{
+	color: #FA0105;
+}
 /*------- MAIN CONTAINERS -------*/
 #wrapper
 {
