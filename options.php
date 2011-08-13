@@ -436,9 +436,27 @@ function navigation_layout_options()
         "name" => "Navigation  Layout",
         "type" => "info",
         "desc" => __("
-					Select your Navigation Layout
+			        Having a functional and well designed navigation that helps your users navigate your sites content is very important. You can select from the list of navigation designs, or create your own.  If you would like to load navigation menu stylesheets, then place a css file in the 'themefolder/css/nav' folder along with an equivalent png file with the same name in the icon folder
 				")
     );
+
+    // NAV MENU OPTIONS
+    $nav_menu_default = find_default_nav_menu();
+    $nav_menu_array = find_nav_menu();
+
+    // NAV MENU
+    $options[] = array(
+        "name" => "Select Your Navigation Menu Style Sheet",
+        "desc" => "Select your preferred navigation style",
+        "id" => "nav_menu_css_file",
+        "std" => $nav_menu_default,
+        "type" => "images",
+        "options" => $nav_menu_array
+    );
+
+
+
+
     $options[] = array(
         "name" => "Enable Drop Down Menu Support",
         "desc" => "Enable Drop Down Menu Support.",
@@ -658,6 +676,7 @@ function template_layout_options()
     $layout_default = find_default_layout();
     $layout_array = find_layouts();
 
+    // INDEX TEMPLATE
     $options[] = array(
         "name" => "Index",
         "desc" => "Select the Layout for Your Index.php Template",
