@@ -937,8 +937,12 @@ If you are inclined you can also easily add your own css rules below.  You can a
 }
 
 /**
-*	CUSTOM POST TYPES
-*/
+ *	CUSTOM POST TYPES
+ *
+ * @TODO ADD A HOOK SO THAT THE OPTIONS CAN BE INSERETED FROM THE CLASS DEFINITION INSTEAD
+ *
+ * @return array
+ */
 function custom_post_type_support()
 {
     $options[] = array(
@@ -993,8 +997,10 @@ function custom_post_type_support()
 }
 
 /**
-*	CREDITS OPTIONS
-*/
+ *	CREDITS OPTIONS
+ *
+ * @return array
+ */
 function template_credits_options()
 {
     $options[] = array(
@@ -1014,8 +1020,10 @@ function template_credits_options()
 }
 
 /**
-*	TEST OPTIONS
-*/
+ * TEST OPTIONS
+ *
+ * @return array
+ */
 function test_options()
 {
 
