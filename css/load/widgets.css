@@ -1,22 +1,15 @@
 /*------- CALENDAR WIDGET -------*/
 #wp-calendar
 {
-	width: 300px;
 }
 #wp-calendar TD
 {
-	background: #D2CAC9;
-	text-align: center;
 }
 #wp-calendar #prev
 {
-	background: #D2CAC9;
-	text-align: center;
 }
 #wp-calendar #next
 {
-	background: #D2CAC9;
-	text-align: center;
 }
 /*------- SEARCH WIDGET -------*/
 .widget_search H3
